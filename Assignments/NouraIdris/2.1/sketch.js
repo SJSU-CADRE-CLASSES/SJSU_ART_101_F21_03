@@ -1,17 +1,20 @@
 //cars I want to have in the future
-let cars = ["bentley", "Infiniti", "Mercedes", "Range-rover", "Acura"];
-
+let cars = [{
+  name:"bentley",
+   color:"black"
+  }, {
+    name:"Infiniti", 
+    color: "charcoal"
+  }, {
+    name:"Mercedes",
+     color:"blue"
+  }];
+ 
 function setup() {
   createCanvas(600, 600);
   background(200);
  
-  console.log("initial array is ")
-  console.log(cars);
-
-  cars.splice(2,1);
-  console.log("array after splice")
-  console.log(cars);
-
+console.log(cars[2].color);
  
 
 }
