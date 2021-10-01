@@ -1,19 +1,32 @@
-let games = ["Destiny", "Apex", "Hearthstone", "Warhammer", "Splitgate", "Phasmo"]
+//command+b will make code nice
+
+let games = [{
+  name: "Destiny",
+  color: "Traveler"
+}, {
+  name: "Apex",
+  color: "Apex symbol"
+}, {
+  name: "Hearthstone",
+  color: "Card"
+}, {
+  name: "Warhammer",
+  color: "Forest"
+}, {
+  name: "Splitgate",
+  color: "Portal"
+}, {
+  name: "Phasmo",
+  color: "Wall"
+}]
 
 function setup() {
   createCanvas(400, 400);
-  background (200);
+  background(200);
 
+  console.log(random(5));
+  console.log(games[random(4)]);
 
-  games[1] = "Apex Legends";
-
-  console.log ("initial array is");
-  console.log(games);
-
-
-games.splice(2,1); //games.splice(index(Starting number),number(how many to take out))
-console.log("Array after splice")
-console.log(games);  
 }
 
 function draw() {
