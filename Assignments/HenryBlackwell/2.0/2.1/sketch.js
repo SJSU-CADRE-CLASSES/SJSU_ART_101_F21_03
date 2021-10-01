@@ -24,17 +24,16 @@ let randomIndex;
 
 function setup() {
   createCanvas(400, 400);
+    background(220);
+
 }
 
 function draw() {
-  background(220);
-
 }
 
 function mousePressed(){
-  background(random(255));
+  background(random(200, 255));
   randomIndex = int(random(games.length));
   text(games[randomIndex].name, 50, 50)
-  games.splice(randomIndex, 1)
-
+  // games.splice(randomIndex, 1)
 }
