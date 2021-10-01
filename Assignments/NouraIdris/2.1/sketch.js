@@ -41,7 +41,10 @@ function randomizer (){
     //displacys random names and splices it out of array
     background(random(200,255));
     randomIndex = int(random(cars.length));
-    text(cars[randomIndex].name, 50,50);
+    text(`${cars[randomIndex].name} 's color is
+    ${ cars[randomIndex].color}`, 50,50);
+    
+    // text(cars[randomIndex].name + "'s color is" + cars[randomIndex].color, 50,50);
     cars.splice(randomIndex,1);
     } else {
       background(random(200,255));
