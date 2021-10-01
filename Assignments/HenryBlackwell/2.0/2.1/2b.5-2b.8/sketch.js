@@ -21,6 +21,7 @@ let games = [{
 }]
 
 let randomIndex;
+let counter = 0;
 
 function setup() {
   createCanvas(400, 400);
@@ -29,10 +30,29 @@ function setup() {
 
   text("Click to Randomize",)
 
+  // //Changes Background after 1 sec
+  // setTimeout(changeBackground, 1000); //(variable,milliseconds)
+
+  // //Changes Background every 1 sec
+  // setInterval(changeBackground, 1000);
+
+  setTimeout(changeBackground, 1000);
+
 }
 
 function draw() {
 
+}
+
+function changeBackground(){
+  if(counter<=5){
+    counter++;
+    console.log(counter)
+  background(random(255), random(255), random(255));
+  setTimeout(changeBackground, 1000);
+} else {
+
+}
 }
 
 function mousePressed(){
