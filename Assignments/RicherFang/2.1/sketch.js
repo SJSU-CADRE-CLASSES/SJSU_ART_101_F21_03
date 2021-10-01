@@ -1,21 +1,40 @@
-// bouncy balls  bouncing
-let balls = ["red" "blue" "green" "yellow"]
+// solar system
+let planets = [{
+  name: "mercury",
+  color: "black"
+} {
+  name: "venus",
+  color: "yellow"
+} {
+  name: "earth",
+  color: "blue"
+} {
+  name: "mars",
+  color: "red"
+} {
+  name: "jupiter",
+  color: "gold"
+} {
+  name: "saturn",
+  color: "silver"
+}];
+
+let randomIndex;
+
 function setup() {
   createCanvas(500, 500);
   background(200);
 
-  console.log("initial array is ")
-  console.log(balls);
-
-  dogs.shift();
-  console.log("array after shift")
-  console.log(balls);
-
-  dogs.unshift("black");
-  console.log("array after unshift")
-  console.log(balls);
 }
 
 function draw() {
+
+}
+
+function mousePressed(){
+  background(random(255));
+  randomIndex = int(random(planets.length));
+  text(planets[randomindex].name, 50, 50);
+  planets.splice(randomIndex, 1);
 
 }
