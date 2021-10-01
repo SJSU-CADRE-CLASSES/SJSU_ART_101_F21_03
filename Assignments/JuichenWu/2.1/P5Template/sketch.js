@@ -1,10 +1,14 @@
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-}
 
+//dogs I haev loved before
+Let dogs = ["dillon", "Ziggy", "mercedes","nala", "kloot", "petunia"];
+
+function setup() {
+  createCanvas(600, 600);
+  background(200);
+
+console.log(dogs[0]);
+
+}
 function draw() {
-  background(120);
-  noStroke();
-  fill(150,50,59);
-  ellipse(100,100,40);
+
 }
