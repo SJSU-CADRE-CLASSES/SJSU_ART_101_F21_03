@@ -5,7 +5,7 @@ let games = [{
   color: "Traveler"
 }, {
   name: "Apex",
-  color: "Apex symbol"
+  color: "Legend"
 }, {
   name: "Hearthstone",
   color: "Card"
@@ -20,17 +20,21 @@ let games = [{
   color: "Wall"
 }]
 
+let randomIndex;
+
 function setup() {
   createCanvas(400, 400);
-  background(200);
-
-  console.log(random(5));
-  console.log(games[random(4)]);
-
 }
 
 function draw() {
   background(220);
 
+}
+
+function mousePressed(){
+  background(random(255));
+  randomIndex = int(random(games.length));
+  text(games[randomIndex].name, 50, 50)
+  games.splice(randomIndex, 1)
 
 }
