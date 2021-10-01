@@ -21,7 +21,6 @@ let games = [{
 }]
 
 let randomIndex;
-
 let animating = false;
 
 function setup() {
