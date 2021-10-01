@@ -10,15 +10,21 @@ let cars = [{
      color:"blue"
   }];
  
+  let randomIndex;
 function setup() {
   createCanvas(600, 600);
   background(200);
- 
-console.log(cars[2].color);
  
 
 }
 
 function draw() {
 
+}
+
+function mousePressed(){
+  background(random(200,255));
+  randomIndex = int(random(cars.length));
+  text(cars[randomIndex].name, 50,50);
+  cars.splice(randomIndex,1);
 }
