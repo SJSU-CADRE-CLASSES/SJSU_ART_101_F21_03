@@ -24,6 +24,7 @@
     function setup() {
       createCanvas(600, 600);
       background(200);
+      textSize(35);
 
     }
 
@@ -32,8 +33,14 @@
     }
 
     function mousePressed(){
+
+    if (dogs)[0]){
+      //this displays random name and splices it out of array
     background(random(200, 255));
     randomIndex = int(random(dogs.length));
     text(dogs[randomIndex].name, 50, 50);
     dogs.splice(randomIndex, 1);
+  } else {}
+    text("notghing left!", 50, 50)
+  }
   }
