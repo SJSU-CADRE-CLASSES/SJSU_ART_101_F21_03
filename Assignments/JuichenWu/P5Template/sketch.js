@@ -1,6 +1,6 @@
 
 //dogs I haev loved before
-Let dogs = ["dillon", "Ziggy", "mercedes","nala", "kloot", "petunia"];
+let dogs = ["dillon","Ziggy","mercedes","nala","kloot","petunia"];
 
 function setup() {
   createCanvas(600, 600);
