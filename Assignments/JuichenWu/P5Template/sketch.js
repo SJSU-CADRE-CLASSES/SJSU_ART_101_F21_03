@@ -33,7 +33,7 @@
 
     function mousePressed(){
     background(random(200, 255));
-    randomIndex = int(random(dog.length));
+    randomIndex = int(random(dogs.length));
     text(dogs[randomIndex].name, 50, 50);
-    dog.splice(randomIndex, 1);
+    dogs.splice(randomIndex, 1);
   }
