@@ -25,6 +25,7 @@
       createCanvas(600, 600);
       background(200);
       textSize(32);
+      text("click to randomize", 50, 50);
 
     }
 
