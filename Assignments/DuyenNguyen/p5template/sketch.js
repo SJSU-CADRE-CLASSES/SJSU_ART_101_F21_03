@@ -1,10 +1,18 @@
+//flowers I know of
+
+let flowers = ["rose","lily","orchid","carnation","camelia","poppy","freesia"]
+
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(400, 400);
+  background(200,50,130);
+
+  console.log(flowers[0]);
 }
 
 function draw() {
-  background(120);
-  nostroke();
-  fill(150);
-  ellipse(100,100,40);
+
+  fill(50);
+  ellipse(100,100,70);
+
+
 }
