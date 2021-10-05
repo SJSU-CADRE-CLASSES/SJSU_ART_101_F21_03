@@ -29,12 +29,17 @@ function setup() {
   textSize(32);
 
   text("click to randomize", 50, 50);
+
+  setTimeout(changeBackground, 1000);
 }
 
 function draw() {
 
 }
 
+function changeBackground(){
+  background(random(255)), (random(255)), (random(255)) 
+}
 
 //this displays random names and splices it out 
 function mousePressed() {
