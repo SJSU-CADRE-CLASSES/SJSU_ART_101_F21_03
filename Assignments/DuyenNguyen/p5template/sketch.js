@@ -9,7 +9,7 @@ let petalNumber = 8;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background(random(0,255));
+  background('yellow');
   angleMode(DEGREES);
   // randomFlower = int(random(flowers.length));
   // text(flowers[randomIndex].name, 50, 50);
@@ -52,7 +52,7 @@ function flowerss(color1, strokeColor, color2, xPos, yPos, scaleNumber ){
 
 }
 function mousePressed (){
-   background(random(0,255));
+   background(random(200, 20), random(10,100), random(255));
    randomFlower = int(random(flowers.length));
    text(flowers[randomFlower].name, 50, 50);
 
