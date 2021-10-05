@@ -1,12 +1,17 @@
 //flowers I know of
 
-let flowers = ["rose","lily","orchid","carnation","camelia","poppy","freesia"]
+let flowers = [{name: "rose", color : "red"},{name: "lily", color: "white"},{name: "orchid", color: "purple"},{name: "carnation", color: "blue"},{name: "camelia", color : "pink"},{name: "poppy", color: "orange"},{name: "freesia", color: "yellow"}]
+
+let randomeIndex;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(windowWidth, windowHeight);
   background(200,50,130);
 
-  console.log(flowers[0]);
+  randomeIndex = int(random(flowers.length));
+  console.log(flowers[randomIndex].name);
+
+
 }
 
 function draw() {
