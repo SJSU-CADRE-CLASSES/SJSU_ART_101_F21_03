@@ -25,12 +25,12 @@ function draw() {
   flowerss('green', 'white',random(255, 200, 255), width/2, height/2+60, 0.4);
 
   for (let i =0; i <31; i++){
-    flowerss('white', 'pink', 'purple', 50*i, 90, 0.3);
-    flowerss('white', 'pink', 'purple', 50*i, 200, 0.3);
+    flowerss('white', 'pink', 'orange', 50*i, 90, 0.3);
+    flowerss('white', 'pink', 'yellow', 50*i, 200, 0.3);
     //flowerss('white', 'pink', 'purple', 50*i, 300, 0.3);
-    flowerss('white', 'pink', 'purple', 50*i, 500, 0.3);
-     flowerss('white', 'pink', 'purple', 50*i, 400, 0.3);
-     flowerss('white', 'pink', 'purple', 50*i, 600, 0.3);
+    flowerss('white', 'pink', 'red', 50*i, 500, 0.3);
+     flowerss('white', 'pink', 'green', 50*i, 400, 0.3);
+     flowerss('white', 'pink', 'blue', 50*i, 600, 0.3);
      flowerss('white', 'pink', 'purple', 50*i, 300, 0.3);
 
   }
@@ -57,7 +57,10 @@ function flowerss(color1, strokeColor, color2, xPos, yPos, scaleNumber ){
 function mousePressed (){
    background(random(200, 20), random(10,100), random(255));
    randomFlower = int(random(flowers.length));
-   text(flowers[randomFlower].name, 50, 50);
+   textSize(60);
+
+   text(flowers[randomFlower].name, 50, 150);
+   text(flowers[randomFlower].color, 500, 150);
 
  }
 // function branch(spread) {
