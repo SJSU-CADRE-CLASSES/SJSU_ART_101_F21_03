@@ -1,25 +1,25 @@
 //average steps
 let steps = [{
   step: "1032",
-  day: "Wed"
+  day: "Wednesday"
 }, {
   step: "1710",
-  day: "Thurs"
+  day: "Thursday"
 }, {
   step: "768",
-  day: "Fri"
+  day: "Friday"
 }, {
   step: "1953",
-  day: "Sat"
+  day: "Saturday"
 }, {
   step: "753",
-  day: "Sun"
+  day: "Sunday"
 }, {
   step: "51",
-  day: "Mon"
+  day: "Monday"
 }, {
   step: "325",
-  day: "Tues"
+  day: "Tuesday"
 }];
 
 let randomIndex;
