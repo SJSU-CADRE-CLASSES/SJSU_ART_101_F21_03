@@ -1,7 +1,10 @@
-let technicalSoftware = ["Computer \nProgramming", "OOP", "data structures", "algorithms", "OOD", "Assembly Language/Machine Code", "web development", "mobile app development", "game development", "Excel Sheets", "Database Management Systems", "Software Engineering", "Management Information Systems", "Informational Technology"];
+let technicalSoftware = ["Computer \nProgramming", "OOP", "data \nstructures", "algorithms", "OOD", "Assembly Language\n(Machine Code)", "web \ndevelopment", "mobile \napp \ndevelopment", "game \ndevelopment", "Excel \nSheets", "Database \nManagement \nSystems", "Software \nEngineering", "Management \nInformation \nSystems", "Informational \nTechnology"];
 //let bothSoftware = [""];
-let artisticSoftware = ["Creative \nCoding", "3D Modeling", "web aesthetics", "game aesthetics", "digital animation", "Photo editing", "video editing", "digital painting", "Computer Graphics", "Augmented Reality", "Digital Media Art", "Graphic Design", "music producer", "Adobe Creative Cloud"];
-let ghostsOfLife = ["Blue Ghost", "Boo", "You've been pranked", "Muni Munyi", "Ghost of Time", "Seoul Ghost", "basketcase", "determination", "passionate", "niceness", "quirky", "life lessons", "philosohpies", "knowledgeable"];
+let artisticSoftware = ["Creative \nCoding", "3D \nModeling", "web \naesthetics", "game \naesthetics", "digital \nanimation", "Photo \nediting", "video \nediting", "digital \npainting", "Computer \nGraphics", "Augmented \nReality", "Digital \nMedia \nArt", "Graphic \nDesign", "music \nproducer", "Adobe \nCreative \nCloud"];
+let ghostsOfLife = [{splash: "Blue \nGhost"}, {splash: "Boo"}, {splash: "You've \nbeen \npranked"}, {splash: "Munyi \nMunyi"}, {splash: "Ghost \nof \nTime"}, {splash: "Seoul \nGhost"}, {splash: "basketcase"}, {splash: "determination"}, {splash: "passionate"}, {splash: "niceness"}, {splash: "quirky"}, {splash: "imaginative"}, {splash: "philosohpies"}, {splash: "knowledgeable"}];
+let randomIndex1 = 0;
+let randomIndex2 = 0;
+let randomIndex3 = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -10,7 +13,24 @@ function setup() {
   // seems like these variables are only predefined within the p5js functions?
   console.log(windowWidth); //1365
   console.log(windowHeight); //969
+
+  // testing random numbers without looping from the draw function
+  console.log(random(14));
+  console.log(int(random(14)));
+
 }
+
+var ghostSize1 = 100;
+var ghostPosX1 = 400;
+var ghostPosY1 = 400;
+
+var ghostSize2 = 100;
+var ghostPosX2 = 200;
+var ghostPosY2 = 400;
+
+var ghostSize3 = 100;
+var ghostPosX3 = 600;
+var ghostPosY3 = 400;
 
 function draw() {
   background(250, 140, 60);
@@ -18,12 +38,9 @@ function draw() {
   //console.log(width);
   //console.log(height);
 
-  var ghostSize1 = 100;
-  var ghostPosX1 = 400;
-  var ghostPosY1 = 400;
-
+  fill(127, 0, 255);
   textSize(24);
-  text(artisticSoftware[0], 550, 300);
+  text(artisticSoftware[randomIndex3], 600, 250);
 
   fill(60, 140, 250);
   ellipse(ghostPosX1, ghostPosY1, ghostSize1); // (100, 100, 80)
@@ -32,12 +49,9 @@ function draw() {
   ellipse(ghostPosX1 + (ghostSize1 / 5), ghostPosY1 - (ghostSize1 / (20 / 3)), ghostSize1 / 8); // (116, 88, 10)
   rect(ghostPosX1 - (ghostSize1 / 8), ghostPosY1, ghostSize1 / 4, ghostSize1 / (8 / 3)); // (90, 100, 20, 30)
 
-  var ghostSize2 = 100;
-  var ghostPosX2 = 200;
-  var ghostPosY2 = 400;
-
   textSize(24);
-  text(ghostsOfLife[0], 342, 300);
+  textAlign(CENTER);
+  text(ghostsOfLife[randomIndex1].splash, 400, 250);
 
   fill(0, 250, 0);
   ellipse(ghostPosX2, ghostPosY2, ghostSize2); // (100, 100, 80)
@@ -46,12 +60,8 @@ function draw() {
   ellipse(ghostPosX2 + (ghostSize2 / (20 / 3)), ghostPosY2 - (ghostSize2 / (20 / 3)), ghostSize2 / 8); // (112, 88, 10)
   rect(ghostPosX2 - (ghostSize2 / (40 / 9)), ghostPosY2, ghostSize2 / 4, ghostSize2 / (8 / 3)); // (82, 100, 20, 30)
 
-  var ghostSize3 = 100;
-  var ghostPosX3 = 600;
-  var ghostPosY3 = 400;
-
   textSize(24);
-  text(technicalSoftware[0], 130, 300);
+  text(technicalSoftware[randomIndex2], 200, 250);
 
   fill(255, 0, 127);
   ellipse(ghostPosX3, ghostPosY3, ghostSize3); // (100, 100, 80)
@@ -60,8 +70,37 @@ function draw() {
   ellipse(ghostPosX3 + (ghostSize3 / 4), ghostPosY3 - (ghostSize3 / (20 / 3)), ghostSize3 / 8); // (120, 88, 10)
   rect(ghostPosX3 - (ghostSize3 / 40), ghostPosY3, ghostSize3 / 4, ghostSize3 / (8 / 3)); // (98, 100, 20, 30)
 
+/*
+  if (mouseIsPressed && insideCircle(ghostPosX1, ghostPosY1, ghostSize1)) {
+      randomIndex1 = int(random(ghostsOfLife.length));
+  }
+
+  if (mouseIsPressed && insideCircle(ghostPosX2, ghostPosY2, ghostSize2)) {
+      randomIndex2 = int(random(technicalSoftware.length));
+  }
+
+  if (mouseIsPressed && insideCircle(ghostPosX3, ghostPosY3, ghostSize3)) {
+      randomIndex3 = int(random(artisticSoftware.length));
+  }
+*/
   // testing the random display of array indexes(0 to 13)
-  text(random(14), 100, 100);
+  text(random(14), 800, 100);
+  text(int(random(14)), 800, 150);
+
+  fill("#FFFF00");
+  text("Please click on a ghost to see its splash text", 400, 550);
+}
+
+function mousePressed() {
+  if (insideCircle(ghostPosX1, ghostPosY1, ghostSize1)) randomIndex1 = int(random(ghostsOfLife.length));
+
+  if (insideCircle(ghostPosX2, ghostPosY2, ghostSize2)) randomIndex2 = int(random(technicalSoftware.length));
+
+  if (insideCircle(ghostPosX3, ghostPosY3, ghostSize3)) randomIndex3 = int(random(artisticSoftware.length));
+}
+
+function insideCircle(x, y, size) {
+  return sqrt(sq(mouseX-x) + sq(mouseY-y)) < size / 2 ? true : false;
 }
 
 //var w = windowWidth;
@@ -70,3 +109,4 @@ function draw() {
 console.log(technicalSoftware.length);
 console.log(artisticSoftware.length);
 console.log(ghostsOfLife.length);
+//console.log(random(14));
