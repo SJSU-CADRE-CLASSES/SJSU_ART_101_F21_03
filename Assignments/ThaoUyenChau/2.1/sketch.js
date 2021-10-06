@@ -41,7 +41,8 @@ function setup() {
 function draw() {
 
  if (animating == true){
-   ellipse(random(width), random(height), random(50, 200));
+   fill(random(255), random(255), random(255));
+   ellipse(random(width), random(height), random(random(100)));
  }
 }
 function randomizer(){
@@ -51,6 +52,7 @@ function randomizer(){
     background(random(200, 255));
     randomIndex = int(random(steps.length));
     // console.log(steps[randomIndex].day);
+    fill(50);
     text(`${steps[randomIndex].day} I walked ${steps[randomIndex].step} steps`, 50, 50);
     steps.splice(randomIndex, 1);
   } else {
