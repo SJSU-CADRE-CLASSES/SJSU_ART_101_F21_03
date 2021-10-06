@@ -1,7 +1,10 @@
-let technicalSoftware = ["Computer \nProgramming", "OOP", "data structures", "algorithms", "OOD", "Assembly Language/Machine Code", "web development", "mobile app development", "game development", "Excel Sheets", "Database Management Systems", "Software Engineering", "Management Information Systems", "Informational Technology"];
+let technicalSoftware = ["Computer \nProgramming", "OOP", "data \nstructures", "algorithms", "OOD", "Assembly Language\n(Machine Code)", "web \ndevelopment", "mobile \napp \ndevelopment", "game \ndevelopment", "Excel \nSheets", "Database \nManagement \nSystems", "Software \nEngineering", "Management \nInformation \nSystems", "Informational \nTechnology"];
 //let bothSoftware = [""];
-let artisticSoftware = ["Creative \nCoding", "3D Modeling", "web aesthetics", "game aesthetics", "digital animation", "Photo editing", "video editing", "digital painting", "Computer Graphics", "Augmented Reality", "Digital Media Art", "Graphic Design", "music producer", "Adobe Creative Cloud"];
-let ghostsOfLife = ["Blue Ghost", "Boo", "You've been pranked", "Muni Munyi", "Ghost of Time", "Seoul Ghost", "basketcase", "determination", "passionate", "niceness", "quirky", "life lessons", "philosohpies", "knowledgeable"];
+let artisticSoftware = ["Creative \nCoding", "3D \nModeling", "web \naesthetics", "game \naesthetics", "digital \nanimation", "Photo \nediting", "video \nediting", "digital \npainting", "Computer \nGraphics", "Augmented \nReality", "Digital \nMedia \nArt", "Graphic \nDesign", "music \nproducer", "Adobe \nCreative \nCloud"];
+let ghostsOfLife = ["Blue \nGhost", "Boo", "You've \nbeen \npranked", "Munyi \nMunyi", "Ghost \nof \nTime", "Seoul \nGhost", "basketcase", "determination", "passionate", "niceness", "quirky", "imaginative", "philosohpies", "knowledgeable"];
+let randomIndex1 = 0;
+let randomIndex2 = 0;
+let randomIndex3 = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -10,6 +13,11 @@ function setup() {
   // seems like these variables are only predefined within the p5js functions?
   console.log(windowWidth); //1365
   console.log(windowHeight); //969
+
+  // testing random numbers without looping from the draw function
+  console.log(random(14));
+  console.log(int(random(14)));
+
 }
 
 function draw() {
@@ -22,8 +30,9 @@ function draw() {
   var ghostPosX1 = 400;
   var ghostPosY1 = 400;
 
+  fill(127, 0, 255);
   textSize(24);
-  text(artisticSoftware[0], 550, 300);
+  text(artisticSoftware[randomIndex3], 600, 250);
 
   fill(60, 140, 250);
   ellipse(ghostPosX1, ghostPosY1, ghostSize1); // (100, 100, 80)
@@ -37,7 +46,8 @@ function draw() {
   var ghostPosY2 = 400;
 
   textSize(24);
-  text(ghostsOfLife[0], 342, 300);
+  textAlign(CENTER);
+  text(ghostsOfLife[randomIndex1], 400, 250);
 
   fill(0, 250, 0);
   ellipse(ghostPosX2, ghostPosY2, ghostSize2); // (100, 100, 80)
@@ -51,7 +61,7 @@ function draw() {
   var ghostPosY3 = 400;
 
   textSize(24);
-  text(technicalSoftware[0], 130, 300);
+  text(technicalSoftware[randomIndex2], 200, 250);
 
   fill(255, 0, 127);
   ellipse(ghostPosX3, ghostPosY3, ghostSize3); // (100, 100, 80)
@@ -60,8 +70,28 @@ function draw() {
   ellipse(ghostPosX3 + (ghostSize3 / 4), ghostPosY3 - (ghostSize3 / (20 / 3)), ghostSize3 / 8); // (120, 88, 10)
   rect(ghostPosX3 - (ghostSize3 / 40), ghostPosY3, ghostSize3 / 4, ghostSize3 / (8 / 3)); // (98, 100, 20, 30)
 
+  if (mouseIsPressed && insideCircle(ghostPosX1, ghostPosY1, ghostSize1)) {
+      randomIndex1 = int(random(14));
+  }
+
+  if (mouseIsPressed && insideCircle(ghostPosX2, ghostPosY2, ghostSize2)) {
+      randomIndex2 = int(random(14));
+  }
+
+  if (mouseIsPressed && insideCircle(ghostPosX3, ghostPosY3, ghostSize3)) {
+      randomIndex3 = int(random(14));
+  }
+
   // testing the random display of array indexes(0 to 13)
-  text(random(14), 100, 100);
+  text(random(14), 800, 100);
+  text(int(random(14)), 800, 150);
+
+  fill("#FFFF00");
+  text("Please click on a ghost to see its splash text", 400, 550);
+}
+
+function insideCircle(x, y, size) {
+  return sqrt(sq(mouseX-x) + sq(mouseY-y)) < size / 2 ? true : false;
 }
 
 //var w = windowWidth;
@@ -70,3 +100,4 @@ function draw() {
 console.log(technicalSoftware.length);
 console.log(artisticSoftware.length);
 console.log(ghostsOfLife.length);
+//console.log(random(14));
