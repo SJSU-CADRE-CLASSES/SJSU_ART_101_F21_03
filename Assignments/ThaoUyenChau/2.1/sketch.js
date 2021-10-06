@@ -57,6 +57,7 @@ function randomizer(){
     steps.splice(randomIndex, 1);
   } else {
     background(random(200, 255));
+    fill(50);
     text("nothing left", 75, 300 );
   }
 }
