@@ -1,3 +1,4 @@
+// How Does This Shit Work?
 // solar system
 let planets = [{
   name: "mercury",
