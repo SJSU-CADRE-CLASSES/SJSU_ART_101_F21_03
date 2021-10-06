@@ -31,7 +31,7 @@ function setup() {
   background (200);
   textSize(32);
 
-  text("click to randomize", 50,50);
+  text("click to randomize", 75, 300);
 
 // console.log(random(5));
 
@@ -53,15 +53,15 @@ function randomizer(){
     randomIndex = int(random(steps.length));
     // console.log(steps[randomIndex].day);
     fill(50);
-    text(`${steps[randomIndex].day} I walked ${steps[randomIndex].step} steps`, 50, 50);
+    text(`${steps[randomIndex].day} I walked ${steps[randomIndex].step} steps`, 75, 300 );
     steps.splice(randomIndex, 1);
   } else {
     background(random(200, 255));
-    text("nothing left", 50, 50);
+    text("nothing left", 75, 300 );
   }
 }
 function mousePressed() {
 animating = true
-setTimeout(randomizer, 2000);
+setTimeout(randomizer, 1000);
 
 }
