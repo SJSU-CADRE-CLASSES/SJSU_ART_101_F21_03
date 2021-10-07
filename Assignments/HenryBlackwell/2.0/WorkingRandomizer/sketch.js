@@ -66,7 +66,7 @@ you should play today`, width / 5, height / 5)
 
 button = createButton("Click once to randomize")
 button.mousePressed(buttonPressed)
-button.position(width / 3, height)
+button.position(width / 2, height)
 }
 
 function draw() {
