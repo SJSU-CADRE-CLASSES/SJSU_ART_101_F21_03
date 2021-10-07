@@ -40,6 +40,8 @@ let animating = false;
 let vgs = [];
 let imageCounter = 0;
 let tries = 0;
+let button;
+
 
 function preload() {
 
@@ -61,6 +63,9 @@ function setup() {
   text(`Click once to find what game 
   you should play today`, width / 5, height / 5)
 
+
+  button = createButton("Click once to randomize")
+  button.mousePressed(buttonPressed)
 }
 
 function draw() {
@@ -102,7 +107,7 @@ function randomizer() {
   }
 }
 
-function mousePressed() {
+function buttonPressed() {
   //Animate for Xms
   animating = true;
   setTimeout(randomizer, 2000);

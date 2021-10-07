@@ -18,11 +18,11 @@ let cars = [{
  
   let randomIndex;
   let animating = false;
-  let cars = [];
+  let cars_path = [];
 
   function preload(){
     for (let i = 0; i <= 5; i++){
-      cars[i] = loadImage("assests/troll_" + i + ".JPG")
+      cars_path[i] = loadImage("assests/cars" + i + ".jpg")
       
     }
   }
@@ -34,7 +34,7 @@ function setup() {
   textSize(32);
   
   text("click to randomize",50,50);
- console.log(cars);
+ console.log(cars_path);
 
 }
 
