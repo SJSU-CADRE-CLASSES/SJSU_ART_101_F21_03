@@ -51,7 +51,7 @@ function preload() {
 
 
 function setup() {
-  createCanvas(900, 900);
+  createCanvas(800, 800);
   background(128, 128, 128);
   textSize(32);
   imageMode(CENTER);
@@ -66,6 +66,7 @@ function setup() {
 
   button = createButton("Click once to randomize")
   button.mousePressed(buttonPressed)
+  button.position(width / 3, height)
 }
 
 function draw() {
@@ -91,12 +92,14 @@ function randomizer() {
     clear();
     randomIndex = int(random(games.length));
     fill(122, 128, 144)
-    textAlign(LEFT);
+    textAlign(CENTER);
     textSize(32);
-    text(`Today, you will play`, width / 7, height / 20);
-    text(games[randomIndex].name, width / 2.2, height / 20);
+    text(`Today, you will play`, width / 2, height / 20);
+    //Display what game to play
+    text(games[randomIndex].name, width / 2, height / 10);
+    //Shows image for what game to play
     image(vgs[randomIndex], width / 2, height / 2);
-    text('Click once to reroll', width / 3.5, height)
+    text('Click once to reroll', width / 2, height/1.17)
     tries = tries + 1;
     
   } else {
@@ -110,5 +113,5 @@ function randomizer() {
 function buttonPressed() {
   //Animate for Xms
   animating = true;
-  setTimeout(randomizer, 2000);
+  setTimeout(randomizer, 1000);
 }
