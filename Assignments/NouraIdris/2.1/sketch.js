@@ -42,7 +42,7 @@ function randomizer (){
     background(random(200,255));
     randomIndex = int(random(cars.length));
     text(`${cars[randomIndex].name} 's color is
-    ${ cars[randomIndex].color}``, 50,50);
+    ${ cars[randomIndex].color}`, 50,50);
     // text(cars[randomIndex].name + "'s color is" + cars[randomIndex].color, 50,50);
     cars.splice(randomIndex,1);
     } else {
@@ -53,4 +53,4 @@ function randomizer (){
 function mousePressed(){   
   animating = true;
   setTimeout (randomizer,2000);
-  } 
+}
