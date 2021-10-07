@@ -1,4 +1,5 @@
 // .atom-live-server.json
 {
-  "browser": "google chrome"
+//  "browser": "google chrome"
+"browser": "chrome"
 }

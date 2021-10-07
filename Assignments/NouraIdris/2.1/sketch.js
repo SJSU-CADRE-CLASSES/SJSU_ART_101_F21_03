@@ -43,7 +43,6 @@ function randomizer (){
     randomIndex = int(random(cars.length));
     text(`${cars[randomIndex].name} 's color is
     ${ cars[randomIndex].color}`, 50,50);
-    
     // text(cars[randomIndex].name + "'s color is" + cars[randomIndex].color, 50,50);
     cars.splice(randomIndex,1);
     } else {
