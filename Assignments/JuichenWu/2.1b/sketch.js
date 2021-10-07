@@ -21,24 +21,36 @@
 
     let randomIndex;
     let animating = false;
+    let KAWSS= [];
+
+    function preload(){
+
+      for (let i = 0; i <= 15; i++){
+        KAWS[i] = loadImage(`tiny/KAWS_${i}.JPG`)
+      }
+
+     }
 
 
     function setup() {
       createCanvas(600, 600);
       background(200);
       textSize(32);
-      text("click to randomize", 50, 50);
 
+      text("click to randomize", 50, 50);
+      console. log(KAWSS);
 
 
     }
 
     function draw() {
 
-if (animating == true){
-  ellipse (random(width), random(height), random (50 ,200));
+     if (animating == true){
+        image(KAWSS[0], 0, 0)
+  }
 }
-}
+
+
 function randomizer(){
   animating = false;
 
