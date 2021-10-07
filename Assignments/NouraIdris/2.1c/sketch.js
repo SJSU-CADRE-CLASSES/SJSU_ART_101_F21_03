@@ -18,6 +18,14 @@ let cars = [{
  
   let randomIndex;
   let animating = false;
+  let cars = [];
+
+  function preload(){
+    for(let i = 0; i <= 5; i++){
+      cars[i] = loadImage('assets/car ${i}.JPG')
+    }
+  }
+  
 
 function setup() {
   createCanvas(600, 600);
@@ -25,6 +33,7 @@ function setup() {
   textSize(32);
   
   text("click to randomize",50,50);
+  console.log(cars);
  
 
 }
