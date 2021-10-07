@@ -1,11 +1,14 @@
 //command+b will make code nice
 
 let games = [{
+    name: "Apex Legends",
+    thing: "Legend"
+}, {
+    name: "Deathloop",
+    thing: ""
+}, {
   name: "Destiny 2",
   thing: "Traveler"
-}, {
-  name: "Apex Legends",
-  thing: "Legend"
 }, {
   name: "Hearthstone",
   thing: "Card"
@@ -16,19 +19,16 @@ let games = [{
   name: "Splitgate",
   thing: "Portal"
 }, {
-  name: "Phasmophoria",
+  name: "Phasmophobia",
   thing: "Wall"
 }, {
   name: "New World",
   thing: "Sword"
 }, {
-  name: "Deathloop",
-  thing: ""
-}, {
   name: "Hades",
   thing: ""
 }, {
-  name: "Monster Hunter: World",
+  name: "Monster Hunter",
   thing: ""
 }, {
   name: "League of Legends",
@@ -39,6 +39,7 @@ let randomIndex;
 let animating = false;
 let vgs = [];
 let imageCounter = 0;
+let tries = 0;
 
 function preload() {
 
@@ -48,26 +49,24 @@ function preload() {
 
 
 function setup() {
-  createCanvas(700, 700);
+  createCanvas(900, 900);
   background(128, 128, 128);
   textSize(32);
   imageMode(CENTER);
   frameRate(10);
 
+  //Text at start
   fill(200, 189, 230)
   textAlign(LEFT);
-  text(`Click to find what game 
+  text(`Click once to find what game 
   you should play today`, width / 5, height / 5)
-
-  console.log(vgs);
 
 }
 
 function draw() {
 
+  //Cycling through the games
   if (animating == true) {
-    // fill(20,155,75)
-    // ellipse (random(width), random(height), random(50,100))
     clear();
     image(vgs[imageCounter], width / 2, height / 2);
     if (imageCounter < vgs.length - 1) {
@@ -78,31 +77,33 @@ function draw() {
 
   }
 
-
 }
 
 function randomizer() {
   animating = false;
-  if (games[0]) {
-    //This shows a random name and splies it our of array
-    // background(random(200, 255));
+  if (tries < 5) {
+    //This shows a random game
     clear();
     randomIndex = int(random(games.length));
     fill(122, 128, 144)
     textAlign(LEFT);
-    
-    text(`Today, you will play ${games[randomIndex].name}`, width / 5, height / 6);
-    image(random[vgs], width / 2, height / 2);
-    games.splice(randomIndex, 1)
+    textSize(32);
+    text(`Today, you will play`, width / 7, height / 20);
+    text(games[randomIndex].name, width / 2.2, height / 20);
+    image(vgs[randomIndex], width / 2, height / 2);
+    text('Click once to reroll', width / 3.5, height)
+    tries = tries + 1;
     
   } else {
     background(random(200, 255));
     textAlign(CENTER);
-    text("You've run out of games to play!")
+    fill(255,0,0)
+    text("You've tried too many times, pick one already!", width / 2, height / 5)
   }
 }
 
 function mousePressed() {
+  //Animate for Xms
   animating = true;
-  setTimeout(randomizer, 3000);
+  setTimeout(randomizer, 2000);
 }
