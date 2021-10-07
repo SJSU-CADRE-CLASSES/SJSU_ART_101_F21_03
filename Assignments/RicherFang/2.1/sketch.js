@@ -29,7 +29,7 @@ function randomizer(){
   if (planets[0]) {
     background(random(200, 255)); 
     randomIndex = int( random(planets.length)); 
-    text(`${planets[randomIndex].name}  's color is  ${planets[randomIndex].color}`, 50, 50);
+    text(`${planets[randomIndex].name} 's color is  ${planets[randomIndex].color}`, 50, 50);
     planets.splice(randomIndex, 1);
     // text(planets[randomIndex].name + "'s color is " + planets[randomIndex].color, 50, 50);
     // planets.splice(randomIndex, 1);
