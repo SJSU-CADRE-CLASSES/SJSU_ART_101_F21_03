@@ -21,10 +21,17 @@ let cars = [{
   let cars_path = [];
 
   function preload(){
+<<<<<<< HEAD
     for (let i = 0; i <= 5; i++){
       cars_path[i] = loadImage("assests/cars_"+i + ".jpg")
       
     }
+=======
+    for (let i = 0; i <= 5; i++) {
+      cars_path[i] = loadImage("assets/car")
+    } 
+
+>>>>>>> abd192a617730c8f88e8b78962db8edc72ea6393
   }
   
 
