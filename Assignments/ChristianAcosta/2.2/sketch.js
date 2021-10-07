@@ -105,13 +105,13 @@ function mousePressed(){
   if (press == 0){
   console.log(players[randomIndex].name);
   //Display Avatar
-  text(`"Name: ${players[randomIndex].name}"`, 50, 50);
+  text(`Name: ${players[randomIndex].name}`, 50, 50);
   //text(players[randomIndex].name, 120, 50);
-  text("Speciality: ", 50, 70);
-  text(players[randomIndex].speciality, 120, 70);
-  text("Power: ", 50, 90);
+  text(`Speciality: ${players[randomIndex].speciality}`, 50, 70);
+  //text(players[randomIndex].speciality, 120, 70);
+  text(`Power: ${power1}`, 50, 90);
   let power1 = players[randomIndex].power;
-  text(power1, 120, 90);
+  //text(power1, 120, 90);
   players.splice(randomIndex, 1);
   console.log(players); //gets array
   press++;
