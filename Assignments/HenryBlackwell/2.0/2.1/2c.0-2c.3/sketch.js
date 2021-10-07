@@ -51,7 +51,7 @@ function preload() {
 
 
 function setup() {
-  createCanvas(900, 900);
+  createCanvas(700, 700);
   background(128, 128, 128);
   textSize(32);
   imageMode(CENTER);
