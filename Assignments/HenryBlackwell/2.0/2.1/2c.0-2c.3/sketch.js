@@ -51,7 +51,7 @@ function preload() {
 
 
 function setup() {
-  createCanvas(700, 700);
+  createCanvas(800, 800);
   background(128, 128, 128);
   textSize(32);
   imageMode(CENTER);
@@ -93,10 +93,10 @@ function randomizer() {
     fill(122, 128, 144)
     textAlign(LEFT);
     textSize(32);
-    text(`Today, you will play`, width / 7, height / 20);
+    text(`Today, you will play`, width / 10, height / 20);
     text(games[randomIndex].name, width / 2.2, height / 20);
     image(vgs[randomIndex], width / 2, height / 2);
-    text('Click once to reroll', width / 3.5, height)
+    text('Click once to reroll', width / 3.5, height/1.17)
     tries = tries + 1;
     
   } else {
@@ -110,5 +110,5 @@ function randomizer() {
 function buttonPressed() {
   //Animate for Xms
   animating = true;
-  setTimeout(randomizer, 2000);
+  setTimeout(randomizer, 1000);
 }
