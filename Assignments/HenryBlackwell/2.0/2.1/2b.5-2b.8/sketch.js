@@ -22,6 +22,13 @@ let games = [{
 
 let randomIndex;
 let animating = false;
+let games = [];
+
+function preload(){
+
+  for (let i = 0; i <= 13; i++)
+
+}
 
 function setup() {
   createCanvas(400, 400);

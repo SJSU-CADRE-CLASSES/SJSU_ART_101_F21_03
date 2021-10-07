@@ -38,6 +38,14 @@ let games = [{
 
 let randomIndex;
 let animating = false;
+let vgs = [];
+
+function preload(){
+
+  for (let i = 0; i <= 13; i++)
+  vgs[i] = loadImage(`EditedAssets/vgs_${i}.JPG`)
+}
+
 
 function setup() {
   createCanvas(700, 700);
