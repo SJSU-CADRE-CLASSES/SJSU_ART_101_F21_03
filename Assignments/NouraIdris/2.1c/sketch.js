@@ -22,9 +22,9 @@ let cars = [{
 
   function preload(){
     for (let i = 0; i <= 5; i++){
-      cars_path[i] = loadImage("assests/cars" + i + ".jpg")
-      
-    }
+      cars_path[i] = loadImage("/Users/nouraidris/Documents/GitHub/SJSU_ART_101_F21_03/Assignments/NouraIdris/2.1c/assets/car_" + i +  ".jpg")
+    } 
+
   }
   
 
