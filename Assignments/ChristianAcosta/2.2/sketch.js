@@ -106,7 +106,7 @@ function mousePressed(){
   console.log(players[randomIndex].name);
   //Display Avatar
   text(`"Name: ${players[randomIndex].name}"`, 50, 50);
-  text(players[randomIndex].name, 120, 50);
+  //text(players[randomIndex].name, 120, 50);
   text("Speciality: ", 50, 70);
   text(players[randomIndex].speciality, 120, 70);
   text("Power: ", 50, 90);
