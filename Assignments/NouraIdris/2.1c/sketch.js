@@ -21,8 +21,9 @@ let cars = [{
   let cars = [];
 
   function preload(){
-    for(let i = 0; i <= 5; i++){
-      cars[i] = loadImage('assets/car ${i}.JPG')
+    for (let i = 0; i <= 5; i++){
+      cars[i] = loadImage("assests/troll_" + i + ".JPG")
+      
     }
   }
   
