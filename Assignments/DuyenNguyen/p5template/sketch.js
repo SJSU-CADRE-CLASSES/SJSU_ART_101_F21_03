@@ -29,18 +29,29 @@ let randomFlower;
 let centerSize = 20;
 let petalSize = 20;
 let petalNumber = 8;
+let counter = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background('yellow');
   angleMode(DEGREES);
+  text("Click to randomize", width/4, 150);
+  setTimeout(changeBackground, 1000);
+
   // randomFlower = int(random(flowers.length));
   // text(flowers[randomIndex].name, 50, 50);
   // flowers.splice(randomIndex,1 );
   // console.log(flowers);
 }
+function changeBackground(){
+  if (counter <=5){
+  counter++;
+  background(random(255),random(255),random(255));
+  setTimeout(changeBackground, 1000);
+} else {
 
-
+}
+}
 function draw() {
   //translate (width/2, height/2 + 200);
   //branch(100);
