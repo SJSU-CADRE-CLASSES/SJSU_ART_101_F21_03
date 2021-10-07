@@ -1,5 +1,5 @@
-// characters I have played in valorant
-let characters = ["sage","raze", "viper", "killjoy". "reyna" "yoru"];
+// succulent changes
+let characters = ["seed","leaf", "roots", "baby plant". "grown" "rotten"];
 
 function setup (){
     createCanvas (600,600);
