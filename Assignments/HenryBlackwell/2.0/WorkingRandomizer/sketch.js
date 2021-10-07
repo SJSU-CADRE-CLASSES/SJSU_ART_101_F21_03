@@ -49,7 +49,7 @@ function preload() {
 
 
 function setup() {
-  createCanvas(700, 700);
+  createCanvas(900, 900);
   background(128, 128, 128);
   textSize(32);
   imageMode(CENTER);
@@ -88,7 +88,7 @@ function randomizer() {
     fill(122, 128, 144)
     textAlign(LEFT);
     textSize(32);
-    text(`Today, you will play`, width / 20, height / 20);
+    text(`Today, you will play`, width / 7, height / 20);
     text(games[randomIndex].name, width / 2.2, height / 20);
     image(vgs[randomIndex], width / 2, height / 2);
     text('Click once to reroll', width / 3.5, height)
