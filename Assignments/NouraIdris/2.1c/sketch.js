@@ -22,7 +22,7 @@ let cars = [{
 
   function preload(){
     for (let i = 0; i <= 5; i++){
-      cars_path[i] = loadImage("assests/cars" + i + ".jpg")
+      cars_path[i] = loadImage("assests/cars_"+i + ".jpg")
       
     }
   }
