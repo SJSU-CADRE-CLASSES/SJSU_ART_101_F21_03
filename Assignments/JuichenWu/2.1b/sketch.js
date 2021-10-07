@@ -21,6 +21,14 @@
 
     let randomIndex;
     let animating = false;
+    let KAWSS= [];
+    function preload(){
+
+      for (let i = 0; i<= 15; i++){
+        KAWS[i] = loadImage(`tiny/KAWS_${i}.JPG`)
+      }
+
+     }
 
 
     function setup() {
@@ -28,6 +36,7 @@
       background(200);
       textSize(32);
       text("click to randomize", 50, 50);
+      concole. log(KAWSS);
 
 
 
