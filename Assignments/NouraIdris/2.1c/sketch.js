@@ -33,8 +33,7 @@ function setup() {
   textSize(32);
   
   text("click to randomize",50,50);
-  console.log(cars);
- 
+ console.log(cars);
 
 }
 
