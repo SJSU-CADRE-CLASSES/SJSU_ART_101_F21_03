@@ -26,7 +26,6 @@
 
     function preload() {
 
-
       for (let i = 0; i <= 15; i++) {
         trolls[i] = loadImage(`assets/troll_${i}.jpg`)
       }
@@ -53,14 +52,15 @@
       }
     }
 
-        if (imageCounter < trolls.length)
-          imageCounter++;
-        console.log(imageConter);
-      } else {
-        imageCounter = 0;
+    if (imageCounter < trolls.length)
+      imageCounter++;
+    console.log(imageConter);
+    }
+    else {
+      imageCounter = 0;
 
 
-      }
+    }
     }
 
 
