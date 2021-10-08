@@ -38,20 +38,20 @@
       background(200);
       textSize(24);
       imageMode(CORNER);
+      frameRate(12);
 
       text("click to randomize", 50, 50);
       console.log(trolls);
-
 
     }
 
     function draw() {
 
-      if (animating == true) {
+      if(animating == true) {
         clear();
         image(trolls[imageCounter], width / 2, height / 2);
 
-        if (imageCounter < trolls.length-1) {
+        if (imageCounter < trolls.length - 1) {
           imageCounter++;
           console.log(imageCounter);
         } else {
