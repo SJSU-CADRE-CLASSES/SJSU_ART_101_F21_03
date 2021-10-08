@@ -11,8 +11,8 @@ let dogss = [];
 let imageCounter = 0;
 
 
-function preLoad(){
-  for (let i = 0; i <= 12; i++) {
+function preload(){
+  for (let i = 0; i <= 10; i++) {
     dogss[i] = loadImage(`assets/dogss${i}.jpeg`)
   }
 }
@@ -51,7 +51,7 @@ function draw() {
     // fill(random(255),random(255),random(255));
     // ellipse(random(width), random(height),random(15,200));
 
-    image(dogss[0],width/2, height/2);
+    image(dogss[0],0,0);
   }
 }
 
@@ -91,7 +91,8 @@ function randomizer(){
 //   text("how many do you know?", width/4,150);
 //
 // }
-// }
+}
+
 function mousePressed (){
    animating = true;
    setTimeout(randomizer,3000);
