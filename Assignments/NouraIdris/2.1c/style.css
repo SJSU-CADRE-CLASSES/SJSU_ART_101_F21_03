@@ -9,5 +9,13 @@ canvas {
 .randomizerButton {
  padding: 20px;
   background-color: #cc728c;
+}
 
+.row {
+  display: flex;
+}
+
+.column {
+margin: 10px;
+  flex: 50%;
 }
