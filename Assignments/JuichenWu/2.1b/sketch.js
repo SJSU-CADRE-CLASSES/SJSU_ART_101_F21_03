@@ -55,7 +55,7 @@
         if (imageCounter < trolls.length)
         imageCounter++;
         console. log(imageConter);
-      }else{
+      } else {
         imageCounter = 0;
 
 
