@@ -35,7 +35,7 @@
 
     function setup() {
       createCanvas(600, 600);
-      background(500);
+      background(200);
       textSize(24);
       imageMode(CORNER);
 
@@ -49,10 +49,11 @@
 
       if (animating == true) {
         clear();
-        image(trolls[imageCounter], width /2, height /2);
+        image(trolls[imageCounter], width / 2, height / 2);
 
-        if (imageCounter < trolls.length) {
+        if (imageCounter < trolls.length-1) {
           imageCounter++;
+          console.log(imageCounter);
         } else {
           imagCounter = 0;
         }
