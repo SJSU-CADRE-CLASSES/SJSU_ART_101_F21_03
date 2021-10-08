@@ -21,11 +21,11 @@
 
     let randomIndex;
     let animating = false;
-    let trolls= [];
+    let trolls = [];
 
     function preload(){
 
-      for (let i = 0; i <= 15; i++){
+      for (let i = 0; i <= 8; i++){
         trolls[i] = loadImage(`assets/
           troll_${i}.JPG`)
       }
@@ -48,7 +48,7 @@
     function draw() {
 
      if (animating == true){
-        image(trolls[1], 0, 0);
+        image(trolls[0], 0, 0);
   }
 }
 
