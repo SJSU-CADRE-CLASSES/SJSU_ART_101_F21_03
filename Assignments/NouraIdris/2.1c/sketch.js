@@ -42,7 +42,7 @@ function setup() {
   text("click to randomize",50,50);
   console.log(Cars);
 
-button = createButton("click to randomize");
+button = select ('#randButton')
 button.mousePressed(buttonPressed);
 button.class("randomizerButton");
 
