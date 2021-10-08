@@ -44,6 +44,8 @@ function setup() {
 
 button = createButton("click to randomize");
 button.mousePressed(buttonPressed);
+button.class("randomizerButton");
+
 
 
 
