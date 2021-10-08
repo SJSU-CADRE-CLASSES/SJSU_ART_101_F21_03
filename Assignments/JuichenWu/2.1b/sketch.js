@@ -48,7 +48,7 @@
     function draw() {
 
      if (animating == true){
-        image(troll[1], 0, 0);
+        image(trolls[1], 0, 0);
   }
 }
 
