@@ -28,9 +28,11 @@
 
       for (let i = 0; i <= 15; i++) {
         trolls[i] = loadImage(`assets/troll_${i}.jpg`)
-      }
 
+      }
     }
+
+
 
 
     function setup() {
@@ -47,7 +49,7 @@
     function draw() {
 
       if (animating == true) {
-        // Clear();
+
         image(trolls[imageCounter], width / 2, height / 2);
       }
     }
