@@ -21,12 +21,13 @@
 
     let randomIndex;
     let animating = false;
-    let KAWS= [];
+    let trolls= [];
 
     function preload(){
 
       for (let i = 0; i <= 15; i++){
-        KAWS[i] = loadImage(`tiny/KAWS_${i}.JPG`)
+        trolls[i] = loadImage(`assets/
+          troll_${i}.JPG`)
       }
 
      }
@@ -39,7 +40,7 @@
       imageMode(CENTER);
 
       text("click to randomize", 50, 50);
-      console. log(KAWS);
+      console. log(trolls);
 
 
     }
@@ -47,7 +48,7 @@
     function draw() {
 
      if (animating == true){
-        image(KAWS[1], wodtj/2, height/2);
+        image(trolls[1], 0, 0);
   }
 }
 
