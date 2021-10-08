@@ -1,4 +1,16 @@
-//Players
+//// NOTE: Url: http://127.0.0.1:8080/Assignments/ChristianAcosta/2.2/
+
+let randomIndex;
+let press = 0;
+let power = 0;
+let powerSum = 0;
+
+let randomPowerWeak;
+let randomPowerAvg;
+let randomPowerStrong;
+let randomPowerGod;
+
+//Players array===============================
 let players = [{
   name: "Sal the Silly",    //warriors
   speciality: "Warrior",
@@ -62,15 +74,46 @@ let players = [{
 }, {
   name: "City Guard",    //special chars
   speciality: "Protagonist",
-  power: 100
+  power: 10
 }];
-
-let randomIndex;
-let press = 0;
+//monsters===============================
+let monsters = [{
+  name: "slimes",
+  type: "slime",
+  power: 5
+}, {
+  name: "Nigel the Necromancer",
+  type: "Necromancer",
+  power: 5
+}, {
+  name: "Fire-Tooth",
+  type: "Dragon",
+  power: 5
+}, {
+  name: "Lady Lauren",
+  type: "Evil Magister",
+  power: 5
+}, {
+  name: "Thanatos The God of Death",
+  type: "God",
+  power: 5
+}];
+//end of classes===============================
 
 function setup() {
   createCanvas(600, 600);
   background(200);
+
+  randomPowerWeak = int(random(5, 10));
+  randomPowerAvg = int(random(10, 15));
+  randomPowerStrong = int(random(15, 20));
+  randomPowerGod = int(random(20, 30));
+
+  monsters[0].power = randomPowerWeak;
+  monsters[1].power = randomPowerAvg;
+  monsters[2].power = randomPowerAvg;
+  monsters[3].power = randomPowerStrong;
+  monsters[4].power = randomPowerGod;
 
   randomIndex = int(random(players.length));
 
@@ -97,6 +140,7 @@ function draw() {
   // nostroke();
   // fill(150);
   // ellipse(100, 100, 40);
+  console.log(monsters[0]);
 }
 
 function mousePressed(){
@@ -109,48 +153,59 @@ function mousePressed(){
   //text(players[randomIndex].name, 120, 50);
   text(`Speciality: ${players[randomIndex].speciality}`, 50, 70);
   //text(players[randomIndex].speciality, 120, 70);
-  text(`Power: ${power1}`, 50, 90);
-  let power1 = players[randomIndex].power;
+  power = players[randomIndex].power;
+  text(`Power: ${power}`, 50, 90);
+  powerSum = powerSum + power;
   //text(power1, 120, 90);
   players.splice(randomIndex, 1);
   console.log(players); //gets array
   press++;
 } else if(press == 1){
   randomIndex = int(random(players.length));
-  text("Name: ", 50, 120);
-  text(players[randomIndex].name, 120, 120);
-  text("Speciality: ", 50, 140);
-  text(players[randomIndex].speciality, 120, 140);
-  text("Power: ", 50, 160);
-  let power2 = players[randomIndex].power;
-  text(power2, 120, 160);
+  text(`Name: ${players[randomIndex].name}`, 50, 120);
+  text(`Speciality: ${players[randomIndex].speciality}`, 50, 140);
+  power = players[randomIndex].power;
+  text(`Power: ${power}`, 50, 160);
+  powerSum = powerSum + power;
   players.splice(randomIndex, 1);
   console.log(players); //gets array
   press++;
 } else if(press == 2){
   randomIndex = int(random(players.length));
-  text("Name: ", 50, 190);
-  text(players[randomIndex].name, 120, 190);
-  text("Speciality: ", 50, 210);
-  text(players[randomIndex].speciality, 120, 210);
-  text("Power: ", 50, 230);
-  let power2 = players[randomIndex].power;
-  text(power2, 120, 230);
+  text(`Name: ${players[randomIndex].name}`, 50, 190);
+  text(`Speciality: ${players[randomIndex].speciality}`, 50, 210);
+  power = players[randomIndex].power;
+  text(`Power: ${power}`, 50, 230);
+  powerSum = powerSum + power;
   players.splice(randomIndex, 1);
   console.log(players); //gets array
   press++;
 } else if(press == 3){
   randomIndex = int(random(players.length));
-  text("Name: ", 50, 260);
-  text(players[randomIndex].name, 120, 260);
-  text("Speciality: ", 50, 280);
-  text(players[randomIndex].speciality, 120, 280);
-  text("Power: ", 50, 300);
-  let power2 = players[randomIndex].power;
-  text(power2, 120, 300);
+  text(`Name: ${players[randomIndex].name}`, 50, 260);
+  text(`Speciality: ${players[randomIndex].speciality}`, 50, 280);
+  power = players[randomIndex].power;
+  text(`Power: ${power}`, 50, 300);
+  powerSum = powerSum + power;
   players.splice(randomIndex, 1);
   console.log(players); //gets array
   press++;
+} else if(press == 4){
+  line(50, 315, 200, 315);
+  text(`Party's Power: ${powerSum}`, 50, 330)
+  press++;
+} else if(press == 5){
+  randomIndex = int(random(monsters.length));
+  text(`Name: ${monsters[randomIndex].name}`, 400, 100);
+  text(`Type: ${monsters[randomIndex].type}`, 400, 120);
+  text(`Power: ${monsters[randomIndex].power}`, 400, 140);
+  press++;
+} else if(press == 6){
+  if(powerSum <= monsters[randomIndex].power){
+    text(`You Lost`, width/2, 400);
+  } else {
+    text(`You Won`, width/2, 400);
+  }
 }
   //
   // randomIndex = int(random(players.length));

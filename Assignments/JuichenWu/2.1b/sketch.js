@@ -21,44 +21,65 @@
 
     let randomIndex;
     let animating = false;
+    let trolls = [];
+    let imageCounter = 0;
+
+    function preload() {
+
+      for (let i = 0; i <= 8; i++) {
+        trolls[i] = loadImage(`assets/troll_${i}.jpg`)
+      }
+
+    }
 
 
     function setup() {
       createCanvas(600, 600);
       background(200);
-      textSize(32);
+      textSize(24);
+      imageMode(CORNER);
+      frameRate(12);
+
       text("click to randomize", 50, 50);
-
-
+      console.log(trolls);
 
     }
 
     function draw() {
 
-if (animating == true){
-  ellipse (random(width), random(height), random (50 ,200));
-}
-}
-function randomizer(){
-  animating = false;
+      if(animating == true) {
+        clear();
+        image(trolls[imageCounter], width / 2, height / 2);
 
-  if (dogs[0]){
-    //this displays random name and splices it out of array
-  background(random(200, 255));
-  randomIndex = int(random(dogs.length));
-  text(`${dogs[randomIndex].name} 's favorite color
+        if (imageCounter < trolls.length - 1) {
+          imageCounter++;
+          console.log(imageCounter);
+        } else {
+          imagCounter = 0;
+        }
+      }
+
+
+      function randomizer() {
+        animating = false;
+
+        if (dogs[0]) {
+          //this displays random name and splices it out of array
+          background(random(200, 255));
+          randomIndex = int(random(dogs.length));
+          text(`${dogs[randomIndex].name} 's favorite color
   ${dogs[randomIndex].color}`, 50, 50);
-  // text(dogs[randomIndex].name +"'s faviorits color is " +
-  // dogs[randomIndex].color, 50, 50);
-  dogs.splice(randomIndex, 1);
-} else {
-  background(random(200, 255));
-  text("nothing left!", 50, 50)
-   }
- }
+          // text(dogs[randomIndex].name +"'s faviorits color is " +
+          // dogs[randomIndex].color, 50, 50);
+          dogs.splice(randomIndex, 1);
+        } else {
+          background(random(200, 255));
+          text("nothing left!", 50, 50)
+        }
+      }
 
-    function mousePressed() {
-      animating = true;
-      setTimeout(randomizer, 2000);
+      function mousePressed() {
+        animating = true;
+        setTimeout(randomizer, 2000);
 
-  }
+      }

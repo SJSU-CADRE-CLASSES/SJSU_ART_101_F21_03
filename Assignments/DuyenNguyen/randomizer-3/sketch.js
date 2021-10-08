@@ -1,6 +1,27 @@
 //flowers I know of
 
-let flowers = [{name: "rose", color : "red"},{name: "lily", color: "white"},{name: "orchid", color: "purple"},{name: "carnation", color: "blue"},{name: "camelia", color : "pink"},{name: "poppy", color: "orange"},{name: "freesia", color: "yellow"}]
+let flowers = [{
+  name: "rose",
+  color: "red"
+}, {
+  name: "lily",
+  color: "white"
+}, {
+  name: "orchid",
+  color: "purple"
+}, {
+  name: "carnation",
+  color: "blue"
+}, {
+  name: "camelia",
+  color: "pink"
+}, {
+  name: "poppy",
+  color: "orange"
+}, {
+  name: "freesia",
+  color: "yellow"
+}]
 
 let randomFlower;
 let centerSize = 20;
@@ -11,8 +32,8 @@ let dogss = [];
 let imageCounter = 0;
 
 
-function preLoad(){
-  for (let i = 0; i <= 12; i++) {
+function preload() {
+  for (let i = 0; i <= 10; i++) {
     dogss[i] = loadImage(`assets/dogss${i}.jpeg`)
   }
 }
@@ -22,7 +43,7 @@ function setup() {
   background('yellow');
   angleMode(DEGREES);
   textSize(40);
-  text("click to randomize",width/3,150);
+  text("click to randomize", width / 3, 150);
   // randomFlower = int(random(flowers.length));
   // text(flowers[randomIndex].name, 50, 50);
   // flowers.splice(randomIndex,1 );
@@ -46,12 +67,12 @@ function draw() {
   //    flowerss('white', 'pink', 'purple', 50*i, 400, 0.3);
   // }
 
-  if (animating == true){
+  if (animating == true) {
     noStroke();
     // fill(random(255),random(255),random(255));
     // ellipse(random(width), random(height),random(15,200));
 
-    image(dogss[0],width/2, height/2);
+    image(dogss[0], 0, 0);
   }
 }
 
@@ -74,29 +95,30 @@ function draw() {
 //
 // }
 
-function randomizer(){
+function randomizer() {
   animating = false;
 
-//   if (flowers[0]) {
-//   //background(random(200, 20), random(10, 100), random(255));
-//   background(255);
-//   randomFlower = int(random(flowers.length));
-//   textSize(55);
-//
-//   text(flowers[randomFlower].name, width/5, 150);
-//   text(flowers[randomFlower].color, width/36*25, 150);
-//   flowers.splice(randomFlower,1);
-// } else {
-//   background(255);
-//   text("how many do you know?", width/4,150);
-//
-// }
-// }
-function mousePressed (){
-   animating = true;
-   setTimeout(randomizer,3000);
+  //   if (flowers[0]) {
+  //   //background(random(200, 20), random(10, 100), random(255));
+  //   background(255);
+  //   randomFlower = int(random(flowers.length));
+  //   textSize(55);
+  //
+  //   text(flowers[randomFlower].name, width/5, 150);
+  //   text(flowers[randomFlower].color, width/36*25, 150);
+  //   flowers.splice(randomFlower,1);
+  // } else {
+  //   background(255);
+  //   text("how many do you know?", width/4,150);
+  //
+  // }
+}
 
- }
+function mousePressed() {
+  animating = true;
+  setTimeout(randomizer, 3000);
+
+}
 // function branch(spread) {
 
 //   push();
