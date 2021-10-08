@@ -40,7 +40,7 @@
       imageMode(CENTER);
 
       text("click to randomize", 50, 50);
-      console. log(trolls);
+      console.log(trolls);
 
 
     }
