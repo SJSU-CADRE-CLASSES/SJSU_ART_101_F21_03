@@ -21,7 +21,7 @@
 
     let randomIndex;
     let animating = false;
-    let KAWSS= [];
+    let KAWS= [];
 
     function preload(){
 
@@ -35,10 +35,11 @@
     function setup() {
       createCanvas(600, 600);
       background(200);
-      textSize(32);
+      textSize(24);
+      imageMode(CENTER);
 
       text("click to randomize", 50, 50);
-      console. log(KAWSS);
+      console. log(KAWS);
 
 
     }
@@ -46,7 +47,7 @@
     function draw() {
 
      if (animating == true){
-        image(KAWSS[0], 0, 0)
+        image(KAWS[1], wodtj/2, height/2);
   }
 }
 
