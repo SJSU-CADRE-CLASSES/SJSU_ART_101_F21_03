@@ -53,7 +53,7 @@ function randomizer() {
     text("nothing left!", 50, 50);
   }
 }
-
+//
 function mousePressed() {
   animating = true;
   setTimeout(randomizer, 2000);
