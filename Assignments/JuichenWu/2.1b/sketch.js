@@ -36,7 +36,7 @@
       createCanvas(600, 600);
       background(500);
       textSize(24);
-      imageMode(CENTER);
+      imageMode(CORNER);
 
       text("click to randomize", 50, 50);
       console.log(trolls);
