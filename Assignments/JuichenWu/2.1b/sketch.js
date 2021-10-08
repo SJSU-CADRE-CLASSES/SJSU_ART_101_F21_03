@@ -26,8 +26,7 @@
     function preload(){
 
       for (let i = 0; i <= 8; i++){
-        trolls[i] = loadImage(`assets/
-          troll_${i}.JPG`)
+        trolls[i] = loadImage(`assets/troll_${i}.jpg`)
       }
 
      }
@@ -35,7 +34,7 @@
 
     function setup() {
       createCanvas(600, 600);
-      background(200);
+      background(500);
       textSize(24);
       imageMode(CENTER);
 
