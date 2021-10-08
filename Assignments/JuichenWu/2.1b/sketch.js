@@ -22,8 +22,10 @@
     let randomIndex;
     let animating = false;
     let trolls = [];
+    let imageCounter =0;
 
     function preload() {
+
 
       for (let i = 0; i <= 8; i++) {
         trolls[i] = loadImage(`assets/troll_${i}.jpg`)
@@ -36,6 +38,7 @@
       createCanvas(600, 600);
       background(200);
       textSize(24);
+      imageMode(CENTER)
 
 
       text("click to randomize", 50, 50);
@@ -46,14 +49,15 @@
     function draw() {
 
       if (animating == true) {
-        image(trolls[0], 0, 0);
+        // Clear();
+        image(trolls[imageCounter], width/2, height/2);
 
-        // if (imageCounter < trolls.length - 1) {
-        //   imageCounter++;
-        //   console.log(imageCounter);
-        // } else {
-        //   imagCounter = 0;
-        // }
+        if (imageCounter < trolls.length)
+        imageCounter++;
+        console. log(imageConter);
+      }else{
+        imageCounter = 0;
+
 
       }
     }
