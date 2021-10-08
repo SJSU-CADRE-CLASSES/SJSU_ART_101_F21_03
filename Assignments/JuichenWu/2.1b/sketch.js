@@ -21,7 +21,7 @@
 
     let randomIndex;
     let animating = false;
-    let trolls= [];
+    let trolls = [];
 
     function preload(){
 
@@ -48,7 +48,7 @@
     function draw() {
 
      if (animating == true){
-        image(trolls[1], 0, 0);
+        image(trolls[0], 0, 0);
   }
 }
 
