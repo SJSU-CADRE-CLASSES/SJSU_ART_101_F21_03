@@ -47,7 +47,7 @@
 
     function draw() {
 
-      if(animating == true) {
+      if (animating == true) {
         clear();
         image(trolls[imageCounter], width / 2, height / 2);
 
