@@ -54,7 +54,7 @@
         image(trolls[imageCounter], width/2, height/2);
         if (imageCounter < trolls.length - 1) {
         imageCounter++;
-        console.console.log(imageCounter);
+        console.log(imageCounter);
         } else { imageCounter = 0;
 
         }
