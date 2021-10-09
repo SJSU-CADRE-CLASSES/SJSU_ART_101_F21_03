@@ -50,9 +50,12 @@
 
       if (animating == true) {
         clear();
-        image(trolls[imageCounter], width/2, height/2);
-        imageCounter++;
+        image(trolls[imageCounter], width / 2, height / 2);
 
+        if (imageCounter < trolls.length) {
+        imageCounter++;
+      } else {
+         imageCounter = 0;
       }
     }
 
