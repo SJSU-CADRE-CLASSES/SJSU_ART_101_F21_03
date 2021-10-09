@@ -21,12 +21,12 @@
 
     let randomIndex;
     let animating = false;
-    let trolls =[]
+    let trolls = []
     let imageCounter = 0;
 
-    function preload(){
+    function preload() {
 
-      for (let i =0; i <=15; i++){
+      for (let i = 0; i <= 15; i++) {
         trolls[i] = loadImage(`assets/troll_${i}.jpg`)
 
       }
@@ -52,10 +52,8 @@
         clear();
         image(trolls[imageCounter], width / 2, height / 2);
 
-        if (imageCounter < trolls.length) {
         imageCounter++;
-      } else {
-         imageCounter = 0;
+
       }
     }
 
