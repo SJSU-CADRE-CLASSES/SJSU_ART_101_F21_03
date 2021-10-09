@@ -23,6 +23,7 @@
     let animating = false;
     let trolls = []
     let imageCounter = 0;
+    let button;
 
     function preload() {
 
@@ -36,14 +37,20 @@
 
     function setup() {
       createCanvas(600, 600);
-      background(200);
+      background(20, 40, 200);
       textSize(30);
+      textFont(`Courier new`)
+      // textAlign(CENTER)
+      textStyle(BOLD)
+      fill(255)
       imageMode(CENTER);
       frameRate(8);
 
 
       text("click to randomize", 50, 50);
-      console.log(trolls);
+      // console.log(trolls);
+      button = createButton("click to randomize");
+      button.mousePressed(buttonPressed);
 
     }
 
@@ -79,7 +86,7 @@
       }
     }
 
-    function mousePressed() {
+    function buttonPressed() {
       animating = true;
       setTimeout(randomizer, 2000);
 
