@@ -24,6 +24,7 @@
     let trolls = []
     let imageCounter = 0;
     let button;
+    let cnv;
 
     function preload() {
 
@@ -36,8 +37,9 @@
 
 
     function setup() {
-      createCanvas(600, 600);
-      background(20, 40, 200);
+      cnv = createCanvas(600, 600);
+      cnv.parent("#canvasDiv");
+      background(255, 205, 210);
       textSize(30);
       textFont(`Courier new`)
       // textAlign(CENTER)
@@ -47,10 +49,11 @@
       frameRate(8);
 
 
-      text("click to randomize", 50, 50);
-      // console.log(trolls);
-      button = createButton("click to randomize");
+      // text("click to randomize", 50, 50);
+      // button = createButton("click to randomize");
+      button = select(`#randButton`)
       button.mousePressed(buttonPressed);
+      button.class("randomizerButton");
 
     }
 
