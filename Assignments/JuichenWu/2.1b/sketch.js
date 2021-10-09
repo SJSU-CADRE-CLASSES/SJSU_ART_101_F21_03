@@ -21,26 +21,28 @@
 
     let randomIndex;
     let animating = false;
-    let trolls = [];
-    let imageCounter = 0;
+    let trolls =[]
 
-    function preload() {
+    function preload(){
 
-      for (let i = 0; i <= 15; i++) {
+      for (let i =0; i <=15; i++){
         trolls[i] = loadImage(`assets/troll_${i}.jpg`)
 
       }
+
     }
+
 
     function setup() {
       createCanvas(600, 600);
       background(200);
       textSize(24);
-      imageMode(CENTER);
+
 
 
       text("click to randomize", 50, 50);
       console.log(trolls);
+
     }
 
     function draw() {
