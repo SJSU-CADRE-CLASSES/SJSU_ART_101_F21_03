@@ -37,9 +37,9 @@
     function setup() {
       createCanvas(600, 600);
       background(200);
-      textSize(24);
+      textSize(30);
       imageMode(CENTER);
-      frameRate(12);
+      frameRate(8);
 
 
       text("click to randomize", 50, 50);
@@ -67,12 +67,11 @@
       animating = false;
       if (dogs[0]) {
         //this displays random name and splices it out of array
-        background(random(200, 255));
+        // background(random(200, 255));
+        clear();
         randomIndex = int(random(dogs.length));
-        text(`${dogs[randomIndex].name} 's favorite color
-  ${dogs[randomIndex].color}`, 50, 50);
-        // text(dogs[randomIndex].name +"'s faviorits color is " +
-        // dogs[randomIndex].color, 50, 50);
+        text(dogs[randomIndex].name, width/20, height -5);
+        image(random(trolls), width/2, height/2);
         dogs.splice(randomIndex, 1);
       } else {
         background(random(200, 255));
