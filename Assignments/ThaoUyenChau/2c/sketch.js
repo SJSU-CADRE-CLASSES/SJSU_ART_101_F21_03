@@ -7,6 +7,7 @@ let button;
 function preload(){
   for (let i = 0; i <= 10; i++){
     artmms[i] = loadImage(`assets/artmm_${i}.jpeg`)
+    console.log(artmms);
   }
 }
 
@@ -19,6 +20,7 @@ function setup() {
   frameRate(6);
 
   text("Art Movements", 170, 300);
+  console.log(artmms);
 
   button = createButton("click to randomize");
   button.mousePressed(buttonPressed);
@@ -30,7 +32,7 @@ function draw() {
     clear();
     image(artmms[imageCounter], width/2, height/2);
 
-    if (imageCounter < artmms.lengths - 1){
+    if (imageCounter < artmms.length - 1){
        imageCounter++;
        console.log(imageCounter);
     }else {
