@@ -5,7 +5,7 @@ let imageCounter = 0;
 let button;
 
 function preload(){
-  for (let i = 0; i <= 11; i++){
+  for (let i = 0; i <= 10; i++){
     artmms[i] = loadImage(`assets/artmm_${i}.jpeg`)
   }
 }
