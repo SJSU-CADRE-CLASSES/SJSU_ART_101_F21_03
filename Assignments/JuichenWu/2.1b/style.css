@@ -5,3 +5,18 @@ html, body {
 canvas {
   display: block;
 }
+
+.randomizerButton{
+  padding: 20px;
+  background-color: #BBDEFB;
+}
+
+.row {
+  display: flex;
+
+}
+
+.column {
+  margin: 20px;
+  flex: 50%;
+}
