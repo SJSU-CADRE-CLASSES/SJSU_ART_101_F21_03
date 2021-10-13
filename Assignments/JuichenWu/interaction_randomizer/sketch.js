@@ -1,5 +1,7 @@
 // dog I have loved be
+
 let dogs = ["dog 1", "dog 2"];
+
 let randomIndex;
 let animating = false;
 let trolls = []
@@ -25,7 +27,7 @@ function setup() {
   cnv = createCanvas(600, 600);
   cnv.parent("#canvasDiv");
   background(255, 205, 210);
-  textSize(30);
+  textSize(40);
   textFont(`Courier new`)
   // textAlign(CENTER)
   textStyle(BOLD)
@@ -76,7 +78,7 @@ function randomizer() {
     // background(random(200, 255));
     clear();
     randomIndex = int(random(dogs.length));
-    text(dogs[randomIndex], width/30, height -10);
+    text(dogs[randomIndex], width/40, height -5);
     image(random(trolls), width/2, height/2);
     dogs.splice(randomIndex, 1);
   } else {
