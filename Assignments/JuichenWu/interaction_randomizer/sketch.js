@@ -1,6 +1,6 @@
 // dog I have loved be
 
-let dogs = ["dog 1", "dog 2"];
+let dogs = [];
 
 let randomIndex;
 let animating = false;
@@ -27,13 +27,13 @@ function setup() {
   cnv = createCanvas(600, 600);
   cnv.parent("#canvasDiv");
   background(255, 205, 210);
-  textSize(40);
+  textSize(45);
   textFont(`Courier new`)
   // textAlign(CENTER)
   textStyle(BOLD)
   fill(255)
   imageMode(CENTER);
-  frameRate(8);
+  frameRate(5);
 
 
   // text("click to randomize", 50, 50);
@@ -83,7 +83,7 @@ function randomizer() {
     dogs.splice(randomIndex, 1);
   } else {
     background(random(200, 255));
-    text("nothing left!", 200, 350)
+    text("nothing left!", 120, 230)
   }
 }
 
@@ -91,6 +91,7 @@ function buttonPressed() {
   if (firstTime){
   for(let i = 0; i < nameInputs. length; i++){
     dogs.push(nameInputs[i].value());
+    // console.log(nameInputs[i].value);
   }
    firstTime = false;
 

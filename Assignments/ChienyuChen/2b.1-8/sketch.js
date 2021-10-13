@@ -2,34 +2,40 @@ let cats = [{
   name: "Chartreux",
   color: "blue"
 }, {
-  name: "Bombay", 
+  name: "Bombay",
   color: "Black"
 }, {
   name: "Siamese",
   color: "cream and chocolate"
 }
-}];
+];
 
 
 let randomIndex;
-//let animating = false;
+let animating = false;
+
 
 function setup() {
-createcanvas(600,600);
+  //createCanvas(windowWidth, windowHeight);
+createCanvas(600,600);
 background(200);
-textsize(40);
+textSize(40);
 text("click to randomize", 50, 50);
+
 }
 
 
 function draw() {
-  //if(animating == true){
-    //ellipse(random(width), random(height), random(50))
+
+  if( animating == true){
+    ellipse(random(width), random(height), random(50))
   }
+
 }
 
 
 function randomizer(){
+  animating = false
   if (cats[0]){
     background(random(200, 255));
     randomIndex = int(random(cats.length));
@@ -44,12 +50,9 @@ function randomizer(){
 
 
 function mousePressed() {
-//  animating = true;
+  animating = true;
   setTimeout(randomizer, 2000);
 }
-
-
-
 
 
 function changeBackground(){
@@ -62,12 +65,4 @@ function changeBackground(){
   else {
   }
 
-
-console.log(cats[2].color);
-
-function draw() {
-  background(120);
-  noStroke();
-  fill(150,50,59);
-  ellipse(100,100,40);
 }
