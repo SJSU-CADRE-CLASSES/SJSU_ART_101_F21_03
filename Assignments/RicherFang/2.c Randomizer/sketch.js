@@ -34,8 +34,7 @@ function setup() {
 function draw() {
 
   if (animating == true) {
-    // ellipse(random(width), random(height), random(50, 200));
-      // clear();
+      clear();
       image(planetss[imageCounter], width/2, height/2);
 
       if (imageCounter < planetss.length - 1){
@@ -61,7 +60,7 @@ function randomizer(){
   }
 }
 
-  function buttonPressed() {
+  function mousePressed() {
     animating = true; 
     setTimeout(randomizer, 2000);
   }
