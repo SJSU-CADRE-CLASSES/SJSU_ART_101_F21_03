@@ -1,30 +1,21 @@
-let cats = [{
-  name: "Chartreux",
-  color: "blue"
-}, {
-  name: "Bombay",
-  color: "Black"
-}, {
-  name: "Siamese",
-  color: "cream and chocolate"
-}
-];
-
-
+let cats = [];
 let randomIndex;
 let animating = false;
 let trolls = [];
-let imageCounter = 0
-let button;
+let imageCounter = 1;
+let startRandomizerButton;
+let addMoreButton;
 let cnv;
-let nameInput;
+let nameInputs= [];
+let firstTime = true;
+
 
 
 
 
 function preload() {
-  for (let i = 1; i<=3 ; i++){
-    trolls[i] = loadImage(`2c.4-10/assets/troll_${i}.JPG`)
+  for (let i = 1; i <= 3 ; i++){
+    trolls[i] = loadImage(`assets/troll_${i}.JPG`)
   }
 }
 
@@ -47,13 +38,16 @@ frameRate(8);
 
 text("click to randomize", width/2, height/2);
 
-button = select('#randButton');
-button.mousePressed(buttonPressed);
-button.class("randomizerButton");
+startRandomizerButton = select('#randButton');
+startRandomizerButton.mousePressed(buttonPressed);
 
-//nameInputs.push(createInput());
-nameInput = createInput();
-nameInput.parent("#inputFields");
+addMoreButton = select('#addMoreButton');
+addMoreButton.mousePressed(addAnotherInput);
+
+for (let i = 0; i < 3; i++) {
+  nameInputs.push(createInput());
+  nameInputs[nameInputs.length -1].parent("#inputFields");
+}
 }
 
 
@@ -64,12 +58,12 @@ function draw() {
     clear();
     image(trolls[imageCounter], width/2, height/2);
 
-    if (imageCounter < trolls.length - 1) {
+    if (imageCounter   < trolls.length -1) {
       imageCounter++;
       console.log(imageCounter);
     }
     else {
-      imageCounter = 0;
+      imageCounter = 1;
     }
   }
 }
@@ -77,13 +71,22 @@ function draw() {
 
 
 
+function addAnotherInput(){
+  nameInputs.push(createInput());
+  nameInputs[nameInputs.length -1].parent("#inputFields");
+}
+
+
+
+
+
 function randomizer(){
   animating = false
-  if (cats[0]){
+  if (cats[1]){
   //  background(random(200, 255));
   clear();
     randomIndex = int(random(cats.length));
-    text(cats[randomIndex].name, width/2,height - 100);
+    text(cats[randomIndex], width/2 ,  height -55);
     cats.splice(randomIndex, 1);
   }
   else {
@@ -96,6 +99,13 @@ function randomizer(){
 
 
 function buttonPressed() {
+
+if (firstTime == true){
+  for (let i = 0; i < nameInputs.length; i++){
+    cats.push(nameInputs[i].value());
+  }
+  firstTime = false;
+}
   animating = true;
   setTimeout(randomizer, 2000);
 }
