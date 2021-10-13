@@ -16,5 +16,6 @@ background-color: #3264a8;
 }
  
 .column {
+  margin: 10px;
   flex: 50%;
 }
