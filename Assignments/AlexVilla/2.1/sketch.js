@@ -7,12 +7,8 @@ function setup() {
   console.log("initial array is ");
   console.log(dogs);
 
-  dogs.shift();
-  console.log("array after shift");
-  console.log(dogs);
-
-  dogs.unshift("alvie");
-  console.log("array after unshift");
+  dogs.splice();
+  console.log("array after splice");
   console.log(dogs);
 
 }
