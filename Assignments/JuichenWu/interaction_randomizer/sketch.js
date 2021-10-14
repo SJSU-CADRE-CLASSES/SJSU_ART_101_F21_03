@@ -26,7 +26,7 @@ function preload() {
 function setup() {
   cnv = createCanvas(600, 600);
   cnv.parent("#canvasDiv");
-  background(255, 205, 210);
+  background(0, 205, 210);
   textSize(45);
   textFont(`Courier new`)
   // textAlign(CENTER)
@@ -75,11 +75,13 @@ function randomizer() {
   animating = false;
   if (dogs[0]) {
     //this displays random name and splices it out of array
-    // background(random(200, 255));
+    //background(random(200, 255));
     clear();
     randomIndex = int(random(dogs.length));
-    text(dogs[randomIndex], width/40, height -5);
     image(random(trolls), width/2, height/2);
+    //fill(0);
+    text(dogs[randomIndex], width/2, height - 5);
+    console.log(dogs[randomIndex]);
     dogs.splice(randomIndex, 1);
   } else {
     background(random(200, 255));
