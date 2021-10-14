@@ -28,13 +28,13 @@ let centerSize = 20;
 let petalSize = 20;
 let petalNumber = 8;
 let animating = false;
-let dogss = [];
+let manydogs = [];
 let imageCounter = 0;
 
 
 function preload() {
-  for (let i = 0; i <= 10; i++) {
-    manydogs[i] = loadImage(`assets2/manydogs${i}.jpeg`)
+  for (let i = 0; i <= 11; i++) {
+    manydogs[i] = loadImage(`assets2/manydogs_${i}.jpeg`)
   }
 }
 
@@ -73,7 +73,7 @@ function draw() {
     // fill(random(255),random(255),random(255));
     // ellipse(random(width), random(height),random(15,200));
 
-    image(manydogs[0], width/2, height/2);
+    image(manydogs_[0], width/2, height/2);
   }
 }
 
@@ -118,7 +118,7 @@ function randomizer() {
 
 function mousePressed() {
   animating = true;
-  setTimeout(randomizer, 3000);
+  //setTimeout(randomizer, 3000);
 
 }
 // function branch(spread) {
