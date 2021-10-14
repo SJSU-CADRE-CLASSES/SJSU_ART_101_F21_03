@@ -60,7 +60,7 @@ function randomizer(){
   }
 }
 
-  function mousePressed() {
+  function buttonPressed() {
     animating = true; 
     setTimeout(randomizer, 2000);
   }
