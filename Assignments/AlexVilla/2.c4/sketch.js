@@ -23,10 +23,10 @@ let randomIndex;
 let animating = false;
 let starwars = [];
 
-function repload(){
+function preload(){
 
-  for (let i = 0; i <= 13; i++){
-    starwars[i] = loadImage(`assets/starwars_${i}.jpg`)
+  for (let i = 0; i <= 12; i++){
+    starwars[i] = loadImage(`assets/starwars_${i}.jpg`);
   }
 
 }
@@ -35,6 +35,7 @@ function setup() {
   createCanvas(600, 600);
   background(200);
   textSize(24);
+  imageMode(CENTER);
 
   text("click to randmonize", 50, 50);
   console.log(starwars);
@@ -44,10 +45,8 @@ function setup() {
 function draw() {
 
   if(animating == true){
-    ellipse(random(width), random(height), random(50, 200));
-
+    image(starwars[0], 0, 0);
   }
-  
 }
 
 function randomizer(){
