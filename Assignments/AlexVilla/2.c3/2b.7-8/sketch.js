@@ -42,12 +42,15 @@ function draw() {
 
 function randomizer(){
   animating = false;
-  
+
   if (dogs[0]){
     // this displays random name and splices it out of array
     background(random(200, 255));
     randomIndex = int(random(dogs.length));
-    text(dogs[randomIndex].name, 50, 50);
+    text(`${dogs[randomIndex].name} 's favorite color is
+    ${dogs[randomIndex].color}`, 50, 50);
+    // text(dogs[randomIndex].name + "'s favorite color is " + 
+    // dogs[randomIndex].color, 50, 50);
     dogs.splice(randomIndex, 1);
   } else {
     background(random(200, 255));
