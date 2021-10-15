@@ -21,13 +21,23 @@ color:"stardust"
 
 let randomIndex;
 let animating = false;
+let starwars = [];
+
+function repload(){
+
+  for (let i = 0; i <= 13; i++){
+    starwars[i] = loadImage(`assets/starwars_${i}.jpg`)
+  }
+
+}
 
 function setup() {
   createCanvas(600, 600);
   background(200);
-  textSize(32);
+  textSize(24);
 
   text("click to randmonize", 50, 50);
+  console.log(starwars);
 
 }
 
