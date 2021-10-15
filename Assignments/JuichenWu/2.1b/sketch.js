@@ -54,7 +54,7 @@
       button = select(`#randButton`)
       button.mousePressed(buttonPressed);
       button.class("randomizerButton");
-      
+
 
     }
 
