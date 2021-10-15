@@ -50,7 +50,7 @@ function randomizer(){
     // clear();
     randomIndex = int(random(shapes.length));
     // fill(50);
-    text(`What art movement is it?`, 170, 580);
+    // text(`What art movement is it?`, 170, 580);
     image(random(shapes), width/3, height/3);
     shapes.splice(randomIndex, 2);
 
