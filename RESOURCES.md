@@ -15,3 +15,12 @@ Class Website: https://github.com/ablanton/SJSU_ART_101_F21_02
 [GreenSheet](https://github.com/ablanton/SJSU_Art_101_F21_02/blob/master/GREENSHEET.md)
 | [Resources](https://github.com/ablanton/SJSU_Art_101_F21_02/blob/master/RESOURCES.md)
 | [Class Website](https://github.com/ablanton/SJSU_Art_101_F21_02)
+
+Resources
+---------
+
+10/14
+1. GitHub Copilot https://copilot.github.com/
+2. Mad Mapper https://madmapper.com/
+3. MapMap https://mapmapteam.github.io//
+4. animorph.es  http://animorph.es
