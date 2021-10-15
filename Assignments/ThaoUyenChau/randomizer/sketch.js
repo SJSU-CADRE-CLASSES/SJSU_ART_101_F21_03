@@ -36,6 +36,9 @@ function draw() {
        console.log(imageCounter);
     }else {
       imageCounter = 0;
+      noStroke();
+      fill(219, 210, 18);
+      rect(random(width), random(height), width*.3, height*.3);
 
     }
     image(shapes[imageCounter], random(width), random(height));
