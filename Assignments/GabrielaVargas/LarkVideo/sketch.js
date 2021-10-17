@@ -45,8 +45,8 @@ function randomizer() {
     // this displays random name and splices it out of array
     background(random(200, 255));
     randomIndex = int(random(succulents.length));
-    text(`${succulents[randomIndex].name}'s phase is
-    ${succulents[randomIndex].color}`, 50, 50);
+    text(`succulent's phase is
+    ${succulents[randomIndex].name}`, 50, 50);
     succulents.splice(randomIndex, 1);
   } else {
     background(random(200, 255));
