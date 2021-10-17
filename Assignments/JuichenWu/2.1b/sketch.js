@@ -21,58 +21,77 @@
 
     let randomIndex;
     let animating = false;
-    let trolls = [];
+    let trolls = []
+    let imageCounter = 0;
+    let button;
+    let cnv;
 
-    function preload(){
+    function preload() {
 
-      for (let i = 0; i <= 8; i++){
-        trolls[i] = loadImage(`assets/
-          troll_${i}.JPG`)
+      for (let i = 0; i <= 15; i++) {
+        trolls[i] = loadImage(`assets/troll_${i}.jpg`)
+
       }
 
-     }
+    }
 
 
     function setup() {
-      createCanvas(600, 600);
-      background(200);
-      textSize(24);
+      cnv = createCanvas(600, 600);
+      cnv.parent("#canvasDiv");
+      background(255, 205, 210);
+      textSize(30);
+      textFont(`Courier new`)
+      // textAlign(CENTER)
+      textStyle(BOLD)
+      fill(255)
       imageMode(CENTER);
+      frameRate(8);
 
-      text("click to randomize", 50, 50);
-      console. log(trolls);
+
+      // text("click to randomize", 50, 50);
+      // button = createButton("click to randomize");
+      button = select(`#randButton`)
+      button.mousePressed(buttonPressed);
+      button.class("randomizerButton");
 
 
     }
 
     function draw() {
 
-     if (animating == true){
-        image(trolls[0], 0, 0);
-  }
-}
+      if (animating == true) {
+        clear();
+        image(trolls[imageCounter], width/2, height/2);
+        if (imageCounter < trolls.length - 1) {
+        imageCounter++;
+        console.log(imageCounter);
+        } else { imageCounter = 0;
+
+        }
+
+      }
+    }
 
 
-function randomizer(){
-  animating = false;
+    function randomizer() {
+      animating = false;
+      if (dogs[0]) {
+        //this displays random name and splices it out of array
+        // background(random(200, 255));
+        clear();
+        randomIndex = int(random(dogs.length));
+        text(dogs[randomIndex].name, width/20, height -5);
+        image(random(trolls), width/2, height/2);
+        dogs.splice(randomIndex, 1);
+      } else {
+        background(random(200, 255));
+        text("nothing left!", 50, 50)
+      }
+    }
 
-  if (dogs[0]){
-    //this displays random name and splices it out of array
-  background(random(200, 255));
-  randomIndex = int(random(dogs.length));
-  text(`${dogs[randomIndex].name} 's favorite color
-  ${dogs[randomIndex].color}`, 50, 50);
-  // text(dogs[randomIndex].name +"'s faviorits color is " +
-  // dogs[randomIndex].color, 50, 50);
-  dogs.splice(randomIndex, 1);
-} else {
-  background(random(200, 255));
-  text("nothing left!", 50, 50)
-   }
- }
-
-    function mousePressed() {
+    function buttonPressed() {
       animating = true;
       setTimeout(randomizer, 2000);
 
-  }
+    }
