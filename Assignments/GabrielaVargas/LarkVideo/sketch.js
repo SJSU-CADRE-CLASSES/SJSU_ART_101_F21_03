@@ -21,20 +21,42 @@ let succulents = [{
 
 let randomIndex;
 let animating = false;
+let succpix = [];
+let imageCounter = 0;
+let button; 
+
+function preload() {
+
+  for (let i = 0; i <= 5; i++) {
+    succpix[i] = loadImage(`assets/succ_${i}.JPG`);
+  }
+}
 
 function setup() {
   createCanvas(600, 600);
   background(200);
   textSize(32);
+  imageMode(CENTER);
+  frameRate(8);
 
-  text("click to randomize", 50, 50);
+  text("click to randomize", 130, 300);
+ button = createButton ("click to randomize");
+ button.mousePressed (buttonPressed);
 
 }
 
 function draw() {
 
   if (animating == true) {
-    ellipse(random(width), random(height), random(50, 200));
+    clear();
+    image(succpix[imageCounter], width / 2, height / 2);
+    if (imageCounter < succpix.length - 1) {
+      imageCounter++;
+      console.log(imageCounter);
+    } else {
+      imageCounter = 0;
+    }
+
   }
 }
 
@@ -43,10 +65,12 @@ function randomizer() {
 
   if (succulents[0]) {
     // this displays random name and splices it out of array
-    background(random(200, 255));
+   // background(random(200, 255));
+   clear();
     randomIndex = int(random(succulents.length));
+    image(random (succpix), width / 2, height / 2);
     text(`succulent's phase is
-    ${succulents[randomIndex].name}`, 50, 50);
+    ${succulents[randomIndex].name}`, width - 450, height - 200);
     succulents.splice(randomIndex, 1);
   } else {
     background(random(200, 255));
@@ -54,7 +78,7 @@ function randomizer() {
   }
 }
 //
-function mousePressed() {
+function buttonPressed() {
   animating = true;
   setTimeout(randomizer, 2000);
 }
