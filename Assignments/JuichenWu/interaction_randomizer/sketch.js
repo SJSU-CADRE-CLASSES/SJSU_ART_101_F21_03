@@ -27,11 +27,11 @@ function setup() {
   cnv = createCanvas(600, 600);
   cnv.parent("#canvasDiv");
   background(255, 205, 210);
-  textSize(45);
+  textSize(40);
   textFont(`Courier new`)
   // textAlign(CENTER)
   textStyle(BOLD)
-  fill(255)
+  fill(0)
   imageMode(CENTER);
   frameRate(5);
 
@@ -78,7 +78,7 @@ function randomizer() {
     // background(random(200, 255));
     clear();
     randomIndex = int(random(dogs.length));
-    text(dogs[randomIndex], width/40, height -5);
+    text(dogs[randomIndex], width/40, height -1);
     image(random(trolls), width/2, height/2);
     dogs.splice(randomIndex, 1);
   } else {
