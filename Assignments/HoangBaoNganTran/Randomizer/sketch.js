@@ -31,16 +31,16 @@ let button;
 
 
 function preload() {
-  receipt = loadImage('assets/a receipt.PNG');
-  cupstraw = loadImage('assets/cup straw.PNG');
-  cuplid = loadImage('assets/cup lid.PNG');
+  receipt = loadImage('https://raw.githubusercontent.com/ablanton/SJSU_ART_101_F21_03/main/Assignments/HoangBaoNganTran/Randomizer/assets/a%20receipt.png');
+  cupstraw = loadImage('https://raw.githubusercontent.com/ablanton/SJSU_ART_101_F21_03/main/Assignments/HoangBaoNganTran/Randomizer/assets/cup%20straw.png');
+  cuplid = loadImage('https://raw.githubusercontent.com/ablanton/SJSU_ART_101_F21_03/main/Assignments/HoangBaoNganTran/Randomizer/assets/cup%20lid.png');
 
   for(let i = 0; i <= 6 ; i++) {
-    flv[i] = loadImage(`assets/flv${i}.PNG`)
+    flv[i] = loadImage(`https://raw.githubusercontent.com/ablanton/SJSU_ART_101_F21_03/main/Assignments/HoangBaoNganTran/Randomizer/assets/flv${i}.png`)
   };
 
   for(let n = 0; n<=5; n++) {
-    toppy[n] = loadImage(`assets/top${n}.PNG`)
+    toppy[n] = loadImage(`https://raw.githubusercontent.com/ablanton/SJSU_ART_101_F21_03/main/Assignments/HoangBaoNganTran/Randomizer/assets/top${n}.png`)
   }
 
 }
