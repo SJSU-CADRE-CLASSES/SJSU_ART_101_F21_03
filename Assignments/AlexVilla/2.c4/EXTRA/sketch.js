@@ -24,31 +24,39 @@ let animating = false;
 let starwars = [];
 let imageCounter = 0;
 let button;
+let cnv;
+let nameInputs = [];
+// let bg;
 
 function preload(){
 
   for (let i = 0; i <= 12; i++){
     starwars[i] = loadImage(`assets/starwars_${i}.jpg`);
   }
-
 }
 
 function setup() {
-  createCanvas(600, 600);
+  // bg = loadImage('assets/space2.jpg');
+
+  cnv = createCanvas(600, 600);
+  cnv.parent("#canvasDiv");
+
   background(200);
-  textSize(18);
+  textSize(24);
   textFont('Arial');
-  // textAlign(CENTER);
   textStyle(BOLD);
   fill(200);
   imageMode(CENTER);
   frameRate(8);
 
-  text("click to randomize", 40, 30);
-  console.log(starwars);
-
-  button = createButton("click to randomize");
+  button = select ('#randButton')
   button.mousePressed(buttonPressed);
+  button.class("randomizerButton");
+
+for (let i = 0; i < 3; i++){
+  nameInputs.push(createInput());
+  nameInputs[nameInputs.length - 1].parent("#inputFields");
+}
 }
 
 function draw() {
