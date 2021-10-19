@@ -36,10 +36,13 @@ function setup() {
   createCanvas(600, 600);
   background(200);
   textSize(32);
+  textFont('fantasy');
+
+
   imageMode(CENTER);
   frameRate(8);
 
-  text("click to randomize", 130, 300);
+  text("↓ ↓ click down below to randomize ↓↓", 50, 300,);
  button = createButton ("click to randomize");
  button.mousePressed (buttonPressed);
 
@@ -68,16 +71,19 @@ function randomizer() {
    // background(random(200, 255));
    clear();
     randomIndex = int(random(succulents.length));
-    image(random (succpix), width / 2, height / 2);
-    text(`succulent's phase is
-    ${succulents[randomIndex].name}`, width - 450, height - 200);
-    succulents.splice(randomIndex, 1);
+    //shows the image
+    image(succpix [randomIndex], width / 2, height / 2);
+    //shows the text
+    text("Succulent is in phase" ,
+     width - 330, height - 50);
+    text(succulents[randomIndex].name, width/2, height /2)
+
   } else {
     background(random(200, 255));
     text("nothing left!", 50, 50);
   }
 }
-//
+
 function buttonPressed() {
   animating = true;
   setTimeout(randomizer, 2000);
