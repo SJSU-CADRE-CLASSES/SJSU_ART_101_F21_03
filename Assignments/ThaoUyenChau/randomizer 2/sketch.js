@@ -6,7 +6,7 @@ let imageCounter = 0;
 let button;
 
 function preload(){
-  for (let i = 0; i <= 20; i++){
+  for (let i = 0; i <= 23; i++){
   shapes[i] = loadImage(`assets/shape_${i}.png`)
     console.log(shapes);
   }
@@ -16,19 +16,21 @@ function setup() {
 
   createCanvas(600, 600);
   background (255);
-  textSize(24);
+  textSize(72);
   imageMode(CENTER);
   frameRate(8);
 
-  text("Let's create", 170, 250);
   console.log(shapes);
 
   button = createButton("click to create");
   button.mousePressed(buttonPressed);
 
+  letsCreate();
+
 }
 
 function draw() {
+
  if (animating == true){
     clear();
     if (imageCounter < shapes.length - 1){
@@ -39,10 +41,42 @@ function draw() {
       noStroke();
       fill(219, 210, 18);
       rect(random(width), random(height), width*.3, height*.3);
+      fill(192, 125, 219);
+      rect(random(width), random(height), width*.3, height*.3);
+      fill(224, 68, 145);
+      rect(random(width), random(height), width*.4, height*.3);
+      fill(143, 200, 34);
+      rect(random(width), random(height), width*.3, height*.3);
 
     }
     image(shapes[imageCounter], random(width), random(height));
  }
+}
+
+function letsCreate(){
+
+  fill(219, 210, 18);
+  text("L", 130, 250);
+  fill(192, 125, 219);
+  text("e", 170, 250);
+  fill(224, 68, 145);
+  text("t", 210, 250);
+  fill(143, 200, 34);
+  text("'s", 230, 250);
+
+  fill(224, 68, 145);
+  text("c", 130, 320);
+  fill(219, 210, 18);
+  text("r", 173, 320);
+  fill(143, 200, 34);
+  text("e", 200, 320);
+  fill(224, 68, 145);
+  text("a", 240, 320);
+  fill(143, 200, 34);
+  text("t", 280, 320);
+  fill(192, 125, 219);
+  text("e", 300, 320);
+
 }
 
 function randomizer(){
@@ -59,9 +93,10 @@ function randomizer(){
 
   } else {
     // background(random(200, 255));
+    fill(224, 68, 145);
+    rect(width*.2,height*.1, width*.3, height*.4);
     fill(50);
     text("Nothing left!", 75, 300 );
-    rect(width*.2,height*.1, width*.3, height*.5);
 
   }
 }
