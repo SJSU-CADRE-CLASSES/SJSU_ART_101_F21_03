@@ -34,17 +34,23 @@ function preload() {
 
 function setup() {
   createCanvas(600, 600);
-  background(200);
+  background(130, 163, 122);
   textSize(32);
   textFont('fantasy');
+  
 
 
   imageMode(CENTER);
   frameRate(8);
 
-  text("↓ ↓ click down below to randomize ↓↓", 50, 300,);
- button = createButton ("click to randomize");
- button.mousePressed (buttonPressed);
+  
+  text(`      The goal of this game is to make sure 
+  you get the best phase of the succulent, 
+                beware of the rotten one!`, 20, 300, )
+ 
+button = createButton ("click to randomize");
+button.mousePressed (buttonPressed);
+button.class("randomizerButton")
 
 }
 
@@ -75,13 +81,12 @@ function randomizer() {
     image(succpix [randomIndex], width / 2, height / 2);
     //shows the text
     text("Succulent is in phase:" ,
-     width - 550, height / 2);
-    text(succulents[randomIndex].name, width -260, height / 2)
-
-  } else {
-    background(random(200, 255));
-    text("nothing left!", 50, 50);
-  }
+    width - 550, height - 40);
+   text(succulents[randomIndex].name, width -260, height - 40)
+ } else {
+   background(random(200, 255));
+   text("nothing left!", 50, 50);
+ }
 }
 
 function buttonPressed() {
