@@ -4,106 +4,136 @@ let randomIndex;
 let press = 0;
 let power = 0;
 let powerSum = 0;
+let s;
 
 let randomPowerWeak;
 let randomPowerAvg;
 let randomPowerStrong;
 let randomPowerGod;
+let symbols = [];
 
 //Players array===============================
 let players = [{
   name: "Sal the Silly",    //warriors
   speciality: "Warrior",
-  power: 1
+  power: 1,
+  symbol: 1
 }, {
   name: "Alexio the Legend",
   speciality: "Warrior",
-  power: 5
+  power: 5,
+  symbol: 1
 }, {
   name: "Mary the Mad",
   speciality: "Warrior",
-  power: 3
+  power: 3,
+  symbol: 1
 }, {
   name: "Noel the Novice",  //mages
   speciality: "Mage",
-  power: 1
+  power: 1,
+  symbol: 3
 }, {
   name: "Helen the Hella Powerful Mage",
   speciality: "Mage",
-  power: 5
+  power: 5,
+  symbol: 3
 }, {
   name: "Big Hat Beatrix",
   speciality: "Mage",
-  power: 3
+  power: 3,
+  symbol: 3
 }, {
   name: "Joe the Average",  //hunter
   speciality: "Hunter",
-  power: 3
+  power: 3,
+  symbol: 2
 }, {
   name: "Ivy the Invisible",
   speciality: "Hunter",
-  power: 4
+  power: 4,
+  symbol: 2
 }, {
   name: "Chris with a Cape",
   speciality: "Hunter",
-  power: 2
+  power: 2,
+  symbol: 2
 }, {
   name: "Hector the Healer",  //healers
   speciality: "Healer",
-  power: 3
+  power: 3,
+  symbol: 4
 }, {
   name: "Adam the Amputator",
   speciality: "Healer",
-  power: 1
+  power: 1,
+  symbol: 4
 }, {
   name: "Ellise the Energetic",
   speciality: "Healer",
-  power: 3
+  power: 3,
+  symbol: 4
 }, {
   name: "Donut the Doggo",    //special chars
   speciality: "Dog",
-  power: 5
+  power: 5,
+  symbol: 5
 }, {
   name: "Gravy the G.O.A.T.",    //special chars
   speciality: "G.O.A.T.",
-  power: 5
+  power: 5,
+  symbol: 5
 }, {
   name: "Trixi the Tricky",    //special chars
   speciality: "Tricky",
-  power: 5
+  power: 5,
+  symbol: 5
 }, {
   name: "City Guard",    //special chars
   speciality: "Protagonist",
-  power: 10
+  power: 10,
+  symbol: 5
 }];
 //monsters===============================
 let monsters = [{
   name: "slimes",
   type: "slime",
-  power: 5
+  power: 5,
+  symbol: 6
 }, {
   name: "Nigel the Necromancer",
   type: "Necromancer",
-  power: 5
+  power: 5,
+  symbol: 7
 }, {
   name: "Fire-Tooth",
   type: "Dragon",
-  power: 5
+  power: 5,
+  symbol: 8
 }, {
   name: "Lady Lauren",
   type: "Evil Magister",
-  power: 5
+  power: 5,
+  symbol: 9
 }, {
   name: "Thanatos The God of Death",
   type: "God",
-  power: 5
+  power: 5,
+  symbol: 10
 }];
 //end of classes===============================
+function preload(){
+  for(let a = 1; a<=10; a++){
+    symbols[a] = loadImage(`assets/symbols-${a}.png`)
+  }
+}
+
 
 function setup() {
   createCanvas(600, 600);
   background(200);
 
+  console.log(symbols);
   randomPowerWeak = int(random(5, 10));
   randomPowerAvg = int(random(10, 15));
   randomPowerStrong = int(random(15, 20));
@@ -156,6 +186,8 @@ function mousePressed(){
   power = players[randomIndex].power;
   text(`Power: ${power}`, 50, 90);
   powerSum = powerSum + power;
+  s = players[randomIndex].symbol;
+  image(symbols[s], 10, 50);
   //text(power1, 120, 90);
   players.splice(randomIndex, 1);
   console.log(players); //gets array
@@ -167,6 +199,8 @@ function mousePressed(){
   power = players[randomIndex].power;
   text(`Power: ${power}`, 50, 160);
   powerSum = powerSum + power;
+  s = players[randomIndex].symbol;
+  image(symbols[s], 10, 120);
   players.splice(randomIndex, 1);
   console.log(players); //gets array
   press++;
@@ -177,6 +211,8 @@ function mousePressed(){
   power = players[randomIndex].power;
   text(`Power: ${power}`, 50, 230);
   powerSum = powerSum + power;
+  s = players[randomIndex].symbol;
+  image(symbols[s], 10, 190);
   players.splice(randomIndex, 1);
   console.log(players); //gets array
   press++;
@@ -187,6 +223,8 @@ function mousePressed(){
   power = players[randomIndex].power;
   text(`Power: ${power}`, 50, 300);
   powerSum = powerSum + power;
+  s = players[randomIndex].symbol;
+  image(symbols[s], 10, 260);
   players.splice(randomIndex, 1);
   console.log(players); //gets array
   press++;
@@ -199,6 +237,8 @@ function mousePressed(){
   text(`Name: ${monsters[randomIndex].name}`, 400, 100);
   text(`Type: ${monsters[randomIndex].type}`, 400, 120);
   text(`Power: ${monsters[randomIndex].power}`, 400, 140);
+  s = monsters[randomIndex].symbol;
+  image(symbols[s], 360, 100);
   press++;
 } else if(press == 6){
   if(powerSum <= monsters[randomIndex].power){
