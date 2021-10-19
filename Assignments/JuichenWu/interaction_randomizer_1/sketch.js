@@ -86,7 +86,7 @@ function randomizer() {
     image(random(trolls), width/2, height/2);
     dogs.splice(randomIndex, 1);
   } else {
-    background(random(255, 255));
+    background(random(2, 255));
     text("nothing left!", 128, 236)
     function draw() {
 
