@@ -36,11 +36,11 @@ function preload() {
   cuplid = loadImage('https://raw.githubusercontent.com/ablanton/SJSU_ART_101_F21_03/main/Assignments/HoangBaoNganTran/Randomizer/assets/cup%20lid.png');
 
   for(let i = 0; i <= 6 ; i++) {
-    flv[i] = loadImage(`https://raw.githubusercontent.com/ablanton/SJSU_ART_101_F21_03/main/Assignments/HoangBaoNganTran/Randomizer/assets/flv${i}.png`)
+    flv[i] = loadImage('https://raw.githubusercontent.com/ablanton/SJSU_ART_101_F21_03/main/Assignments/HoangBaoNganTran/Randomizer/assets/flv'+${i}+'.png')
   };
 
   for(let n = 0; n<=5; n++) {
-    toppy[n] = loadImage(`https://raw.githubusercontent.com/ablanton/SJSU_ART_101_F21_03/main/Assignments/HoangBaoNganTran/Randomizer/assets/top${n}.png`)
+    toppy[n] = loadImage('https://raw.githubusercontent.com/ablanton/SJSU_ART_101_F21_03/main/Assignments/HoangBaoNganTran/Randomizer/assets/top'+${n}+'.png')
   }
 
 }
