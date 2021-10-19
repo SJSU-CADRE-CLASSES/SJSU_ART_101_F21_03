@@ -272,8 +272,10 @@ function buttonPressed(){
 
 function getWin(){
   if(win == true){
+    textFont('fantasy');
     text(`You Won`, width/2, 400);
   }else if(win == false){
+    textFont('fantasy');
     fill(255, 0, 0);
     text(`You Lost`, width/2, 400);
   }
