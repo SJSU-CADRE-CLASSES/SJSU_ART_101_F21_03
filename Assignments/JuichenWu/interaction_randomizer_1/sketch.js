@@ -29,14 +29,14 @@ function preload() {
 function setup() {
   cnv = createCanvas(600, 600);
   cnv.parent("#canvasDiv");
-  background(0, 105, 92);
+  background(132, 255, 255);
   textSize(40);
   textFont(`Courier new`)
   // textAlign(CENTER)
   textStyle(BOLD)
   fill(0, 96, 100)
   imageMode(CENTER);
-  frameRate(5);
+  frameRate(4);
 
 
   // text("click to randomize", 50, 50);
@@ -86,8 +86,8 @@ function randomizer() {
     image(random(trolls), width/2, height/2);
     dogs.splice(randomIndex, 1);
   } else {
-    background(random(255, 255));
-    text("nothing left!", 128, 236)
+    background(random(2, 255));
+    text("out of stock!", 128, 235)
     function draw() {
 
 
