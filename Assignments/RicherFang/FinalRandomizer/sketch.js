@@ -8,13 +8,15 @@ let changeBackground = true;
 let Space = [];
 let imageCounter = 0;
 let button;
-let buttonPressed;
+// let buttonPressed;
+
 function preload(){
-  img = loadImage(`assests/Space_Ship.png`);
 
 for (let i = 0; i <= 13; i++){
   Space[i] = loadImage(`assests/Space_${i}.png`)
 }
+
+img = loadImage(`images/Ship.png`);
 
 }
 
@@ -24,22 +26,23 @@ function setup() {
   imageMode (CENTER);
   image(img, 760, 360, windowWidth, windowHeight);
   frameRate(8);
-  
-  button = createButton('WARPSPEED');
+
+  button = createButton ("WARPSPEED");
   button.position(1150, 490);
-  button.mousePressed();
-
+  button.mousePressed (buttonPressed);
+  button.class("randomizerButton")
+  
   let col = color(255,0,0); //use color instead of fill
-  button.style('background-color', col);
-
+  button.style("background-color", col);
+  
   redbutton()
 }
 
 function draw() {
-  background(bg);
+  // background(bg);
   if (animating == true) {
       // clear();
-      image(Space[imageCounter], windowWidth, windowHeight);
+      image(Space[imageCounter], 768, 350, windowWidth, windowHeight);
       if (imageCounter < Space.length - 1) {
       imageCounter++;
     } else{
@@ -48,15 +51,18 @@ function draw() {
 
   }
 
+}
 
 function randomizer(){
   animating = false;
+
   if (planets[0]) {
     // background(random(200, 255)); 
-    clear();
-    randomIndex = int( random(planets.length)); 
-    text(planets[randomIndex].name, width/2, height - 25);
-    image(random(planetss), width/2, height/2);
+    // clear();
+    randomIndex = int(random(planets.length)); 
+    image(Space [randomIndex], 768, 350, windowWidth, windowHeight);
+    text(planets [randomIndex].name, 900, 100);
+    
     planets.splice(randomIndex, 1);
   } else {
     background(random(200, 255)); 
@@ -65,10 +71,9 @@ function randomizer(){
 
 }
 
-  function buttonPressed() {
-    animating = true; 
-    setTimeout(randomizer, 2000);
-  }
+function buttonPressed() {
+  animating = true;
+  setTimeout(randomizer, 2000);
 }
 
 function redbutton(){
