@@ -18,13 +18,11 @@ function setup() {
   cnvs = createCanvas(600, 600);
   cnvs.parent("#canvasDiv");
 
-  background (255);
+  background (20);
   textSize(65);
   imageMode(CENTER);
   frameRate(8);
 
-  console.log(shapes);
-  // button = createButton("click to create");
   button = select('#randButton')
   button.mousePressed(buttonPressed);
   button.class("randomizerButton");
@@ -32,10 +30,10 @@ function setup() {
 
 }
 
-function draw() {
-
- if (animating == true){
+function resetSketch(){
+  if (animating == true){
     clear();
+    background(20);
     if (imageCounter < shapes.length - 1){
        imageCounter++;
        console.log(imageCounter);
@@ -47,7 +45,33 @@ function draw() {
       fill(192, 125, 219);
       rect(random(width), random(height), width*.3, height*.3);
       fill(224, 68, 145);
-      rect(random(width), random(height), width*.4, height*.3);
+      circle(random(width), random(height), width*.4, height*.3);
+      fill(143, 200, 34);
+      rect(random(width), random(height), width*.3, height*.3);
+
+    }
+    image(shapes[imageCounter], random(width), random(height));
+ }
+
+}
+
+function draw() {
+
+ if (animating == true){
+    clear();
+    background(20);
+    if (imageCounter < shapes.length - 1){
+       imageCounter++;
+       console.log(imageCounter);
+    }else {
+      imageCounter = 0;
+      noStroke();
+      fill(219, 210, 18);
+      rect(random(width), random(height), width*.3, height*.3);
+      fill(192, 125, 219);
+      rect(random(width), random(height), width*.3, height*.3);
+      fill(224, 68, 145);
+      circle(random(width), random(height), width*.4, height*.3);
       fill(143, 200, 34);
       rect(random(width), random(height), width*.3, height*.3);
 
@@ -86,24 +110,32 @@ function randomizer(){
   animating = false;
 
   if (shapes[0]){
-    // background(random(255));
-    // clear();
     randomIndex = int(random(shapes.length));
-    // fill(50);
-    // text(`What art movement is it?`, 170, 580);
     image(random(shapes), width/3, height/3);
     shapes.splice(randomIndex, 2);
 
   } else {
     // background(random(200, 255));
+    fill(219, 210, 18);
+    rect(random(width), random(height), width*.3, height*.3);
+    fill(192, 125, 219);
+    rect(random(width), random(height), width*.3, height*.3);
     fill(224, 68, 145);
-    rect(random(width), random(height), width*.3, height*.4);
-    fill(50);
-    text("Hope you", 75, 300 );
+    circle(random(width), random(height), width*.4, height*.3);
+    fill(143, 200, 34);
+    rect(random(width), random(height), width*.3, height*.3);
+    fill(250);
+    textSize(32);
+    text("Hope you got something awesome", 75, 300 );
+    // background(0);
+    // fill(255);
+    // text("REPLAY", 75, 300);
+
+
 
   }
 }
 function buttonPressed() {
 animating = true
-setTimeout(randomizer, 2000);
+setTimeout(randomizer, 1000);
 }
