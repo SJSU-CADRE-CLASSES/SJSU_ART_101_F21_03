@@ -6,6 +6,7 @@ let power = 0;
 let powerSum = 0;
 let s;
 let button;
+let win;//boolean
 
 let randomPowerWeak;
 let randomPowerAvg;
@@ -175,6 +176,7 @@ function draw() {
   // nostroke();
   // fill(150);
   // ellipse(100, 100, 40);
+  getWin();
   console.log(monsters[0]);
 }
 
@@ -249,9 +251,11 @@ function buttonPressed(){
   textSize(36);
   textStyle(BOLD);
   if(powerSum <= monsters[randomIndex].power){
-    text(`You Lost`, width/2, 400);
+    win = false;
+  //  text(`You Lost`, width/2, 400);
   } else {
-    text(`You Won`, width/2, 400);
+    win = true;
+  //  text(`You Won`, width/2, 400);
   }
 }
   //
@@ -264,4 +268,13 @@ function buttonPressed(){
   // text(players[randomIndex].name, 50, 170);
   // text(players[randomIndex].power, 50, 190);
   // players.splice(randomIndex, 1);
+}
+
+function getWin(){
+  if(win == true){
+    text(`You Won`, width/2, 400);
+  }else if(win == false){
+    fill(255, 0, 0);
+    text(`You Lost`, width/2, 400);
+  }
 }
