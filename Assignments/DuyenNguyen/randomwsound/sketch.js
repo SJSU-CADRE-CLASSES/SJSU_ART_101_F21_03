@@ -96,6 +96,7 @@ function setup() {
   
   button = createButton('play');
   button.mousePressed(toggleSong);
+  button.class("randomizerButton")
   song.play();
   fft = new p5.FFT(0, 128);
   dance = width/128 ;
