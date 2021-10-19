@@ -1,0 +1,18 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+.randomizerButton{
+  padding: 20px;
+  background-color: #609e8e;
+  font-weight:bold;
+  width: 31.3%;
+  
+  
+  
+
+}
