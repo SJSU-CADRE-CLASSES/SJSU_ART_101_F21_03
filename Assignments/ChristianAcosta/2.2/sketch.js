@@ -135,7 +135,7 @@ function setup() {
   createCanvas(600, 600);
   background(200);
   textSize(12);
-  textFont('fantasy');
+  textFont('cursive');
 
   randomPowerWeak = int(random(5, 10));
   randomPowerAvg = int(random(10, 15));
@@ -273,7 +273,6 @@ function buttonPressed(){
 function getWin(){
   if(win == true){
     textFont('fantasy');
-    fill(0, 0, 255);
     text(`You Won`, width/2, 400);
   }else if(win == false){
     textFont('fantasy');
