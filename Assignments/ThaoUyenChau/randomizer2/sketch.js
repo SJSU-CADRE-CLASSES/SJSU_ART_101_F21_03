@@ -94,9 +94,9 @@ function randomizer(){
   } else {
     // background(random(200, 255));
     fill(224, 68, 145);
-    rect(width*.2,height*.1, width*.3, height*.4);
+    rect(random(width), random(height), width*.3, height*.4);
     fill(50);
-    text("Nothing left!", 75, 300 );
+    text("Hope you", 75, 300 );
 
   }
 }
