@@ -36,7 +36,7 @@ function setup() {
   textStyle(BOLD)
   fill(0, 96, 100)
   imageMode(CENTER);
-  frameRate(5);
+  frameRate(4);
 
 
   // text("click to randomize", 50, 50);
