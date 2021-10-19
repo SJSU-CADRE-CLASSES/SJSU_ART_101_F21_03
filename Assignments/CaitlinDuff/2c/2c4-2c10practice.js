@@ -41,7 +41,8 @@ function preload(){
     textStyle(BOLD);
 
     text("Click to meet your sprite!", 150, 300);
-    console.log(soots);
+   
+    createButton("Summon Your Sprite");
 
   }
   
