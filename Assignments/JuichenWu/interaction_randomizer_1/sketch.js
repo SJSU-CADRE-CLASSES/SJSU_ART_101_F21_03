@@ -29,14 +29,14 @@ function preload() {
 function setup() {
   cnv = createCanvas(600, 600);
   cnv.parent("#canvasDiv");
-  background(0, 105, 92);
+  background(132, 255, 255);
   textSize(40);
   textFont(`Courier new`)
   // textAlign(CENTER)
   textStyle(BOLD)
   fill(0, 96, 100)
   imageMode(CENTER);
-  frameRate(5);
+  frameRate(4);
 
 
   // text("click to randomize", 50, 50);
