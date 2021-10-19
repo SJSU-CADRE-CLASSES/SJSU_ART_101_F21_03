@@ -1,12 +1,12 @@
 // dogs I have loved before
 let dogs = [{
-  name:"dillon", 
+  name:"dillon",
   color: "dog treat color"
 }, {
-  name: "Ziggy", 
+  name: "Ziggy",
   color:"chartrese"
 }, {
-  name:"mercedes", 
+  name:"mercedes",
   color: "poop"
 }, {
   name:"petunia",
@@ -37,7 +37,7 @@ function draw() {
     ellipse(random(width), random(height), random(50, 200));
 
   }
-  
+
 }
 
 function randomizer(){
@@ -49,11 +49,11 @@ function randomizer(){
     randomIndex = int(random(dogs.length));
     text(`${dogs[randomIndex].name} 's favorite color is
     ${dogs[randomIndex].color}`, 50, 50);
-    // text(dogs[randomIndex].name + "'s favorite color is " + 
+    // text(dogs[randomIndex].name + "'s favorite color is " +
     // dogs[randomIndex].color, 50, 50);
     dogs.splice(randomIndex, 1);
   } else {
-    background(random(200, 255));
+    background(random(200, 255);
     text("nothing left!", 50, 50);
 }
 }
@@ -61,5 +61,5 @@ function randomizer(){
 function mousePressed() {
   animating = true;
   setTimeout(randomizer, 2000);
-  
+
 }

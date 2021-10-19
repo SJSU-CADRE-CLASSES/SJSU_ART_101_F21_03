@@ -13,6 +13,9 @@ let nameInputs =[];
 let firstTime =true;
 
 
+
+
+
 function preload() {
 
   for (let i = 0; i <= 15; i++) {
@@ -26,12 +29,12 @@ function preload() {
 function setup() {
   cnv = createCanvas(600, 600);
   cnv.parent("#canvasDiv");
-  background(255, 205, 210);
+  background(0, 105, 92);
   textSize(40);
   textFont(`Courier new`)
   // textAlign(CENTER)
   textStyle(BOLD)
-  fill(0)
+  fill(0, 96, 100)
   imageMode(CENTER);
   frameRate(5);
 
@@ -52,6 +55,7 @@ function setup() {
   }
 }
 function draw() {
+
 
   if (animating == true) {
     clear();
@@ -82,8 +86,12 @@ function randomizer() {
     image(random(trolls), width/2, height/2);
     dogs.splice(randomIndex, 1);
   } else {
-    background(random(200, 255));
-    text("nothing left!", 120, 230)
+    background(random(255, 255));
+    text("nothing left!", 128, 236)
+    function draw() {
+
+
+    }
   }
 }
 
