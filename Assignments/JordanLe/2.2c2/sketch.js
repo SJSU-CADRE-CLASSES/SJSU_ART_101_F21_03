@@ -59,8 +59,10 @@ let ghostsOfLife = [{
   name: "Brian",
   lore: ""
 }];
-let randomIndex1 = 0;
+let randomIndex = 0;
 let bgc;
+let ghostColor;
+let ghostFaceColor;
 
 let ghostCover = false;
 
@@ -72,19 +74,19 @@ function setup() {
   // light-green, dark-purple, blue, orange, blackish-blue,indigoish, purple, pure-blue,
   // lavendar, pinkish, yellow-green, magenta(doing rainbow causes crimson cause it's not in the draw function), dark-green, pure green
   bgc = [color(200, 250, 140),
-             color(102, 0, 102),
-             color(60, 140, 250),
-             color(250, 140, 60),
-             color(0, 0, 100),
-             color(140, 140, 250),
-             color("#7F00FF"),
-             color(0, 0, 255),
-             color("#E5CCFF"),
-             color(255, 155, 255),
-             color(220, 250, 0),
-             color("#FF007F"),
-             color(0, 125, 0),
-             color(0, 255, 0)];
+         color(102, 0, 102),
+         color(60, 140, 250),
+         color(250, 140, 60),
+         color(0, 0, 100),
+         color(140, 140, 250),
+         color("#7F00FF"),
+         color(0, 0, 255),
+         color("#E5CCFF"),
+         color(255, 155, 255),
+         color(220, 250, 0),
+         color("#FF007F"),
+         color(0, 125, 0),
+         color(0, 255, 0)];
 
   // seems like these variables are only predefined within the p5js functions?
   console.log(windowWidth); //1365
@@ -94,17 +96,48 @@ function setup() {
   console.log(random(14));
   console.log(int(random(14)));
 
-
+  // the button
+  button = createButton("click to randomize ghosts");
+  button.mousePressed(randomizeGhost);
 }
 
-var ghostSize1 = 200;
-var ghostPosX1 = 400;
-var ghostPosY1 = 400;
+var ghostSize1 = window.innerHeight / 5; // used to be 200
+var ghostPosX1 = window.innerWidth / 2; // used to be 400
+var ghostPosY1 = window.innerHeight / 2; // used to be 400
 
 function draw() {
+  ghostColor = [color(60, 140, 250),
+                color(255),
+                color(60, 140, 250),
+                color("#999900"),
+                color(255, 0, 0),
+                color(255, 255, 155),
+                color(0),
+                color(255, 0, 0),
+                color(128),
+                color(155, 225, 255),
+                color("#006633"),
+                color("#802AC0"),
+                color("#003366"),
+                color(150, 110, 75)];
+
+  ghostFaceColor = [color(200, 230, 250),
+                    color(0),
+                    color(200, 230, 250),
+                    color(255),
+                    color("#FFFF00"),
+                    color(255, 155, 255),
+                    color(100, 0, 50),
+                    color(255),
+                    color("#802AC0"),
+                    color(255, 255, 155),
+                    color(80, 80, 0),
+                    color(random(255), random(255), random(255)),
+                    color("#FF6666"),
+                    color(110, 0, 0)];
   push();
 
-  background(bgc[randomIndex1]);
+  background(bgc[randomIndex]);
 
   noStroke();
   //console.log(width);
@@ -115,9 +148,9 @@ function draw() {
   // textAlign(CENTER);
   // text(artisticSoftware[randomIndex3], 600, 250);
 
-  fill(60, 140, 250);
+  fill(ghostColor[randomIndex]);
   ellipse(ghostPosX1, ghostPosY1, ghostSize1); // (100, 100, 80)
-  fill(200, 230, 250);
+  fill(ghostFaceColor[randomIndex]);
   ellipse(ghostPosX1 - (ghostSize1 / 5), ghostPosY1 - (ghostSize1 / (20 / 3)), ghostSize1 / 8); // (84, 88, 10)
   ellipse(ghostPosX1 + (ghostSize1 / 5), ghostPosY1 - (ghostSize1 / (20 / 3)), ghostSize1 / 8); // (116, 88, 10)
   rect(ghostPosX1 - (ghostSize1 / 8), ghostPosY1, ghostSize1 / 4, ghostSize1 / (8 / 3)); // (90, 100, 20, 30)
@@ -141,7 +174,7 @@ function draw() {
 
   /*
     if (mouseIsPressed && insideCircle(ghostPosX1, ghostPosY1, ghostSize1)) {
-        randomIndex1 = int(random(ghostsOfLife.length));
+        randomIndex = int(random(ghostsOfLife.length));
     }
 
     if (mouseIsPressed && insideCircle(ghostPosX2, ghostPosY2, ghostSize2)) {
@@ -167,11 +200,11 @@ function draw() {
   stroke(0);
   strokeWeight(6);
   textAlign(CENTER);
-  text(ghostsOfLife[randomIndex1].splash, 400, 200);
-  text(`Name:\n${ghostsOfLife[randomIndex1].name}`, 400, 540);
+  text(ghostsOfLife[randomIndex].splash, ghostPosX1, ghostPosY1 - 200); // former coordinates: (400, 200)
+  text(`Name:\n${ghostsOfLife[randomIndex].name}`, ghostPosX1, ghostPosY1 + 140); // former coordinates: (400, 540)
 
   fill("#FFFF00");
-  text("Please click on a ghost to see its splash text", 400, 660);
+  text("Please click on a ghost to see its splash text", ghostPosX1, ghostPosY1 + 280); // former coordinates: (400, 660)
   pop();
 
   blueGhostArmies();
@@ -185,7 +218,7 @@ function mousePressed() {
   if (insideCircle(ghostPosX1, ghostPosY1, ghostSize1)) {
     //setTimeout(blueGhostArmies(), 10000);
     ghostCover = true;
-    randomIndex1 = int(random(ghostsOfLife.length));
+    randomIndex = int(random(ghostsOfLife.length));
     setTimeout(blueGhostFinish, 2000);
   }
 
@@ -226,6 +259,13 @@ function blueGhostArmies() {
 
   }
 
+}
+
+function randomizeGhost() {
+    //setTimeout(blueGhostArmies(), 10000);
+    ghostCover = true;
+    randomIndex = int(random(ghostsOfLife.length));
+    setTimeout(blueGhostFinish, 2000);
 }
 
 function blueGhostFinish() {
