@@ -1,130 +1,138 @@
-//flowers I know of
+// var song;
+// //var slider;
+// var button;
+// var fft;
+// var chieudai;
 
-let flowers = [{
-  name: "rose",
-  color: "red"
-}, {
-  name: "lily",
-  color: "white"
-}, {
-  name: "orchid",
-  color: "purple"
-}, {
-  name: "carnation",
-  color: "blue"
-}, {
-  name: "camelia",
-  color: "pink"
-}, {
-  name: "poppy",
-  color: "orange"
-}, {
-  name: "freesia",
-  color: "yellow"
-}]
+// function preload(){
+//   song = loadSound("uptownfunk.mp3");
+  
+// }
+// function lenluon(){
+//   if(!song.isPlaying()){
+//     song.play();
+//     song.setVolume(0.3);
+//     button.html("pause");
+//   } else {
+//     song.pause();
+//     button.html("play");
+//   }
+// }
+// function setup(){
+
+//  createCanvas(256,256);
+ 
+//  button = createButton("play");
+//  button.mousePressed(lenluon);
+//  //slider = createSlider(0,1,0.5,0.1);
+ 
+//  song.setVolume(0.3);
+//  fft = new p5.FFT(0,64);
+// console.log("width is ", width)
+// chieudai = width/64; 
+// console.log("chieud is ,", chieudai)
+
+// }
 
 
+// function draw(){
+//   background(0);
+//  var spectrum = fft.analyze();
+//  console.log(spectrum)
+//  //stroke(255);
 
-let randomFlower;
-let centerSize = 20;
-let petalSize = 20;
-let petalNumber = 8;
-let counter = 0;
+//  for (var i = 0; i < spectrum.length; i++);{
+//   stroke(255);
+//   //var amp = spectrum[i];
+//   var amp = Math.random(256)
+//   console.log("Height is ", height)
+//   console.log("Width is ", width)
+//   console.log("Chieudai is ", chieudai)
+//   console.log("Amp is ", amp)
+//   console.log("Spectrum is", spectrum)
+//   var y = map(amp, 0, 1, height, 0);
+
+//   fill(i,255,255);
+//   line (i, height , i,  y);
+//  }
+//  //console.log(spectrum);
+// stroke(255);
+//  noFill();
+
+ 
+
+// }
+
+var song;
+var fft;
+var button;
+var w;
+
+// function toggleSong() {
+//   if (song.isPlaying()) {
+//     song.pause();
+//   } else {
+//     song.play();
+//   }
+// }
+function toggleSong(){
+  if(!song.isPlaying()){
+    song.play();
+    song.setVolume(0.3);
+    button.html("pause");
+  } else {
+    song.pause();
+    button.html("play");
+  }
+}
+function preload() {
+  song = loadSound('uptownfunk.mp3');
+}
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  background('yellow');
+  createCanvas(512,512);
+  //colorMode(HSB);
   angleMode(DEGREES);
-  text("Click to randomize", width/4, 150);
-  setTimeout(changeBackground, 1000);
+  
+  button = createButton('play');
+  button.mousePressed(toggleSong);
+  song.play();
+  fft = new p5.FFT(0, 128);
+  dance = width/128 ;
+}
 
-  // randomFlower = int(random(flowers.length));
-  // text(flowers[randomIndex].name, 50, 50);
-  // flowers.splice(randomIndex,1 );
-  // console.log(flowers);
-}
-function changeBackground(){
-  if (counter <=5){
-  counter++;
-  background(random(255),random(255),random(255));
-  setTimeout(changeBackground, 1000);
-} else {
-
-}
-}
 function draw() {
-  //translate (width/2, height/2 + 200);
-  //branch(100);
-  flowerss('white', 'pink', random(255, 200, 255), width / 2, height / 2, 0.5);
-  flowerss('green', 'white', random(255, 200, 255), width / 2, height / 2 + 60, 0.4);
+  background(0);
+  // textSize(15);
+  
+  // text('click twice for the button to play', 100, 30);
+  // color("pink");
+  // text (50);
+  //text ("click twice for the button to play");
+  colorMode(HSB, 255);
+  
+  
+  var spectrum = fft.analyze();
+  
+  stroke(255);
+  stroke(3);
 
-  for (let i = 0; i < 31; i++) {
-    flowerss('white', 'pink', 'orange', 50 * i, 90, 0.3);
-    flowerss('white', 'pink', 'yellow', 50 * i, 200, 0.3);
-    //flowerss('white', 'pink', 'purple', 50*i, 300, 0.3);
-    flowerss('white', 'pink', 'red', 50 * i, 500, 0.3);
-    flowerss('white', 'pink', 'green', 50 * i, 400, 0.3);
-    flowerss('white', 'pink', 'blue', 50 * i, 600, 0.3);
-    flowerss('white', 'pink', 'purple', 50 * i, 300, 0.3);
-
+  
+  for (var i = 0; i < spectrum.length; i++) {
+    
+    var amp = spectrum[i];
+    
+    var y = map(amp, 0, 256, height, 0);
+    rect(i * dance, y, i * dance, y);
   }
-}
-
-function flowerss(color1, strokeColor, color2, xPos, yPos, scaleNumber) {
-  push();
-  translate(xPos, yPos);
-  scale(scaleNumber);
-  fill((random(755), random(100), random(245)));
-  circle(0, 0, centerSize);
-  //petal
-  for (let i = 0; i < petalNumber; i++) {
-    angle = 60;
-    rotate(angle);
-    stroke(strokeColor);
-    fill(color2);
-    circle(20, 0, petalSize);
-  }
-  pop();
+  stroke(255);
+  clicktwice();
 
 
 }
 
-function mousePressed() {
-
-  if (flowers[0]) {
-  //background(random(200, 20), random(10, 100), random(255));
-  background(255);
-  randomFlower = int(random(flowers.length));
-  textSize(55);
-
-  text(flowers[randomFlower].name, width/5, 150);
-  text(flowers[randomFlower].color, width/36*25, 150);
-  flowers.splice(randomFlower,1);
-} else {
-  background(255);
-  text("how many do you know?", width/4,150);
-
+function clicktwice(){
+  strokeWeight(2);
+  textSize(15);
+  text('click twice for the button to play', 100, 30);
 }
-}
-// function branch(spread) {
-
-//   push();
-//   if(spread > 10) {
-
-//     strokeWeight (map (spread, 10, 100, 1, 20));
-//     stroke(70,40,20);
-//     line(0,0,0,- spread);
-//     translate(0,- spread);
-//     rotate(random(-20, - 30));
-//     branch(spread * random (0.5, 0.9));
-//   }else{
-//     var r = 70 + random(-20, 60);
-//     var g = 100 + random(-40, 10 );
-//     var b = 40 + random (-20, 20);
-//     fill (r, g, b);
-//     noStroke();
-
-//   pop();
-
-// }
-// }
