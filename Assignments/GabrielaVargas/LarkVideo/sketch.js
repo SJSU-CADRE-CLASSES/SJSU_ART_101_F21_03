@@ -1,21 +1,21 @@
 // which succulent will you get?
 let succulents = [{
-  name: "seed",
+  name: "Seed",
   color: "baby seed color"
 }, {
-  name: "leaf",
+  name: "Leaf",
   color: "green"
 }, {
-  name: "root",
+  name: "Root",
   color: "turquoise"
 }, {
-  name: "baby plant",
+  name: "Baby Succulent",
   color: "yellow"
 }, {
-  name: "succulent",
+  name: "Succulent",
   color: "fuscha"
 }, {
-  name: "rotten",
+  name: "Rotten",
   color: "brown"
 }];
 
@@ -74,9 +74,9 @@ function randomizer() {
     //shows the image
     image(succpix [randomIndex], width / 2, height / 2);
     //shows the text
-    text("Succulent is in phase" ,
-     width - 330, height - 50);
-    text(succulents[randomIndex].name, width/2, height /2)
+    text("Succulent is in phase:" ,
+     width - 550, height / 2);
+    text(succulents[randomIndex].name, width -260, height / 2)
 
   } else {
     background(random(200, 255));
