@@ -1,6 +1,5 @@
 let randomIndex;
 let animating = false;
-// let bgs = [];
 let shapes = [];
 let imageCounter = 0;
 let button;
@@ -8,8 +7,7 @@ let cnvs;
 
 function preload(){
   for (let i = 0; i <= 23; i++){
-  shapes[i] = loadImage(`assets/shape_${i}.png`)
-    console.log(shapes);
+  shapes[i] = loadImage(`assets/shape_${i}.png`);
   }
 }
 
@@ -30,31 +28,6 @@ function setup() {
 
 }
 
-function resetSketch(){
-  if (animating == true){
-    clear();
-    background(20);
-    if (imageCounter < shapes.length - 1){
-       imageCounter++;
-       console.log(imageCounter);
-    }else {
-      imageCounter = 0;
-      noStroke();
-      fill(219, 210, 18);
-      rect(random(width), random(height), width*.3, height*.3);
-      fill(192, 125, 219);
-      rect(random(width), random(height), width*.3, height*.3);
-      fill(224, 68, 145);
-      circle(random(width), random(height), width*.4, height*.3);
-      fill(143, 200, 34);
-      rect(random(width), random(height), width*.3, height*.3);
-
-    }
-    image(shapes[imageCounter], random(width), random(height));
- }
-
-}
-
 function draw() {
 
  if (animating == true){
@@ -63,17 +36,20 @@ function draw() {
     if (imageCounter < shapes.length - 1){
        imageCounter++;
        console.log(imageCounter);
+
+       noStroke();
+       fill(219, 210, 18);
+       rect(random(width), random(height), width*.2, height*.2);
+       fill(224, 68, 145);
+       circle(random(width), random(height), width*.2, height*.2);
+      //  fill(192, 125, 219);
+      //  rect(random(width), random(height), width*.3, height*.3);
+      //  fill(224, 68, 145);
+      //  circle(random(width), random(height), width*.4, height*.3);
+      //  fill(143, 200, 34);
+      //  rect(random(width), random(height), width*.3, height*.3);
     }else {
       imageCounter = 0;
-      noStroke();
-      fill(219, 210, 18);
-      rect(random(width), random(height), width*.3, height*.3);
-      fill(192, 125, 219);
-      rect(random(width), random(height), width*.3, height*.3);
-      fill(224, 68, 145);
-      circle(random(width), random(height), width*.4, height*.3);
-      fill(143, 200, 34);
-      rect(random(width), random(height), width*.3, height*.3);
 
     }
     image(shapes[imageCounter], random(width), random(height));
@@ -112,26 +88,21 @@ function randomizer(){
   if (shapes[0]){
     randomIndex = int(random(shapes.length));
     image(random(shapes), width/3, height/3);
-    shapes.splice(randomIndex, 2);
+    // shapes.splice(randomIndex, 2);
 
   } else {
     // background(random(200, 255));
-    fill(219, 210, 18);
-    rect(random(width), random(height), width*.3, height*.3);
-    fill(192, 125, 219);
-    rect(random(width), random(height), width*.3, height*.3);
-    fill(224, 68, 145);
-    circle(random(width), random(height), width*.4, height*.3);
-    fill(143, 200, 34);
-    rect(random(width), random(height), width*.3, height*.3);
+    // fill(219, 210, 18);
+    // rect(random(width), random(height), width*.3, height*.3);
+    // fill(192, 125, 219);
+    // rect(random(width), random(height), width*.3, height*.3);
+    // fill(224, 68, 145);
+    // circle(random(width), random(height), width*.4, height*.3);
+    // fill(143, 200, 34);
+    // rect(random(width), random(height), width*.3, height*.3);
     fill(250);
     textSize(32);
     text("Hope you got something awesome", 75, 300 );
-    // background(0);
-    // fill(255);
-    // text("REPLAY", 75, 300);
-
-
 
   }
 }
