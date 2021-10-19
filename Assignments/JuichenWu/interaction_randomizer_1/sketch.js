@@ -19,7 +19,7 @@ let firstTime =true;
 function preload() {
 
   for (let i = 0; i <= 15; i++) {
-    trolls[i] = loadImage(`assets/troll_${i}.jpg`)
+    trolls[i] = loadImage(`assets/troll_${i}.png`)
 
   }
 
@@ -87,7 +87,7 @@ function randomizer() {
     dogs.splice(randomIndex, 1);
   } else {
     background(random(2, 255));
-    text("nothing left!", 128, 236)
+    text("out of stock!", 128, 235)
     function draw() {
 
 
