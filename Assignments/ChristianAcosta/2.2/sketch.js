@@ -5,6 +5,7 @@ let press = 0;
 let power = 0;
 let powerSum = 0;
 let s;
+let button;
 
 let randomPowerWeak;
 let randomPowerAvg;
@@ -132,8 +133,9 @@ function preload(){
 function setup() {
   createCanvas(600, 600);
   background(200);
+  textSize(12);
+  textFont('fantasy');
 
-  console.log(symbols);
   randomPowerWeak = int(random(5, 10));
   randomPowerAvg = int(random(10, 15));
   randomPowerStrong = int(random(15, 20));
@@ -146,6 +148,9 @@ function setup() {
   monsters[4].power = randomPowerGod;
 
   randomIndex = int(random(players.length));
+
+  button = createButton("click to randomize");
+  button.mousePressed(buttonPressed)
 
   //console.log(players[randomIndex].series);
   //text(players[randomIndex].series, 50, 50);
@@ -173,7 +178,7 @@ function draw() {
   console.log(monsters[0]);
 }
 
-function mousePressed(){
+function buttonPressed(){
   //background(random(200, 255));
 
   if (press == 0){
@@ -241,6 +246,8 @@ function mousePressed(){
   image(symbols[s], 360, 100);
   press++;
 } else if(press == 6){
+  textSize(36);
+  textStyle(BOLD);
   if(powerSum <= monsters[randomIndex].power){
     text(`You Lost`, width/2, 400);
   } else {
