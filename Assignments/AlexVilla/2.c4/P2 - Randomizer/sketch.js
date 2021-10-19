@@ -1,22 +1,22 @@
 // dogs I have loved before
 let dogs = [{
-  name:"dillon", 
-  color: "dog treat color"
+  name:"'The galaxy far, far away is filled with words of wisdom and wit from Jedi masters...'", 
+  color: "Starwars"
 }, {
-  name: "Ziggy", 
-  color:"chartrese"
+  name: "'Try not. Do or do not. There is no try.'", 
+  color:"Starwars"
 }, {
-  name:"mercedes", 
-  color: "poop"
+  name:"'In a dark place we find ourselves and a little more knowledge lights our way.'", 
+  color: "Starwars"
 }, {
-  name:"petunia",
-  color:"rose gold"
+  name:"'Once you start down the dark path, forever will it dominate your destiny.'",
+  color:"Starwars"
 }, {
-  name:"kloot",
-  color:"coffe grind brown"
+  name:"'The fear of loss is a path to the dark side.'",
+  color:"Starwars"
 }, {
-name:"nala",
-color:"stardust"
+name:"'I’m a Mandalorian. Weapons are part of my religion.'",
+  color:"Starwars"
 }];
 
 let randomIndex;
@@ -25,8 +25,7 @@ let starwars = [];
 let imageCounter = 0;
 let button;
 let cnv;
-let nameInputs = [];
-// let bg;
+// let nameInputs = [];
 
 function preload(){
 
@@ -36,16 +35,14 @@ function preload(){
 }
 
 function setup() {
-  // bg = loadImage('assets/space2.jpg');
-
   cnv = createCanvas(600, 600);
   cnv.parent("#canvasDiv");
 
-  background(200);
-  textSize(24);
+  background(14, 15, 28);
+  textSize(12);
   textFont('Arial');
   textStyle(BOLD);
-  fill(200);
+  fill(90, 94, 145);
   imageMode(CENTER);
   frameRate(8);
 
@@ -53,10 +50,10 @@ function setup() {
   button.mousePressed(buttonPressed);
   button.class("randomizerButton");
 
-for (let i = 0; i < 3; i++){
-  nameInputs.push(createInput());
-  nameInputs[nameInputs.length - 1].parent("#inputFields");
-}
+// for (let i = 0; i < 3; i++){
+//   nameInputs.push(createInput());
+//   nameInputs[nameInputs.length - 1].parent("#inputFields");
+// }
 }
 
 function draw() {
@@ -81,7 +78,7 @@ function randomizer(){
     // background(random(200, 255));
     clear();
     randomIndex = int(random(dogs.length));
-    text(dogs[randomIndex].name + "'s favorite color is " + 
+    text(dogs[randomIndex].name + " - " + 
     dogs[randomIndex].color, 50, 50);
     image(random(starwars), width/2, height/2);
     dogs.splice(randomIndex, 1);

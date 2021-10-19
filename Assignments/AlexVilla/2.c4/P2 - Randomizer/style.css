@@ -8,14 +8,14 @@ canvas {
 
 .randomizerButton {
   padding: 20px;
-  background-color: #28b07a;
-  }
+  background-color: #444766;
+}
 
-.row {
+/* .row {
   display: flex;
 }
 
 .column {
   margin: 10px;
   flex: 50%;
-}
+} */
