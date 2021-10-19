@@ -1,40 +1,71 @@
 // which succulent will you get?
 let succulents = [{
-  name: "seed",
+  name: "Seed",
   color: "baby seed color"
 }, {
-  name: "leaf",
+  name: "Leaf",
   color: "green"
 }, {
-  name: "root",
+  name: "Root",
   color: "turquoise"
 }, {
-  name: "baby plant",
+  name: "Baby Succulent",
   color: "yellow"
 }, {
-  name: "succulent",
+  name: "Succulent",
   color: "fuscha"
 }, {
-  name: "rotten",
+  name: "Rotten",
   color: "brown"
 }];
 
 let randomIndex;
 let animating = false;
+let succpix = [];
+let imageCounter = 0;
+let button; 
+
+function preload() {
+
+  for (let i = 0; i <= 5; i++) {
+    succpix[i] = loadImage(`assets/succ_${i}.JPG`);
+  }
+}
 
 function setup() {
   createCanvas(600, 600);
-  background(200);
+  background(130, 163, 122);
   textSize(32);
+  textFont('fantasy');
+  
 
-  text("click to randomize", 50, 50);
+
+  imageMode(CENTER);
+  frameRate(8);
+
+  
+  text(`      The goal of this game is to make sure 
+  you get the best phase of the succulent, 
+                beware of the rotten one!`, 20, 300, )
+ 
+button = createButton ("click to randomize");
+button.mousePressed (buttonPressed);
+button.class("randomizerButton")
 
 }
 
 function draw() {
 
   if (animating == true) {
-    ellipse(random(width), random(height), random(50, 200));
+    clear();
+    image(succpix[imageCounter], width / 2, height / 2);
+    if (imageCounter < succpix.length - 1) {
+      imageCounter++;
+      console.log(imageCounter);
+    } else {
+      imageCounter = 0;
+    }
+
   }
 }
 
@@ -43,18 +74,22 @@ function randomizer() {
 
   if (succulents[0]) {
     // this displays random name and splices it out of array
-    background(random(200, 255));
+   // background(random(200, 255));
+   clear();
     randomIndex = int(random(succulents.length));
-    text(`${succulents[randomIndex].name}'s phase is
-    ${succulents[randomIndex].color}`, 50, 50);
-    succulents.splice(randomIndex, 1);
-  } else {
-    background(random(200, 255));
-    text("nothing left!", 50, 50);
-  }
+    //shows the image
+    image(succpix [randomIndex], width / 2, height / 2);
+    //shows the text
+    text("Succulent is in phase:" ,
+    width - 550, height - 40);
+   text(succulents[randomIndex].name, width -260, height - 40)
+ } else {
+   background(random(200, 255));
+   text("nothing left!", 50, 50);
+ }
 }
-//
-function mousePressed() {
+
+function buttonPressed() {
   animating = true;
   setTimeout(randomizer, 2000);
 }
