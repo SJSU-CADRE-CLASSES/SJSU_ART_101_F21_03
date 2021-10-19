@@ -1,21 +1,21 @@
 // which succulent will you get?
 let succulents = [{
-  name: "seed",
+  name: "Seed",
   color: "baby seed color"
 }, {
-  name: "leaf",
+  name: "Leaf",
   color: "green"
 }, {
-  name: "root",
+  name: "Root",
   color: "turquoise"
 }, {
-  name: "baby plant",
+  name: "Baby Succulent",
   color: "yellow"
 }, {
-  name: "succulent",
+  name: "Succulent",
   color: "fuscha"
 }, {
-  name: "rotten",
+  name: "Rotten",
   color: "brown"
 }];
 
@@ -34,14 +34,23 @@ function preload() {
 
 function setup() {
   createCanvas(600, 600);
-  background(200);
+  background(130, 163, 122);
   textSize(32);
+  textFont('fantasy');
+  
+
+
   imageMode(CENTER);
   frameRate(8);
 
-  text("click to randomize", 130, 300);
- button = createButton ("click to randomize");
- button.mousePressed (buttonPressed);
+  
+  text(`      The goal of this game is to make sure 
+  you get the best phase of the succulent, 
+                beware of the rotten one!`, 20, 300, )
+ 
+button = createButton ("click to randomize");
+button.mousePressed (buttonPressed);
+button.class("randomizerButton")
 
 }
 
@@ -68,16 +77,18 @@ function randomizer() {
    // background(random(200, 255));
    clear();
     randomIndex = int(random(succulents.length));
-    image(random (succpix), width / 2, height / 2);
-    text(`succulent's phase is
-    ${succulents[randomIndex].name}`, width - 450, height - 200);
-    succulents.splice(randomIndex, 1);
-  } else {
-    background(random(200, 255));
-    text("nothing left!", 50, 50);
-  }
+    //shows the image
+    image(succpix [randomIndex], width / 2, height / 2);
+    //shows the text
+    text("Succulent is in phase:" ,
+    width - 550, height - 40);
+   text(succulents[randomIndex].name, width -260, height - 40)
+ } else {
+   background(random(200, 255));
+   text("nothing left!", 50, 50);
+ }
 }
-//
+
 function buttonPressed() {
   animating = true;
   setTimeout(randomizer, 2000);

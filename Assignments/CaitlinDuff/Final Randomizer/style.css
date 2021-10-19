@@ -1,0 +1,16 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+
+.randomizerButton{
+padding: 25px;
+background-color:#E7CFFF;
+font-family: 'Josefin Sans', sans-serif;
+font-size: 30px;
+font-weight: bolder;
+}
