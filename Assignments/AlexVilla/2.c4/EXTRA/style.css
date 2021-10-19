@@ -16,5 +16,6 @@ canvas {
 }
 
 .column {
+  margin: 10px;
   flex: 50%;
 }
