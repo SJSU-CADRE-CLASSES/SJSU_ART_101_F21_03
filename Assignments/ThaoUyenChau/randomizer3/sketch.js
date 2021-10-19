@@ -4,6 +4,7 @@ let animating = false;
 let shapes = [];
 let imageCounter = 0;
 let button;
+let cnvs;
 
 function preload(){
   for (let i = 0; i <= 23; i++){
@@ -14,14 +15,17 @@ function preload(){
 
 function setup() {
 
-  createCanvas(600, 600);
+  cnvs = createCanvas(600, 600);
+  cnvs.parent("#canvasDiv");
+
   background (255);
   textSize(65);
   imageMode(CENTER);
   frameRate(8);
 
   console.log(shapes);
-  button = createButton("click to create");
+  // button = createButton("click to create");
+  button = select('#randButton')
   button.mousePressed(buttonPressed);
   button.class("randomizerButton");
   letsCreate();

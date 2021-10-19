@@ -10,3 +10,11 @@ canvas {
   padding: 20px;
   background-color: #e04491;
 }
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
