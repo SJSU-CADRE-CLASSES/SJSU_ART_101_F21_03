@@ -39,15 +39,9 @@ function draw() {
 
        noStroke();
        fill(219, 210, 18);
-       rect(random(width), random(height), width*.2, height*.2);
+       rect(random(width), random(height), width*.23, height*.23);
        fill(224, 68, 145);
        circle(random(width), random(height), width*.2, height*.2);
-      //  fill(192, 125, 219);
-      //  rect(random(width), random(height), width*.3, height*.3);
-      //  fill(224, 68, 145);
-      //  circle(random(width), random(height), width*.4, height*.3);
-      //  fill(143, 200, 34);
-      //  rect(random(width), random(height), width*.3, height*.3);
     }else {
       imageCounter = 0;
 
