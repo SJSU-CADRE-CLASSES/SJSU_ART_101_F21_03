@@ -5,3 +5,8 @@ html, body {
 canvas {
   display: block;
 }
+
+audio {
+  display: none;
+}
+
