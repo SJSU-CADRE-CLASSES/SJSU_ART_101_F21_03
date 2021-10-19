@@ -61,9 +61,9 @@ function randomizer(){
     // clear();
     randomIndex = int(random(planets.length)); 
     image(Space [randomIndex], 768, 350, windowWidth, windowHeight);
-    text(planets [randomIndex].name, 900, 100);
+    text(planets[randomIndex].name, 900, 100);
     
-    planets.splice(randomIndex, 1);
+    planets.splice(randomIndex, none);
   } else {
     background(random(200, 255)); 
     text("Turn Back, You're Leaving Our Solar System", width/2, height - 25); 
