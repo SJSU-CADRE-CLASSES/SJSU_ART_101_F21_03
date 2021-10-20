@@ -14,7 +14,7 @@ let firstTime = true;
 
 
 function preload() {
-  for (let i = 1; i <= 3 ; i++){
+  for (let i = 0; i <= 5 ; i++){
     trolls[i] = loadImage(`assets/troll_${i}.JPG`)
   }
 }
@@ -27,16 +27,16 @@ function setup() {
 cnv = createCanvas(600,600);
 cnv.parent("#canvasDiv")
 
-background(20,40,200);
+background(255, 228, 145);
 textSize(32);
 //textFont('Courier new');
 textAlign(CENTER);
 textStyle(BOLD);
-fill(255);
+fill(0);
 imageMode(CENTER);
 frameRate(8);
 
-text("click to randomize", width/2, height/2);
+text("You are going to have \n a week of vacation.\n Now you are planning to... ", width/2, height/3);
 
 startRandomizerButton = select('#randButton');
 startRandomizerButton.mousePressed(buttonPressed);
@@ -44,7 +44,7 @@ startRandomizerButton.mousePressed(buttonPressed);
 addMoreButton = select('#addMoreButton');
 addMoreButton.mousePressed(addAnotherInput);
 
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 5; i++) {
   nameInputs.push(createInput());
   nameInputs[nameInputs.length -1].parent("#inputFields");
 }
@@ -58,7 +58,7 @@ function draw() {
     clear();
     image(trolls[imageCounter], width/2, height/2);
 
-    if (imageCounter   < trolls.length -1) {
+    if ( imageCounter  < trolls.length -1 ) {
       imageCounter++;
       console.log(imageCounter);
     }
@@ -81,17 +81,18 @@ function addAnotherInput(){
 
 
 function randomizer(){
-  animating = false
-  if (cats[1]){
+  animating = false;
+  if (cats[0]){
   //  background(random(200, 255));
   clear();
     randomIndex = int(random(cats.length));
-    text(cats[randomIndex], width/2 ,  height -55);
+    image(random(trolls), width/2, height/2);
+    text(cats[randomIndex], width/2 ,  height -60);
     cats.splice(randomIndex, 1);
   }
   else {
     background(random(200, 255));
-    text("click to randomize again!", 50, 50);
+    text("Refresh page to randomize again!", 300, 50);
   }
 }
 
@@ -100,8 +101,9 @@ function randomizer(){
 
 function buttonPressed() {
 
-if (firstTime == true){
+if (firstTime){
   for (let i = 0; i < nameInputs.length; i++){
+
     cats.push(nameInputs[i].value());
   }
   firstTime = false;
