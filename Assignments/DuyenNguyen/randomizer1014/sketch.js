@@ -106,7 +106,7 @@ function draw() {
 
     // cards 
     //fill(0);
-    rect(width/2, height/4, width/4, height/2)
+    //rect(width/2, height/4, width/4, height/2)
     textSize(15);
 
     //rect(width/1.6, height/4, width/4, height/2)
@@ -146,7 +146,7 @@ function randomizer() {
   
     text(card[randomFlower].name, width/8, 150);
     textSize(25);
-    text(card[randomFlower].color, width/36*25, 150);
+    text(card[randomFlower].color, width/2, 150);
     image(cards[randomFlower], width/3, height/2);
     card.splice(randomFlower);
   } else {
