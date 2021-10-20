@@ -29,8 +29,9 @@ function preload() {
 function setup() {
   cnv = createCanvas(600, 600);
   cnv.parent("#canvasDiv");
-  background(132, 255, 255);
+  background(255, 205, 210);
   textSize(40);
+  textStyle(BOLD)
   text("Let's Raffles!", 128, 235)
   textSize(40);
   textFont(`Courier new`)
