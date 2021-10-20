@@ -2,8 +2,10 @@
 //let artisticSoftware = ["Creative \nCoding", "3D \nModeling", "web \naesthetics", "game \naesthetics", "digital \nanimation", "Photo \nediting", "video \nediting", "digital \npainting", "Computer \nGraphics", "Augmented \nReality", "Digital \nMedia \nArt", "Graphic \nDesign", "music \nproducer", "Adobe \nCreative \nCloud"];
 // Hyun-ji a.k.a. Kim
 
+let ghostFont;
+
 let ghostsOfLife = [{
-  splash: "Blue \nGhost",
+  splash: "Blue\nGhost",
   name: "Bluez",
   lore: ""
 }, {
@@ -19,11 +21,11 @@ let ghostsOfLife = [{
   name: "Luna",
   lore: ""
 }, {
-  splash: "Ghost \nof \nTime",
-  name: "Pappy Ergo Lanatos",
+  splash: "Ghost\nof\nTime",
+  name: "Papa Ergo Lanatos",
   lore: ""
 }, {
-  splash: "Seoul \nGhost",
+  splash: "Seoul\nGhost",
   name: "Kim",
   lore: ""
 }, {
@@ -67,7 +69,10 @@ let ghostFaceColor;
 let ghostCover = false;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  // the canvas div
+  let cnv = createCanvas(windowWidth / 1.125, windowHeight / 1.125); //(windowWidth / 1.025, windowHeight / 1.025)
+  cnv.parent("canvasDiv");
+
   // var ghostSize1 = 80; putting this here would cause error due to scope issues
   //background(250, 140, 60);
 
@@ -98,12 +103,16 @@ function setup() {
 
   // the button
   button = createButton("click to randomize ghosts");
+  button.position((windowWidth / 1.125) / 2.125, (windowHeight / 1.125) / 1);
   button.mousePressed(randomizeGhost);
+
+  // the font
+  textFont(ghostFont);
 }
 
 var ghostSize1 = window.innerHeight / 5; // used to be 200
-var ghostPosX1 = window.innerWidth / 2; // used to be 400
-var ghostPosY1 = window.innerHeight / 2; // used to be 400
+var ghostPosX1 = (window.innerWidth / 1.125) / 2; // used to be 400
+var ghostPosY1 = (window.innerHeight / 1.125) / 2; // used to be 400
 
 function draw() {
   ghostColor = [color(60, 140, 250),
@@ -198,13 +207,13 @@ function draw() {
   fill(200, 230, 250);
   textSize(36);
   stroke(0);
-  strokeWeight(6);
+  strokeWeight(4);
   textAlign(CENTER);
   text(ghostsOfLife[randomIndex].splash, ghostPosX1, ghostPosY1 - 200); // former coordinates: (400, 200)
-  text(`Name:\n${ghostsOfLife[randomIndex].name}`, ghostPosX1, ghostPosY1 + 140); // former coordinates: (400, 540)
+  text(`Name:\n${ghostsOfLife[randomIndex].name}`, ghostPosX1, ghostPosY1 + 200); // former coordinates: (400, 540)
 
   fill("#FFFF00");
-  text("Please click on a ghost to see its splash text", ghostPosX1, ghostPosY1 + 280); // former coordinates: (400, 660)
+  text("Please click on a ghost to see its splash text", ghostPosX1, ghostPosY1 + 360); // former coordinates: (400, 660)
   pop();
 
   blueGhostArmies();
@@ -272,6 +281,9 @@ function blueGhostFinish() {
   ghostCover = false;
 }
 
+function preload() {
+  ghostFont = loadFont("../fonts/GHOSTBUS.TTF");
+}
 
 //var w = windowWidth;
 //var h = windowHeight;

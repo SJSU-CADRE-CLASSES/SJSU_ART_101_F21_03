@@ -39,15 +39,9 @@ function draw() {
 
        noStroke();
        fill(219, 210, 18);
-       rect(random(width), random(height), width*.2, height*.2);
+       rect(random(width), random(height), width*.23, height*.23);
        fill(224, 68, 145);
        circle(random(width), random(height), width*.2, height*.2);
-      //  fill(192, 125, 219);
-      //  rect(random(width), random(height), width*.3, height*.3);
-      //  fill(224, 68, 145);
-      //  circle(random(width), random(height), width*.4, height*.3);
-      //  fill(143, 200, 34);
-      //  rect(random(width), random(height), width*.3, height*.3);
     }else {
       imageCounter = 0;
 
@@ -87,21 +81,16 @@ function randomizer(){
 
   if (shapes[0]){
     randomIndex = int(random(shapes.length));
-    image(random(shapes), width/3, height/3);
+    image(random(shapes), width/2, height/2);
     // shapes.splice(randomIndex, 2);
 
   } else {
-    // background(random(200, 255));
-    // fill(219, 210, 18);
-    // rect(random(width), random(height), width*.3, height*.3);
-    // fill(192, 125, 219);
-    // rect(random(width), random(height), width*.3, height*.3);
-    // fill(224, 68, 145);
-    // circle(random(width), random(height), width*.4, height*.3);
-    // fill(143, 200, 34);
-    // rect(random(width), random(height), width*.3, height*.3);
+    fill(219, 210, 18);
+    rect(random(width), random(height), width*.3, height*.3);
+    fill(192, 125, 219);
+    circle(random(width), random(height), width*.4, height*.3);
     fill(250);
-    textSize(32);
+    textSize(24);
     text("Hope you got something awesome", 75, 300 );
 
   }
