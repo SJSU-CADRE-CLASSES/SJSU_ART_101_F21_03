@@ -31,6 +31,8 @@ function setup() {
   cnv.parent("#canvasDiv");
   background(132, 255, 255);
   textSize(40);
+  text("Let's Raffles!", 128, 235)
+  textSize(40);
   textFont(`Courier new`)
   // textAlign(CENTER)
   textStyle(BOLD)
