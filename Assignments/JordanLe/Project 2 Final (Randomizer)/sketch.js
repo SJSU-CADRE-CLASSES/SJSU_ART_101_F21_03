@@ -3,6 +3,7 @@
 // Hyun-ji a.k.a. Kim
 
 let ghostFont;
+let sonaGhost;
 
 let ghostsOfLife = [{
   splash: "Blue\nGhost",
@@ -13,7 +14,7 @@ let ghostsOfLife = [{
   name: "Boo Diddley",
   lore: ""
 }, {
-  splash: "You've \nbeen \npranked",
+  splash: "",
   name: "Sona",
   lore: ""
 }, {
@@ -61,7 +62,7 @@ let ghostsOfLife = [{
   name: "Brian",
   lore: ""
 }];
-let randomIndex = 0;
+let randomIndex = 2;
 let bgc;
 let ghostColor;
 let ghostFaceColor;
@@ -157,12 +158,23 @@ function draw() {
   // textAlign(CENTER);
   // text(artisticSoftware[randomIndex3], 600, 250);
 
-  fill(ghostColor[randomIndex]);
-  ellipse(ghostPosX1, ghostPosY1, ghostSize1); // (100, 100, 80)
-  fill(ghostFaceColor[randomIndex]);
-  ellipse(ghostPosX1 - (ghostSize1 / 5), ghostPosY1 - (ghostSize1 / (20 / 3)), ghostSize1 / 8); // (84, 88, 10)
-  ellipse(ghostPosX1 + (ghostSize1 / 5), ghostPosY1 - (ghostSize1 / (20 / 3)), ghostSize1 / 8); // (116, 88, 10)
-  rect(ghostPosX1 - (ghostSize1 / 8), ghostPosY1, ghostSize1 / 4, ghostSize1 / (8 / 3)); // (90, 100, 20, 30)
+  // fill(ghostColor[randomIndex]);
+  // ellipse(ghostPosX1, ghostPosY1, ghostSize1); // (100, 100, 80)
+  // fill(ghostFaceColor[randomIndex]);
+  // ellipse(ghostPosX1 - (ghostSize1 / 5), ghostPosY1 - (ghostSize1 / (20 / 3)), ghostSize1 / 8); // (84, 88, 10)
+  // ellipse(ghostPosX1 + (ghostSize1 / 5), ghostPosY1 - (ghostSize1 / (20 / 3)), ghostSize1 / 8); // (116, 88, 10)
+  // rect(ghostPosX1 - (ghostSize1 / 8), ghostPosY1, ghostSize1 / 4, ghostSize1 / (8 / 3)); // (90, 100, 20, 30)
+
+  if (randomIndex == 2) {
+    image(sonaGhost, ghostPosX1 - 400, ghostPosY1 - 400);
+  } else {
+    fill(ghostColor[randomIndex]);
+    ellipse(ghostPosX1, ghostPosY1, ghostSize1); // (100, 100, 80)
+    fill(ghostFaceColor[randomIndex]);
+    ellipse(ghostPosX1 - (ghostSize1 / 5), ghostPosY1 - (ghostSize1 / (20 / 3)), ghostSize1 / 8); // (84, 88, 10)
+    ellipse(ghostPosX1 + (ghostSize1 / 5), ghostPosY1 - (ghostSize1 / (20 / 3)), ghostSize1 / 8); // (116, 88, 10)
+    rect(ghostPosX1 - (ghostSize1 / 8), ghostPosY1, ghostSize1 / 4, ghostSize1 / (8 / 3)); // (90, 100, 20, 30)
+  }
 
   // fill(0, 250, 0);
   // ellipse(ghostPosX2, ghostPosY2, ghostSize2); // (100, 100, 80)
@@ -283,6 +295,7 @@ function blueGhostFinish() {
 
 function preload() {
   ghostFont = loadFont("../fonts/GHOSTBUS.TTF");
+  sonaGhost = loadImage("../images/Sona_Ghost.png");
 }
 
 //var w = windowWidth;
