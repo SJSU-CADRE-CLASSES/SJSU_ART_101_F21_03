@@ -45,16 +45,11 @@ let meals = [{
 }];
 
 function setup() {
-  createCanvas(1000, 1000);
+  createCanvas(3300, 3300);
   background(220);
-
   console.log(meals[0]);
 }
 
 function draw() {
-  
-
-
-
 
 }
