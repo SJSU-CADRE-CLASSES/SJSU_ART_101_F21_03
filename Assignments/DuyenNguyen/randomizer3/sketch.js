@@ -8,7 +8,7 @@ let flowers = [{
   color: "What a generous person you are"
 }, {
   name: "orchid",
-  color: "You are so cool"
+  color: "You are a kind person"
 }, {
   name: "carnation",
   color: "You have a wonderful heart"
@@ -96,10 +96,10 @@ function randomizer() {
     //background(random(200, 20), random(10, 100), random(255));
     background(255);
     randomFlower = int(random(flowers.length));
-    textSize(50);
+    textSize(30);
 
     text(flowers[randomFlower].name, width / 6, height/2);
-    textSize(25);
+    textSize(30);
     text(flowers[randomFlower].color, width / 36 * 25, height/2);
     flowers.splice(randomFlower, 1);
   } else {
