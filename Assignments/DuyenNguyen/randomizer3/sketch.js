@@ -2,29 +2,29 @@
 
 let flowers = [{
   name: "rose",
-  color: "red"
+  color: "You are a gentle person"
 }, {
   name: "lily",
-  color: "white"
+  color: "What a generous person you are"
 }, {
   name: "orchid",
-  color: "purple"
+  color: "You are so cool"
 }, {
   name: "carnation",
-  color: "blue"
+  color: "You have a wonderful heart"
 }, {
   name: "camelia",
-  color: "pink"
+  color: "You are great with people"
 }, {
   name: "poppy",
-  color: "orange"
+  color: "You are born to shine"
 }, {
   name: "freesia",
-  color: "yellow"
+  color: "You are a very caring person"
 },{
   name: "sunflower",
-color: "yellow"}]
-
+color: "You have a great shoulder for your friends"}]
+let button;
 let randomFlower;
 let centerSize = 20;
 let petalSize = 20;
@@ -38,7 +38,9 @@ function setup() {
   angleMode(DEGREES);
   textSize(40);
   fill('pink');
-  text("Click to get the best flower for you", width / 10, 150);
+  button = createButton("Click to know your best flower");
+  button.mousePressed(buttonPressed);
+  button.class("randomizerButton")
   // randomFlower = int(random(flowers.length));
   // text(flowers[randomIndex].name, 50, 50);
   // flowers.splice(randomIndex,1 );
@@ -96,8 +98,8 @@ function randomizer() {
     randomFlower = int(random(flowers.length));
     textSize(55);
 
-    text(flowers[randomFlower].name, width / 5, 150);
-    text(flowers[randomFlower].color, width / 36 * 25, 150);
+    text(flowers[randomFlower].name, width / 5, height/2);
+    text(flowers[randomFlower].color, width / 36 * 25, height/2);
     flowers.splice(randomFlower, 1);
   } else {
     background(255);
@@ -106,7 +108,7 @@ function randomizer() {
   }
 }
 
-function mousePressed() {
+function buttonPressed() {
   animating = true;
   background(255);
   setTimeout(randomizer, 3000);

@@ -1,33 +1,33 @@
 //flowers I know of
 
 let card = [{
-  name: "King",
+  name: "Status: Tired",
   color: "You are stressed over nothing",
    
 }, {
-  name: "Queen",
+  name: "Status: Exciting",
   color: "There are 3 lucky things coming to you"
 }, {
-  name: "Jack",
+  name: "Status: Confused",
   color: "You should call him"
 }, {
-  name: "A",
+  name: "Status: Go with the flow",
   color: "You should watch less Instgram reels"
 }, {
-  name: "2",
+  name: "Status: Disappointed",
   color: "It's okay. Things are getting better"
 }, {
-  name: "10",
+  name: "Status: Worried",
   color: "Your grade for the previous assignment is out. Check your Canvas"
 }, {
-  name: "3",
-  color: "You are loved by a lot of people"
+  name: "Status: Scared",
+  color: "Dont worry. You are loved by a lot of people"
 }]
   
 let randomFlower;
-let centerSize = 20;
-let petalSize = 20;
-let petalNumber = 8;
+// let centerSize = 20;
+// let petalSize = 20;
+// let petalNumber = 8;
 let animating = false;
 let cards = [];
 let imageCounter = 0;
@@ -64,9 +64,10 @@ function setup() {
   button.mousePressed(buttonPressed);
   button.class("randomizerButton")
   //text("Click to know your card for today", width / 4, 150);
-  // randomFlower = int(random(flowers.length));
-  // text(flowers[randomIndex].name, 50, 50);
-  // flowers.splice(randomIndex,1 );
+  //loop
+  // randomFlower = int(random(card.length));
+  // text(card[randomIndex].name, 50, 50);
+  // card.splice(randomIndex,1 );
   // console.log(flowers);
   // console.log(manydogs);
 
@@ -95,6 +96,7 @@ function draw() {
     ellipse(random(width), random(height),random(15,200));
 
     image(cards[imageCounter], width/2, height/2);
+    console.log("Printing the cards %v", cards)
     if (imageCounter < cards.length-1);
     imageCounter++;
     } else {
@@ -140,23 +142,23 @@ function randomizer() {
     // background(255);
     clear();
     randomFlower = int(random(card.length));
-    textSize(200);
+    textSize(20);
   
-    text(card[randomFlower].name, width/5, 150);
+    text(card[randomFlower].name, width/8, 150);
     textSize(25);
     text(card[randomFlower].color, width/36*25, 150);
-    image(random(cards), width/2, height/2);
-    //flowers.splice(randomFlower,1);
+    image(cards[randomFlower], width/3, height/2);
+    card.splice(randomFlower);
   } else {
     background(255);
-    text("how many do you know?", width/4,150);
+    text("You are doing great. These cards dont mean anything", width/4,height/2);
   
   }
 }
 
 function buttonPressed() {
   animating = true;
-  setTimeout(randomizer, 3000);
+  setTimeout(randomizer, 2000);
 
 }
 // function branch(spread) {
