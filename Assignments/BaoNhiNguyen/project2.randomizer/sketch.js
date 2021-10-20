@@ -35,26 +35,21 @@ let meals = [{
   color: "berrybrn"
 }, {
   name: "ramen",
-  color: yellow
+  color: "lightyell"
 }, {
   name: "salad",
-  color: green
+  color: "green"
 }, {
   name: "sandwich",
-  color: tangrn
+  color: "tangrn"
 }];
 
 function setup() {
   createCanvas(3300, 3300);
   background(220);
-
   console.log(meals[0]);
 }
 
 function draw() {
-  
-
-
-
 
 }
