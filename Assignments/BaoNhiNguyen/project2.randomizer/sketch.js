@@ -47,7 +47,7 @@ let meals = [{
 function setup() {
   createCanvas(3300, 3300);
   background(220);
-  console.log(meals[0]);
+  console.log(meals[0].name);
 }
 
 function draw() {
