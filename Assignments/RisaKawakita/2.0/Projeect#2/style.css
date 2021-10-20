@@ -1,0 +1,33 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+h1 {
+  font-family: Courier;
+  text-align: left;
+  color: #222d69;
+  margin-top: 10px;
+}
+
+button {
+  margin: left 50%;
+  margin: 0px auto;
+ 
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #5d86df;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #222d69;
+}
+
+
