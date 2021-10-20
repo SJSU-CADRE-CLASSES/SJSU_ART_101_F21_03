@@ -106,7 +106,7 @@ function draw() {
 
     // cards 
     //fill(0);
-    rect(width/2, height/4, width/4, height/2)
+    //rect(width/2, height/4, width/4, height/2)
     textSize(15);
 
     //rect(width/1.6, height/4, width/4, height/2)
