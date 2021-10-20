@@ -27,12 +27,12 @@ function setup() {
 cnv = createCanvas(600,600);
 cnv.parent("#canvasDiv")
 
-background(255, 228, 145);
+background(230, 211, 154);
 textSize(32);
 //textFont('Courier new');
 textAlign(CENTER);
 textStyle(BOLD);
-fill(0);
+fill(240);
 imageMode(CENTER);
 frameRate(8);
 
