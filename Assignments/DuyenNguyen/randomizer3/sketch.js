@@ -98,9 +98,9 @@ function randomizer() {
     randomFlower = int(random(flowers.length));
     textSize(30);
 
-    text(flowers[randomFlower].name, width / 6, height/1.7);
+    text(flowers[randomFlower].name, width / 6, 400);
     textSize(30);
-    text(flowers[randomFlower].color, width / 36 * 25, height/1.7);
+    text(flowers[randomFlower].color, width / 36 * 20, 400);
     flowers.splice(randomFlower, 1);
   } else {
     background(255);
