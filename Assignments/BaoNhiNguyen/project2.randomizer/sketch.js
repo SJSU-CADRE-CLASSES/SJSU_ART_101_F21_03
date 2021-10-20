@@ -35,7 +35,7 @@ let meals = [{
   color: "berrybrn"
 }, {
   name: "ramen",
-  color: "yellow"
+  color: "lightyell"
 }, {
   name: "salad",
   color: "green"
