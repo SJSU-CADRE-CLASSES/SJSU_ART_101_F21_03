@@ -8,7 +8,7 @@ let flowers = [{
   color: "What a generous person you are"
 }, {
   name: "orchid",
-  color: "You are so cool"
+  color: "You are a kind person"
 }, {
   name: "carnation",
   color: "You have a wonderful heart"
@@ -53,7 +53,7 @@ function draw() {
   //branch(100);
   flowerss('white', 'pink', random(255, 200, 255), width / 2, height / 2, 0.5);
   flowerss('green', 'white', random(255, 200, 255), width / 2, height / 2 + 60, 0.4);
-
+ 
   for (let i = 0; i < 30; i++) {
     flowerss('white', 'pink', 'purple', 50 * i, 90, 0.3);
     flowerss('white', 'pink', 'purple', 50 * i, 200, 0.3);
@@ -96,14 +96,15 @@ function randomizer() {
     //background(random(200, 20), random(10, 100), random(255));
     background(255);
     randomFlower = int(random(flowers.length));
-    textSize(55);
+    textSize(30);
 
-    text(flowers[randomFlower].name, width / 5, height/2);
-    text(flowers[randomFlower].color, width / 36 * 25, height/2);
+    text(flowers[randomFlower].name, width / 6, width/5);
+    textSize(30);
+    text(flowers[randomFlower].color, width / 36 * 20, width/5);
     flowers.splice(randomFlower, 1);
   } else {
     background(255);
-    text("how many do you know?", width / 4, 150);
+    text("Let us all celebrate how great of a person you are", width / 4, 150);
 
   }
 }

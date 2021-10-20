@@ -1,0 +1,44 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: cyan;
+}
+canvas {
+  display: block;
+  border-radius: 4px;
+}
+
+button {
+  background-color: lightcyan;
+  color: teal;
+  text-align: center;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 24px;
+  border: 2px solid blue;
+  border-radius: 4px;
+  padding: 1%;
+  cursor: pointer;
+  /*display: inline-block;*/
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  transition-duration: 0.4s;
+  background-color: teal;
+  color: lightcyan;
+}
+
+/*
+button:active {
+  transition-duration: 1s;
+  background-color: blue;
+  color: cyan;
+}
+*/
+
+#canvasDiv {
+  position: absolute;
+  margin-left: 5.45%;
+  margin-right: 0%;
+  margin-bottom: 0%;
+}
