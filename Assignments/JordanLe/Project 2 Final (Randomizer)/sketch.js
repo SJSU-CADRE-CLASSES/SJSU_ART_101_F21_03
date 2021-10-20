@@ -62,7 +62,7 @@ let ghostsOfLife = [{
   name: "Brian",
   lore: ""
 }];
-let randomIndex = 2;
+let randomIndex = 0;
 let bgc;
 let ghostColor;
 let ghostFaceColor;
