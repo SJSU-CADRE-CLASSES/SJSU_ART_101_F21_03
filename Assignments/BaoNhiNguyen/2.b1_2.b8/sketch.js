@@ -8,13 +8,13 @@ let meals = [{
   color: "brown"
 }, {
   name: "chicken wings",
-  color: "brngreen"
+  color: "browngreen"
 }, {
   name: "cupcake",
-  color: "redv"
+  color: "red"
 }, {
   name: "dim sum",
-  color: "lightbrn"
+  color: "lightbrown"
 }, {
   name: "fancy steak",
   color: "redbrn"
@@ -26,25 +26,25 @@ let meals = [{
   color: "orange"
 }, {
   name: "katsu",
-  color: "currybrn"
+  color: "currybrown"
 }, {
   name: "Mc Donalds",
   color: "redyellow"
 }, {
   name: "pancakes",
-  color: "berrybrn"
+  color: "berrybrown"
 }, {
   name: "ramen",
-  color: "lightyell"
+  color: "lightyelow"
 }, {
   name: "salad",
   color: "green"
 }, {
   name: "sandwich",
-  color: "tangrn"
+  color: "tangreen"
 }, {
   name: "poke",
-  color: "lightorng"
+  color: "lightorange"
 }, {
   name: "sushi",
   color: "orange"
@@ -54,14 +54,12 @@ let randomIndex;
 let animating = false;
 
 
-
 function setup() {
   createCanvas(700, 700);
   textSize(32);
   
   text("Click for today's meals!", 50,50)
   
-
 }
 
 function draw() {
@@ -86,14 +84,13 @@ if (meals[0]) {
   textSize(33)
   text(`${meals[randomIndex].name} looks a little ${meals[randomIndex].color}`, 50,100);
   
-  // text(meals[randomIndex].name + " looks a little " + meals[randomIndex].color, 50,100);
+  text(`${meals[randomIndex].name} for todays meal?`, 50,150);  
   
   meals.splice(randomIndex, 1);
 } else {
   background(random(200,255));
   text("Tummy's full!", 100,100);
-      
-  
+        
 }
 
 }
@@ -101,8 +98,6 @@ function mousePressed() {
   
   animating = true;
   setTimeout(randomizer, 2000);
-  
-  
-  
+   
 
 }  
