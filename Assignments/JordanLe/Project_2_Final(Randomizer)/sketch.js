@@ -294,8 +294,8 @@ function blueGhostFinish() {
 }
 
 function preload() {
-  ghostFont = loadFont("../fonts/GHOSTBUS.TTF");
-  sonaGhost = loadImage("../images/Sona_Ghost.png");
+  ghostFont = loadFont("fonts/GHOSTBUS.TTF");
+  sonaGhost = loadImage("images/Sona_Ghost.png");
 }
 
 //var w = windowWidth;
