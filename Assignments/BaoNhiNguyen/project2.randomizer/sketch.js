@@ -42,12 +42,24 @@ let meals = [{
 }, {
   name: "sandwich",
   color: "tangrn"
-}];
+}, {
+  name: "poke",
+  color: "lightorng"
+}, {
+  name: "sushi",
+  color: "orange"
+},];
 
 function setup() {
   createCanvas(3300, 3300);
   background(220);
-  console.log(meals[0].name);
+
+  randomIndex = int(random(meals.length));
+  
+  console.log(meals[randomIndex].name);
+  textSize(100)
+  text(meals[randomIndex].name, 100,100);
+  
 }
 
 function draw() {
