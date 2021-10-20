@@ -146,7 +146,7 @@ function randomizer() {
   
     text(card[randomFlower].name, width/8, 150);
     textSize(25);
-    text(card[randomFlower].color, width/36*25, 150);
+    text(card[randomFlower].color, width/2, 150);
     image(cards[randomFlower], width/3, height/2);
     card.splice(randomFlower);
   } else {
