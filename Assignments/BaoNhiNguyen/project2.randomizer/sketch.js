@@ -4,64 +4,144 @@ let meals = [{
   name: "cereal",
   color: "pink"
 }, {
-  name: "cheapsteak",
+  name: "cheap steak",
   color: "brown"
 }, {
-  name: "chickenwings",
-  color: "brngreen"
+  name: "chicken wings",
+  color: "browngreen"
 }, {
   name: "cupcake",
-  color: "redv"
+  color: "red"
 }, {
-  name: "dimsum",
-  color: "lightbrn"
+  name: "dim sum",
+  color: "lightbrown"
 }, {
-  name: "fancysteak",
+  name: "fancy steak",
   color: "redbrn"
 }, {
-  name: "icecream",
+  name: "ice cream",
   color: "tan"
 }, {
-  name: "instantnoodles",
+  name: "instant noodles",
   color: "orange"
 }, {
   name: "katsu",
-  color: "currybrn"
+  color: "currybrown"
 }, {
-  name: "mcdonalds",
+  name: "Mc Donalds",
   color: "redyellow"
 }, {
   name: "pancakes",
-  color: "berrybrn"
+  color: "berrybrown"
 }, {
   name: "ramen",
-  color: "lightyell"
+  color: "lightyelow"
 }, {
   name: "salad",
   color: "green"
 }, {
   name: "sandwich",
-  color: "tangrn"
+  color: "tangreen"
 }, {
   name: "poke",
-  color: "lightorng"
+  color: "lightorange"
 }, {
   name: "sushi",
   color: "orange"
 },];
 
-function setup() {
-  createCanvas(3300, 3300);
-  background(220);
+var hye = Math.floor(Math.random() * 360);
+var pastel = 'hsl(' + hye + ', 100%, 88%)';
 
-  randomIndex = int(random(meals.length));
+let randomIndex;
+let animating = false;
+let food = [];
+let imageCounter = 0;
+
+/// thinking man image
+let hmm;
+/// full from meals man image
+let full;
+let button;
+
+
+function preload(){
   
-  console.log(meals[randomIndex].name);
-  textSize(100)
-  text(meals[randomIndex].name, 100,100);
+  for (let i = 0; i<= 15; i ++){
+    food[i] =     loadImage(`foodassets/food_${i}.jpg`);
+    hmm = loadImage('person/hmm.png');
+    full = loadImage('person/full.png');
+  }
+}
+
+
+
+function setup() {
+  createCanvas(1000, 1000);
+  textSize(32);
   
+  imageMode(CENTER);
+  frameRate(4);
+
+  background(pastel);  
+  image(hmm,580,550,1000,1000);
+  text("Click for today's meals!", 50,50)
+  
+  button = createButton("What is the meal for today?");
+  button.mousePressed(buttonPressed);
+  button.style("padding");
+  button.style("background/color");
+  button.position(480,900); 
+  button.size(150,70);
+
 }
 
 function draw() {
+  
+  
+  if(animating == true) {
+    clear();
+    image(food[imageCounter],width/2, height/2);  
+    if (imageCounter < food.length -1 ){
+    imageCounter++;
+  } else {
+      imageCounter = 0;
+  }  
+}
+} 
+
+
+function randomizer(){
+  animating = false; 
+  
+if (meals[0]) {
+    
+  clear()
+;
+  randomIndex = int(random(meals.length));
+  image(random(food),width/2, height/2);  
+  
+  textSize(33)
+  text(`${meals[randomIndex].name} looks a little ${meals[randomIndex].color}`, 50,100);
+  
+  text(`${meals[randomIndex].name} for todays meal?`, 50,150); 
+  
+  meals.splice(randomIndex, 1);
+} else {
+  background(pastel);
+  image(full,630,650,1000,1000);
+  text("Tummy's full!", 100,100);
+      
+  
+}
 
 }
+function buttonPressed() {
+  
+  animating = true;
+  setTimeout(randomizer, 2000);
+  
+  
+  
+
+}  
