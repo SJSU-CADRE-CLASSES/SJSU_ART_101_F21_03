@@ -37,7 +37,7 @@ let firstTime = true;
 
 function preload(){
   
-  for (let i = 0; i<= 15; i ++){
+  for (let i = 0; i<= 26; i ++){
     food[i] =     loadImage(`foodassets/food_${i}.jpg`);
     hmm = loadImage('person/hmm.png');
     full = loadImage('person/full.png');

@@ -8,7 +8,11 @@ canvas {
 
 .randomizerButton {
   
+
   padding: 10px;
+  position: absolute;
+  right: 100px;
+  bottom: 150px;
   background-color: #f8786d;  
   
 }
@@ -19,6 +23,14 @@ canvas {
   background-color: #9ee5ea; 
   
 }
+
+/* .refreshButton {
+
+  padding: 10px;
+  background-color: #b89eea;
+
+
+} */
 
 .row {
   display: flex;
