@@ -50,8 +50,6 @@ let meals = [{
   color: "orange"
 }, ];
 
-
-///// set up functions
 var hye = Math.floor(Math.random() * 360);
 var pastel = 'hsl(' + hye + ', 100%, 88%)';
 
@@ -59,7 +57,6 @@ let randomIndex;
 let animating = false;
 let food = [];
 let imageCounter = 0;
-let = cnv;
 
 /// thinking man image
 let hmm;
@@ -72,7 +69,11 @@ let hammock;
 
 let button;
 
-//////functions
+let cnv;
+
+let nameInputs;
+
+
 
 function preload() {
 
@@ -89,7 +90,8 @@ function preload() {
 
 function setup() {
   cnv = createCanvas(1000, 1000);
-  cnv.parent("#canvasDiv");
+  cnv.parent("canvasDiv");
+
   textSize(32);
 
   imageMode(CENTER);
@@ -106,13 +108,17 @@ function setup() {
   text("I don't know what to eat for today...", 50, 50);
 
   // button = createButton("Meal options here!");
-
-  button = select('#randButton');
+  button = select("#randButton");
   button.mousePressed(buttonPressed);
   button.class("randomizerButton");
   // button.size(150, 50)
-  // button.position(480,900); 
+  // button.position(480,900);
 
+
+  for (let i = 0; i < 3; i++) {
+    nameInputs.push(createInput());
+    nameInputs[nameInputs.length - 1].parent("#inputFields");
+  }
 }
 
 function draw() {
