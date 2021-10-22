@@ -15,7 +15,7 @@ let firstTime = true;
 
 function preload() {
   for (let i = 0; i <= 5 ; i++){
-    trolls[i] = loadImage(`assets/troll_${i}.JPG`)
+    trolls[i] = loadImage(`assets/troll_${i}.jpg`)
   }
 }
 
