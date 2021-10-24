@@ -23,7 +23,7 @@ let button;
 function preload(){
 
   for (let i = 1; i<= 3; i++){
-    trolls[i] = loadImage("assets/troll_" + i + ".jpg");
+    trolls[i] = loadImage("assets/troll_" + i + ".JPG");
   }
 }
 
