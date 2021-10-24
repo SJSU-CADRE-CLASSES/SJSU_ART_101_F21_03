@@ -44,7 +44,7 @@ frameRate(12);
 
 text("click to randomize", width/2, height/2);
 button = createButton("click to randomize");
-//button.mousePressed(buttonPressed);
+button.mousePressed(buttonPressed);
 
 }
 
@@ -63,7 +63,7 @@ function draw() {
   } else {
     imageCounter = 0;
   }
-
+}
 }
 
 
@@ -84,11 +84,16 @@ function randomizer(){
 }
 
 
+
+
+
 function buttonPressed() {
   animating = true;
   setTimeout(randomizer, 2000);
 }
-}
+
+
+
 
 function changeBackground(){
   if (counter <= 2) {
