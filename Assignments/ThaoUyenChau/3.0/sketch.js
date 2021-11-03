@@ -1,10 +1,29 @@
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(600, 600);
+  background(150,120,220);
+
+  strokeWeight(4)
 }
 
 function draw() {
-  background(220);
-  noStroke();
-  fill(150,50,59);
-  ellipse(100,100,40);
+  if (mouseIsPressed) {
+    stroke(map(mouseX, 0, 600, 0, 255, true));
+    line(mouseX, mouseY, pmouseX, pmouseY);
+    line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
+  }
+
+}
+
+function keyTyped(){
+
+  console.log(`key ${key} is being typed`)
+
+  if (key === 's'){
+
+    saveCanvas('drawIng', 'png');
+    
+  }
+
+  return false;
+
 }
