@@ -1,8 +1,9 @@
 let array = [];
+let backgColor = 50;
 
 function setup() {
-  createCanvas(600, 600);
-  background(255);
+  createCanvas(windowWidth, windowHeight)
+  background(50);
 
   strokeWeight(5);
   noFill();
@@ -11,12 +12,17 @@ function setup() {
 function draw() {
   
   if (mouseIsPressed){
-    //Creating the lines and making them change depending
-    // line(mouseX, mouseY, pmouseX,pmouseY);
-    //Push mouse position into the array
+
+    
     //When you're drawing, background turns black
-    background(0);
+    backgColor -= 5;
+    background(backgColor);
+    //Push mouse position into the array
     array.push([mouseX, mouseY])
+    stroke(map(mouseX, 0, 600, 0, 255, true), map(mouseX, 0, 600, 0, 105, true), map(mouseX, 0, 600, 0, 180, true))
+    line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
+    line(mouseX,mouseY,pmouseX,pmouseY);
+
   }
 
   
@@ -34,7 +40,7 @@ function keyTyped(){
   } 
   
   else if (key === 'd'){
-    background(255);
+    background(50);
 
     //Display image with curved lines
     beginShape();
@@ -43,10 +49,17 @@ function keyTyped(){
         // line(array[i][0], array [i][1], array[i + 1][0], array [i + 1][1]);
         curveVertex(array[i][0], array [i][1])
       }
-     endShape ();
+     endShape();
      
 
   }
   return false;
   
+}
+
+function mousePressed(){
+  console.log("mouse pressed function");
+  array = [];
+  console.log(array);
+  backgColor = 50;
 }

@@ -20,8 +20,11 @@ let cars = [{
   let animating = false;
   let Cars = [] ;
   let imageCounter = 0;
-  let button;
+  let startRandomizerButton;
+  let addMoreButton;
   let cnv;
+  let nameInputs = [];
+
   function preload(){
     
     for (let i = 0; i <=4; i++){
@@ -36,21 +39,25 @@ function setup() {
   background(200);
   textSize(24);
   textFont('Courier new');
-  textAlign(BOLD);
+  textAlign(CENTER);
+  textStyle(BOLD);
   fill(0);
   imageMode(CENTER);
   frameRate(8);
   
-  text("click to randomize",50,50);
-  console.log(Cars);
-
-button = select ('#randButton')
-button.mousePressed(buttonPressed);
-button.class("randomizerButton");
 
 
+  startRandomizerButton = select ('#randButton')
+  startRandomizerButton.mousePressed(buttonPressed);
+
+  addMoreButton = select ('#addMoreButton')
+  addMoreButton.mousePressed(addAnotherInput);
 
 
+  for (let i = 0; i <3; i++) {  
+  nameInputs.push(createInput());
+  nameInputs[nameInputs.length - 1].parent("#inputFields");
+  }
 }
 
 function draw() {
@@ -66,6 +73,10 @@ if (animating== true){
    imageCounter = 0;
  }
 }
+}
+function addAnotherInput(){
+  nameInputs.push(createInput());
+nameInputs[nameInputs.length - 1].parent("#inputFields");
 }
 
 function randomizer (){
