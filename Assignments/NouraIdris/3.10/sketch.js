@@ -1,4 +1,4 @@
-// let array = [];
+
 let noiseOffset = 0.0;
 let strokeWidth = 5;
 
@@ -23,8 +23,7 @@ if (mouseIsPressed){
   stroke(map(mouseX, 0, 600, 0, 255, true))
   line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
   line(mouseX, mouseY, pmouseX, pmouseY);
-  // background(0);
-  // array.push([mouseX, mouseY]);
+
   }
 }
 
