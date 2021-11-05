@@ -1,15 +1,29 @@
 html, body {
   margin: 0;
   padding: 0;
+  background-color: #faf7f0;
 }
+
 canvas {
+  padding-top:50px;
+  margin-left: auto;
+  margin-right: auto;
   display: block;
 }
 
 .randomizerButton{
-  padding: 20px;
   background-color: #abd1c1;
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  padding: 10px;
+}
 
+.center{
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .row {
   display: flex;

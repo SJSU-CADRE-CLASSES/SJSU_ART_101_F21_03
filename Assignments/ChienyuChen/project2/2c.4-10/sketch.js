@@ -9,7 +9,7 @@ let cnv;
 let nameInputs= [];
 let firstTime = true;
 
-// hi
+
 
 
 
@@ -27,7 +27,7 @@ function setup() {
 cnv = createCanvas(600,600);
 cnv.parent("#canvasDiv")
 
-background(230, 211, 154);
+background(237, 218, 159);
 textSize(32);
 //textFont('Courier new');
 textAlign(CENTER);
