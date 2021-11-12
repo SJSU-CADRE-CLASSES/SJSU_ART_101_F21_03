@@ -3,7 +3,6 @@ let array = [];
 function setup() {
   createCanvas(600, 600);
   background(231, 145, 255);
-  textFont('Arial');
 
   strokeWeight(5);
   noFill();
