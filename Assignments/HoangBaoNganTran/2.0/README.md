@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+**ANDREW  BLANTON**
+======================
+=======
 **SJSU ART 101 Fall 2021**
 ======================
 Department of Art and Art History
@@ -15,3 +19,4 @@ Class Website: https://github.com/ablanton/SJSU_ART_101_F21_03
 [GreenSheet](https://github.com/ablanton/SJSU_ART_101_F21_03/blob/master/GREENSHEET.md)
 | [Resources](https://github.com/ablanton/SJSU_ART_101_F21_03/blob/master/RESOURCES.md)
 | [Class Website](https://github.com/ablanton/SJSU_ART_101_F21_03)
+>>>>>>> 0d9d404edebdfa679ecec969e3be88038b22f6d5
