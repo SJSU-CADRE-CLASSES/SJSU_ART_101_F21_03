@@ -13,12 +13,11 @@ function draw() {
   
   if (mouseIsPressed){
 
-    
-    //When you're drawing, background turns black
     backgColor -= 5;
     background(backgColor);
     //Push mouse position into the array
     array.push([mouseX, mouseY])
+    array.push([width - pmouseX,height - pmouseY])
     stroke(map(mouseX, 0, 600, 0, 255, true), map(mouseX, 0, 600, 0, 105, true), map(mouseX, 0, 600, 0, 180, true))
     line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
     line(mouseX,mouseY,pmouseX,pmouseY);
