@@ -3,8 +3,28 @@ let squareMode = false;
 let lineMode = true; // default draw tool
 let dottedLineMode = false; // default draw tool
 let freeDraw = false;
+let gradientMode = false;
+let rainbowMode = false;
+
+// orange is rgb(255, 128, 0) or "#FF8000"
+// purple is rgb(127, 0, 255) or "#7F00FF"
+var r = 0;
+var g = 0;
+var b = 0;
 
 let arr = [];
+
+// enum in JavaScript
+/*
+const gradientArray = {
+  DEFAULTX: 0,
+  DEFAULTY: 1,
+  SPLIT: 2
+};
+*/
+let gradientArray = [0, 1, 2, 3];
+let gradientIndex = 0;
+//let strokeArray = [color];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -13,11 +33,42 @@ function setup() {
 
 function draw() {
   //noStroke(); // drawing lines would require to not use noStroke function
+  //console.log(random(gradientArray));
+
   strokeWeight(3);
   stroke("#FF8000");
+  fill(0,0,110);
 
   if (mouseIsPressed) {
+    // must be before shapes and lines in order to have effect
+    if (rainbowMode) {
+      stroke(random(255), random(255), random(255));
+      fill(random(255), random(255), random(255));
+    }
     if (lineMode) {
+      if (gradientMode) {
+        switch (gradientIndex) {
+          case 0:
+            stroke(map(mouseX, 0, width, 0, 255));
+            break;
+          case 1:
+            stroke(map(mouseY, 0, height, 0, 255));
+            break;
+          case 2:
+            // red to yellow
+            r = map(mouseX, 0, width, 255, 255);
+            g = map(mouseX, 0, width, 0, 255);
+            b = map(mouseX, 0, width, 0, 0);
+            stroke(r, g, b);
+            break;
+          default:
+            // purple to orange
+            r = map(mouseX, 0, width, 127, 255); // 127, 255
+            g = map(mouseX, 0, width, 0, 128); // 0, 128
+            b = map(mouseX, 0, width, 255, 0); // 255, 0
+            stroke(r, g, b);
+        }
+      }
       line(pmouseX, pmouseY, mouseX, mouseY); // same thing as line(mouseX, mouseY, pmouseX, pmouseY);
     } else {
       if (!lineMode && !freeDraw && !circleMode && !squareMode) {
@@ -31,26 +82,54 @@ function draw() {
       line(mouseX, mouseY, mouseX, mouseY); // same thing as line(mouseX, mouseY, pmouseX, pmouseY);
     }
     if (circleMode) {
-      fill(0,0,110);
       ellipse(mouseX,mouseY,40); // draw circles
     }
     if (squareMode) {
-      fill(0,0,110);
       rect(mouseX,mouseY,40); // draw rectangles
     }
   }
 
   if (freeDraw) {
-    if (lineMode) line(pmouseX, pmouseY, mouseX, mouseY); // same thing as line(mouseX, mouseY, pmouseX, pmouseY);
+    if (rainbowMode) {
+      stroke(random(255), random(255), random(255));
+      fill(random(255), random(255), random(255));
+    }
+    if (lineMode) {
+      if (gradientMode) {
+        switch (gradientIndex) {
+          case 0:
+            stroke(map(mouseX, 0, width, 0, 255));
+            break;
+          case 1:
+            stroke(map(mouseY, 0, height, 0, 255));
+            break;
+          case 2:
+            // red to yellow
+            r = map(mouseX, 0, width, 255, 255);
+            g = map(mouseX, 0, width, 0, 255);
+            b = map(mouseX, 0, width, 0, 0);
+            stroke(r, g, b);
+            break;
+          default:
+            // purple to orange
+            r = map(mouseX, 0, width, 127, 255); // 127, 255
+            g = map(mouseX, 0, width, 0, 128); // 0, 128
+            b = map(mouseX, 0, width, 255, 0); // 255, 0
+            stroke(r, g, b);
+        }
+      }
+
+      line(pmouseX, pmouseY, mouseX, mouseY); // same thing as line(mouseX, mouseY, pmouseX, pmouseY);
+    } // end if lineMode
+
     if (dottedLineMode) line(mouseX, mouseY, mouseX, mouseY);
     if (circleMode) {
-      fill(0,0,110);
       ellipse(mouseX,mouseY,40); // draw circles
     }
     if (squareMode) {
-      fill(0,0,110);
       rect(mouseX,mouseY,40); // draw rectangles
     }
+
   }
   /*
   if (mouseIsPressed) {
@@ -93,6 +172,7 @@ function draw() {
 
   // console.log(squareMode); //only works with switch stetement?!
   // console.log(circleMode); //works well
+  // console.log(rainbowMode); //works well
 
 }
 
@@ -164,6 +244,35 @@ function keyTyped() {
     }
 
     //squareMode = true;
+  }
+
+  // key shortcut to activate gradient mode
+  if (key === 'g') {
+    // toggle gradient mode
+    switch (gradientMode) {
+      case false:
+        gradientMode = true;
+        gradientIndex = random(gradientArray);
+        break;
+      case true:
+        gradientMode = false;
+        break;
+    }
+
+  }
+
+  // key shortcut to activate rainbow mode
+  if (key === 'r') {
+    // toggle rainbow mode
+    switch (rainbowMode) {
+      case false:
+        rainbowMode = true;
+        break;
+      case true:
+        rainbowMode = false;
+        break;
+    }
+
   }
 
   // to create connecting("continuous") lines
