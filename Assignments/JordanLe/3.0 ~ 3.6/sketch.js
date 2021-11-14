@@ -20,10 +20,12 @@ function draw() {
     if (lineMode) {
       line(pmouseX, pmouseY, mouseX, mouseY); // same thing as line(mouseX, mouseY, pmouseX, pmouseY);
     } else {
-      // collects all the x and y coordinates as you press the mouse button (DOES NOT collect coordinates when mouse IS NOT pressed)
-      arr.push([mouseX, mouseY]);
-      // prints the previous x-coordinate and the x-coordinate onto the console (ex. 772 827; where pmouseX is 772 and mouseX is 827)
-      print(pmouseX + " " + mouseX);
+      if (!lineMode && !freeDraw && !circleMode && !squareMode) {
+        // collects all the x and y coordinates as you press the mouse button (DOES NOT collect coordinates when mouse IS NOT pressed)
+        arr.push([mouseX, mouseY]);
+        // prints the previous x-coordinate and the x-coordinate onto the console (ex. 772 827; where pmouseX is 772 and mouseX is 827)
+        print(pmouseX + " " + mouseX);
+      }
     }
     if (dottedLineMode) {
       line(mouseX, mouseY, mouseX, mouseY); // same thing as line(mouseX, mouseY, pmouseX, pmouseY);
@@ -165,7 +167,7 @@ function keyTyped() {
   }
 
   // to create connecting("continuous") lines
-  if (key === 'd' && !lineMode && !freeDraw) {
+  if (key === 'd' && !lineMode && !freeDraw && !circleMode && !squareMode) {
       for (let i = 0; i < arr.length - 1; i++) {
         // x1 and y1 gets the x and y coordinate for point A
         // x2 and y2 gets the x and y coordinate for point B
@@ -176,9 +178,24 @@ function keyTyped() {
         // why connect the lines when the user is trying to draw them separately?
       }
   }
+  // to create connecting("continuous") curved lines
+  if (key === 'c' && !lineMode && !freeDraw && !circleMode && !squareMode) {
+    noFill();
+    beginShape();
+      for (let i = 0; i < arr.length; i++) {
+        // arr[i][0] represents the x coordinate of the curved point(a point that forms a curve)
+        // arr[i][1] represents the y coordinate of the curved point(a point that forms a curve)
+
+        // doesn't work when you call beginShape and endShape inside of the for loop(why is that?)
+        //beginShape();
+        curveVertex(arr[i][0], arr[i][1]);
+        //endShape();
+      }
+    endShape();
+  }
 
   // to create separate array lines (non-smooth transition)
-  if (key === 'b' && !lineMode && !freeDraw) {
+  if (key === 'b' && !lineMode && !freeDraw && !circleMode && !squareMode) {
       //let arrTemp = arr; // copy by reference
 
       // if put before, all coordinates will be deleted and there would be nothing to draw afterwards (unless you copy by value)
@@ -213,8 +230,28 @@ function keyTyped() {
       }
 
   }
+  // to create separate curved array lines (non-smooth transition)
+  if (key === 'k' && !lineMode && !freeDraw && !circleMode && !squareMode) {
+
+    noFill();
+    beginShape();
+      for (let i = 0; i < arr.length; i++) {
+        // arr[i][0] represents the x coordinate of the curved point(a point that forms a curve)
+        // arr[i][1] represents the y coordinate of the curved point(a point that forms a curve)
+        curveVertex(arr[i][0], arr[i][1]);
+      }
+    endShape();
+
+      // to not allow the drawn lines to connect
+      for (let j = arr.length; j > -1; j--) {
+        arr.pop();
+      }
+
+  }
   // to not have the next line connect to the previous line
   if (key === 'D') {
+    // since our design invovled adding coordinates while we press on the mouse button,
+    // a better way to make separate array lines is to pop all the coordinates with a specified key that is pressed
     for (let j = arr.length; j > -1; j--) {
       arr.pop();
     }
@@ -222,6 +259,8 @@ function keyTyped() {
 
   // key shortcut to save canvas
   if (key === 's') {
+    // deletes previous image with the same name (doesn't delete previous image with different name)?
+    // also refreshes the local server?
     saveCanvas("drawMachine", "png");
   }
 }
