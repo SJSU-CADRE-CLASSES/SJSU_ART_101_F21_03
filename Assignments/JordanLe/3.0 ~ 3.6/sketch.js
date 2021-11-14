@@ -213,7 +213,7 @@ function keyTyped() {
       }
 
   }
-
+  // to not have the next line connect to the previous line
   if (key === 'D') {
     for (let j = arr.length; j > -1; j--) {
       arr.pop();
