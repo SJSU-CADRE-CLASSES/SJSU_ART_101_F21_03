@@ -16,9 +16,17 @@ h1 {
 
 canvas {
   /* margin: top right bottom left */
+  /*
   margin: 0 auto 0 auto;
   display: block;
   border: 6px solid darkgreen;
   text-align: center;
-  /*position: inherit;*/
+  */
+
+  /* to display full screen */
+  margin: auto;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1; /* z < 0 means canvas will be behind html(can see html), z >= 0 means canvas will be in front of html(cannot see html) */
 }
