@@ -1,0 +1,42 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+.randomizerButton {
+  
+
+  padding: 10px;
+  position: absolute;
+  right: 100px;
+  bottom: 150px;
+  background-color: #f8786d;  
+  
+}
+
+.addyMoreButton {
+
+  padding: 10px;
+  background-color: #9ee5ea; 
+  
+}
+
+/* .refreshButton {
+
+  padding: 10px;
+  background-color: #b89eea;
+
+
+} */
+
+.row {
+  display: flex;
+}
+
+.column {
+  margin: 10px;
+  flex: 50%;
+}
