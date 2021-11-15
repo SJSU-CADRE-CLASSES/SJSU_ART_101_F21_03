@@ -1,8 +1,8 @@
 let array = [];
 
 function setup() {
-  createCanvas(600, 600);
-  background(255);
+  createCanvas(windowWidth, windowHeight);
+  background(20,52,99);
 
   strokeWeight(5);
   noFill();
