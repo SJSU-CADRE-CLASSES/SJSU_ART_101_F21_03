@@ -1,6 +1,7 @@
 html{
   margin: 0;
   padding: 0;
+  cursor: url('images/cursor.cur'), auto
 }
 
 body {
