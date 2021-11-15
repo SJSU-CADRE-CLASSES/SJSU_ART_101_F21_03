@@ -43,7 +43,7 @@ function drawGrid() {
   for (let i = 0; i <= width; i += width / numCells) {
     for (let j = 0; j <= height; j += height / numCells) {
       if (fillColor === 255) {
-        fillColor - 200
+        fillColor = 200
       } else {
         fillColor = 255;
       }
