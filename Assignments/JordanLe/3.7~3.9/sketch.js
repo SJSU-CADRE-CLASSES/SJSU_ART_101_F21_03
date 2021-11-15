@@ -1,7 +1,8 @@
 let circleMode = false;
 let squareMode = false;
 let lineMode = true; // default draw tool
-let dottedLineMode = false; // default draw tool
+let dottedLineMode = false; // dotted line tool
+let curvedLineMode = false; // smoother line tool
 let freeDraw = false;
 let gradientMode = false;
 let rainbowMode = false;
@@ -9,7 +10,7 @@ let rainbowMode = false;
 // orange is rgb(255, 128, 0) or "#FF8000"
 // purple is rgb(127, 0, 255) or "#7F00FF"
 var r = 0;
-var g = 0;
+var g = 220;
 var b = 0;
 
 let arr = [];
@@ -24,11 +25,14 @@ const gradientArray = {
 */
 let gradientArray = [0, 1, 2, 3];
 let gradientIndex = 0;
+// To learn how to use map function in creative coding
+// https://thecodingtrain.com/beginners/p5js/2.5-map.html
 //let strokeArray = [color];
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  background(0, 220, 0);
+  // windowWidth / (65 / 64) to make the border fit with the window width
+  createCanvas(windowWidth / (52 / 50), windowHeight);
+  background(r, g, b);
 }
 
 function draw() {
@@ -74,12 +78,24 @@ function draw() {
       if (!lineMode && !freeDraw && !circleMode && !squareMode) {
         // collects all the x and y coordinates as you press the mouse button (DOES NOT collect coordinates when mouse IS NOT pressed)
         arr.push([mouseX, mouseY]);
+        // transition to purple canvas as the user draw array lines
+        if (r < 128)  r++;
+        if (g > 0)  g--;
+        if (b < 256) b++;
+        // why do you have to create new background when you can just update the parameters uby changing the variables' values? Does background not let you change the parameters afterwards?
+        background(r, g, b);
         // prints the previous x-coordinate and the x-coordinate onto the console (ex. 772 827; where pmouseX is 772 and mouseX is 827)
         print(pmouseX + " " + mouseX);
       }
     }
     if (dottedLineMode) {
-      line(mouseX, mouseY, mouseX, mouseY); // same thing as line(mouseX, mouseY, pmouseX, pmouseY);
+      line(mouseX, mouseY, mouseX, mouseY); // only draws point A for every line drawn (basically draws points)
+    }
+    if (curvedLineMode) {
+      // does not work at the moment
+      beginShape();
+      curveVertex(mouseX, mouseY);
+      endShape();
     }
     if (circleMode) {
       ellipse(mouseX,mouseY,40); // draw circles
@@ -209,6 +225,19 @@ function keyTyped() {
     }
   }
 
+  // key shortcut to activate curved line mode
+  if (key === 'C') {
+    // toggle line mode
+    switch (curvedLineMode) {
+      case false:
+        curvedLineMode = true;
+        break;
+      case true:
+        curvedLineMode = false;
+        break;
+    }
+  }
+
   // key shortcut to activate circle mode
   if (key === '0')  {
     // toggle circle mode
@@ -277,6 +306,11 @@ function keyTyped() {
 
   // to create connecting("continuous") lines
   if (key === 'd' && !lineMode && !freeDraw && !circleMode && !squareMode) {
+      // revert back to green canvas (also doesn't save previous drawings that are not within the array)
+      r = 0;
+      g = 220;
+      b = 0;
+      background(0, 220, 0);
       for (let i = 0; i < arr.length - 1; i++) {
         // x1 and y1 gets the x and y coordinate for point A
         // x2 and y2 gets the x and y coordinate for point B
@@ -286,10 +320,16 @@ function keyTyped() {
         // having 0s at the second dimension (and i+=2) would cause a singular diagonal dotted line
         // why connect the lines when the user is trying to draw them separately?
       }
+
   }
   // to create connecting("continuous") curved lines
   if (key === 'c' && !lineMode && !freeDraw && !circleMode && !squareMode) {
     noFill();
+    // revert back to green canvas
+    r = 0;
+    g = 220;
+    b = 0;
+    background(0, 220, 0);
     beginShape();
       for (let i = 0; i < arr.length; i++) {
         // arr[i][0] represents the x coordinate of the curved point(a point that forms a curve)
@@ -301,6 +341,7 @@ function keyTyped() {
         //endShape();
       }
     endShape();
+
   }
 
   // to create separate array lines (non-smooth transition)
@@ -321,7 +362,11 @@ function keyTyped() {
         }
       //}
       */
-
+      // revert back to green canvas
+      r = 0;
+      g = 220;
+      b = 0;
+      background(0, 220, 0);
       for (let i = 0; i < arr.length - 1; i++) {
         // x1 and y1 gets the x and y coordinate for point A
         // x2 and y2 gets the x and y coordinate for point B
@@ -343,6 +388,11 @@ function keyTyped() {
   if (key === 'k' && !lineMode && !freeDraw && !circleMode && !squareMode) {
 
     noFill();
+    // revert back to green canvas
+    r = 0;
+    g = 220;
+    b = 0;
+    background(0, 220, 0);
     beginShape();
       for (let i = 0; i < arr.length; i++) {
         // arr[i][0] represents the x coordinate of the curved point(a point that forms a curve)
