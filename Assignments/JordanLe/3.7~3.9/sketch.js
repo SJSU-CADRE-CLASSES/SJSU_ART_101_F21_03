@@ -30,8 +30,8 @@ let gradientIndex = 0;
 //let strokeArray = [color];
 
 function setup() {
-  // windowWidth / (65 / 64) to make the border fit with the window width
-  createCanvas(windowWidth / (52 / 50), windowHeight);
+  // windowWidth / (52 / 50) to make the border fit with the window width
+  createCanvas(windowWidth, windowHeight);
   background(r, g, b);
 }
 
