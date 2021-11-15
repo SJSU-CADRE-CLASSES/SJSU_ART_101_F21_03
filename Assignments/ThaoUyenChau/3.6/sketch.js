@@ -5,7 +5,6 @@ function setup() {
   background(150);
 
   strokeWeight(4)
-  // noFill();
 }
 
 function draw() {
