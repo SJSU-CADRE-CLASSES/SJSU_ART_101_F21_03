@@ -2,7 +2,6 @@ let array = [];
 function setup() {
 
   createCanvas(600, 600);
-
  
   background(150);
   drawGrid();
@@ -34,7 +33,7 @@ function drawGrid(){
       rect(i, j, width / numCells, height / numCells);
     }
   }
-  strokeWeight (5);
+  strokeWeight (4);
 }
 
 function keyTyped(){
