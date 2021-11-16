@@ -4,7 +4,7 @@ html, body {
 }
 
 body {
-  margin: 100px auto 0 auto;
+  margin: 50px auto 0 auto;
   width: 80%;
   text-align: center;
   font-family: "courier", monospace;
@@ -12,7 +12,7 @@ body {
 
 canvas {
 margin: auto;
-top: 300px;
+top: 320px;
 left: 0;
 position: absolute;
 }

@@ -1,11 +1,12 @@
 let array = [];
+let Yarray = [];
 let backgColor = 50;
 
 function setup() {
   createCanvas(windowWidth, windowHeight)
   background(50);
 
-  strokeWeight(5);
+  strokeWeight(10);
   noFill();
 }
 
@@ -13,19 +14,17 @@ function draw() {
   
   if (mouseIsPressed){
 
+    //When you're drawing, background turns black
     backgColor -= 5;
     background(backgColor);
     //Push mouse position into the array
     array.push([mouseX, mouseY])
-    array.push([width - pmouseX,height - pmouseY])
+    Yarray.push([width - mouseX, height - mouseY])
     stroke(map(mouseX, 0, 600, 0, 255, true), map(mouseX, 0, 600, 0, 105, true), map(mouseX, 0, 600, 0, 180, true))
-    line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
+    
     line(mouseX,mouseY,pmouseX,pmouseY);
-
+    line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
   }
-
-  
-
 }
 
 function keyTyped(){
@@ -35,7 +34,6 @@ function keyTyped(){
   if (key === 's'){
     //Save the image
     saveCanvas('YourSketch', 'png')
-    
   } 
   
   else if (key === 'd'){
@@ -48,9 +46,20 @@ function keyTyped(){
         // line(array[i][0], array [i][1], array[i + 1][0], array [i + 1][1]);
         curveVertex(array[i][0], array [i][1])
       }
-     endShape();
-     
+    endShape();
 
+    beginShape();
+      for(let j = 0; j < Yarray.length; j++){
+        curveVertex(Yarray[j][0], Yarray [j][1])
+      }
+    endShape();
+
+  } else if(key === 'c'){
+    //Clears arrays, then clears canvas, then sets background
+    array = [];
+    Yarray = [];
+    clear();
+    background(50);
   }
   return false;
   
@@ -58,7 +67,7 @@ function keyTyped(){
 
 function mousePressed(){
   console.log("mouse pressed function");
-  array = [];
-  console.log(array);
+  console.log(Yarray);
+  //Whenever the mouse is pressed, the background resets to allow the fade in
   backgColor = 50;
 }
