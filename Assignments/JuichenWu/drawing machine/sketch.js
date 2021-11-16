@@ -33,7 +33,6 @@ function draw() {
      }
 
 
-
 }
 
    function keyTyped(){
@@ -61,3 +60,9 @@ function draw() {
 
 
    }
+
+function mouse Pressed(){
+  console.log("mouse pressed function");
+  array = [];
+  console.log(array)
+}
