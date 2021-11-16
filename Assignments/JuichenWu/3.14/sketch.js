@@ -1,54 +1,56 @@
-let noiseOffset = 0.0;
-let strokeWidth =5;
+let array =[];
+let backgroundColor =200;
 
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-   background(220, 50, 133);
+  createCanvas(600, 600);
+   // background(backgroundColor);
 
-
-
-
+drawGrid();
+strokeWeight(5);
+noFill();
 }
 
 
 function draw() {
-   background(220, 50, 133,5);
-   strokeWeight(strokeWidth);
-
-   noiseOffset += 0.05;
-   strokeWidth = noise (noiseOffset) * 100;
 
 
+  if (mouseIsPressed){
+    backgroundColor -=5
+    background (backgroundColor);
+  array.push ([mouseX, pmouseY]);
 
+  beginShape();
 
-
-    stroke(map(mouseX, 0, 600, 0, 255, true))
-    line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
-    line(mouseX, mouseY, pmouseX, pmouseY);
+  for (let i=0; i <array.length; i++){
+    curveVertex(array[i][0], array[i][1])
   }
+  endShape();
+}
+return fale;
 
-//     background(0)
-//     array.push([mouseX, mouseY]);
+}
+function mousePressed(){
+  array =[];
+  backgroundColor =255;
+}
 
-//   }
+function drawGrid(){
+  numCells = 20;
+  fillColor = 255;
 
-// }
+  for (let i = 0; i<= width; i += width / numCells){
+    for (let j = 0; j <= height; j += height / numCells){
+      if (fillColor ===v255){
+      fill = 200;
+    } else {
+      fillColor =255'
 
-   function keyTyped(){
-
-     if (key === 's'){
-       // save this image
-       saveCanvas('fileName', 'png');
-     } else if (key === 'c'){
-       // clear the image
-       clear();
+    }
+      fill(fillColor);
+      rect(i, j, width / numCells, height / numCells);
+    }
 
 
      }
-
-
-  return false;
-
-
-   }
+  }
