@@ -2,7 +2,8 @@
 let noiseOffset = 0.0;
 let strokeWidth = 5;
 let backgroundColor=200
-
+let drawing_index = 0;
+let shape_array = ["TRIANGLES", "TESS", "TRIANGLE_STRIP", "QUAD"]
 function setup() {
   createCanvas(600, 600);
 
@@ -21,9 +22,9 @@ if (mouseIsPressed){
 
   array.push ([mouseX,mouseY]);
 
-   beginShape();
+   beginShape(TRIANGLES);
    for (let i =0; i < array.length; i ++){
-    curveVertex(array[i][0], array[i][1])
+    vertex(array[i][0], array[i][1])
       }
     endShape();
    }
@@ -41,6 +42,9 @@ function keyTyped(){
   } else if (key === 'c'){
     //clear the image
     clear();
+  }
+  else if(key === 'k'){
+    index++;
   }
 
   return false;
