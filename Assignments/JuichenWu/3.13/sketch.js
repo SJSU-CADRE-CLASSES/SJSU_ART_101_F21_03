@@ -27,14 +27,22 @@ function draw() {
   }
   endShape();
 }
+return fale;
+
+}
 function mousePressed(){
   array =[];
   backgroundColor =255;
 }
+
 function drawGrid(){
   numCells = 20;
-  for (i = 0; i <= width; i += width / numCells){
-    rect(i, 50, width / numCells, height / numCells)
 
-  }
+  for (let i = 0; i<= width; i += width / numCells){
+    for (let j = 0; j <= height; j += height / numCells){
+      rect(i, j, width / numCells, height / numCells);
+    }
+
+
+     }
   }
