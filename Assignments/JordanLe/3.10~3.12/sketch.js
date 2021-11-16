@@ -75,13 +75,13 @@ function draw() {
       }
       line(pmouseX, pmouseY, mouseX, mouseY); // same thing as line(mouseX, mouseY, pmouseX, pmouseY);
     } else {
-      if (!lineMode && !freeDraw && !circleMode && !squareMode) {
+      if (!lineMode && !freeDraw && !circleMode && !squareMode  && !dottedLineMode) {
         // collects all the x and y coordinates as you press the mouse button (DOES NOT collect coordinates when mouse IS NOT pressed)
         arr.push([mouseX, mouseY]);
         // transition to purple canvas as the user draw array lines
-        if (r < 128)  r++;
-        if (g > 0)  g--;
-        if (b < 256) b++;
+        if (r < 128)  r+=2;
+        if (g > 0)  g-=2;
+        if (b < 256) b+=2;
         // why do you have to create new background when you can just update the parameters uby changing the variables' values? Does background not let you change the parameters afterwards?
         background(r, g, b);
         // prints the previous x-coordinate and the x-coordinate onto the console (ex. 772 827; where pmouseX is 772 and mouseX is 827)
@@ -305,7 +305,7 @@ function keyTyped() {
   }
 
   // to create connecting("continuous") lines
-  if (key === 'd' && !lineMode && !freeDraw && !circleMode && !squareMode) {
+  if (key === 'd' && !lineMode && !freeDraw && !circleMode && !squareMode && !dottedLineMode) {
       // revert back to green canvas (also doesn't save previous drawings that are not within the array)
       r = 0;
       g = 220;
@@ -323,7 +323,7 @@ function keyTyped() {
 
   }
   // to create connecting("continuous") curved lines
-  if (key === 'c' && !lineMode && !freeDraw && !circleMode && !squareMode) {
+  if (key === 'c' && !lineMode && !freeDraw && !circleMode && !squareMode && !dottedLineMode) {
     noFill();
     // revert back to green canvas
     r = 0;
@@ -345,7 +345,7 @@ function keyTyped() {
   }
 
   // to create separate array lines (non-smooth transition)
-  if (key === 'b' && !lineMode && !freeDraw && !circleMode && !squareMode) {
+  if (key === 'b' && !lineMode && !freeDraw && !circleMode && !squareMode && !dottedLineMode) {
       //let arrTemp = arr; // copy by reference
 
       // if put before, all coordinates will be deleted and there would be nothing to draw afterwards (unless you copy by value)
@@ -385,7 +385,7 @@ function keyTyped() {
 
   }
   // to create separate curved array lines (non-smooth transition)
-  if (key === 'k' && !lineMode && !freeDraw && !circleMode && !squareMode) {
+  if (key === 'k' && !lineMode && !freeDraw && !circleMode && !squareMode && !dottedLineMode) {
 
     noFill();
     // revert back to green canvas
@@ -422,4 +422,41 @@ function keyTyped() {
     // also refreshes the local server?
     saveCanvas("drawMachine", "png");
   }
+}
+
+/*
+// toggles the list of controls
+function seeControls() {
+  // gets the div's id (controlsDiv)
+  var ctrl = document.getElementById("controlsDiv");
+  // checks if the div's display mode is none (hiding)
+  if (ctrl.style.display === "none") {
+    // sets the div's display mode to block (shows the div)
+    ctrl.style.display = "block";
+  } else {
+    // sets the div's display mode to none (hides the div)
+    ctrl.style.display = "none";
+  }
+}
+*/
+// https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_hide_show
+
+function seeControls() {
+  var classObj = document.getElementById("controlsDiv");
+  classObj.style.display = "block";
+}
+
+function hideControls() {
+  var classObj = document.getElementById("controlsDiv");
+  classObj.style.display = "none";
+}
+
+function seeInstructions() {
+  var classObj = document.getElementById("tutorialsDiv");
+  classObj.style.display = "block";
+}
+
+function hideInstructions() {
+  var classObj = document.getElementById("tutorialsDiv");
+  classObj.style.display = "none";
 }
