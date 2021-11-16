@@ -1,0 +1,67 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /*margin: 1.5% auto 0 1.5%;*/
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  /*
+  background-color: rgb(0, 120, 120);
+  color: lightcyan;
+  */
+  color: lavender;
+
+}
+
+h1 {
+  text-align: center;
+  color: rgb(150, 75, 0);
+}
+
+canvas {
+  /* margin(outer): top right bottom left */
+  /*
+  margin: 0 auto 0 auto;
+  display: block;
+  border: 6px solid darkgreen;
+  text-align: center;
+  */
+
+  /* to display full screen */
+  margin: auto;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1; /* z < 0 means canvas will be behind html(can see html), z >= 0 means canvas will be in front of html(cannot see html) */
+}
+
+ul {
+  /* To make the list have no bullet points */
+  list-style-type: none;
+  /* why does overflow hidden shows the box instead of hides it?  Is it because it's hidden by default? */
+  overflow: hidden;
+  /* color for the dropdown bar */
+  background-color: rgb(150, 75, 0);
+}
+
+li {
+  /* makes the list display starting from the left in a horizontal manner */
+  float: left;
+  /* padding(inner): top right bottom left */
+  padding: 12px;
+  /* text color for the dropdown bar */
+  color: lavender;
+}
+
+li:hover {
+  background-color: #E5CCFF;
+  color: rgb(100, 0, 50);
+}
+
+#controlsDiv {
+  display: none;
+}
+#tutorialsDiv {
+  display: none;
+}
