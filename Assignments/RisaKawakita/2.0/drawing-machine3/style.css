@@ -1,0 +1,23 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+ margin: 100px auto 0 auto;
+ width: 80%;
+ text-align: center;
+ font-family:'Times New Roman', Times, serif, monospace;
+}
+
+canvas {
+  margin: 0 auto 0 auto;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  z-index: -1;
+}
+
+h1 {
+  font-style: bold;
+}

@@ -1,17 +1,28 @@
 let array = [];
+let img;
+let img2;
+let backgroundColor = 255;
+function preload() {
+  img = loadImage('images/sd2.png');
+  img2 = loadImage('images/vignette3.png');
+}
 
 function setup() {
-  createCanvas(600, 600);
-  background(255, 199, 239);
+  createCanvas(windowWidth, windowHeight);
+  background(backgroundColor);
 
   strokeWeight(10);
-  noFill(); 
+  stroke(201, 255, 255)
+  noFill();
+  image(img, 0,-200)
 }
 
 function draw() {
 
   if (mouseIsPressed) {
-    background(255, 199, 239);
+    background(backgroundColor);
+    backgroundColor -= 2;
+    image(img, 0,-100)
     //stroke(map(mouseX, 0, 600, 113, 255, true))
     //line(mouseX, mouseY, pmouseX, pmouseY);
     array.push([mouseX, mouseY]);
@@ -25,7 +36,8 @@ function keyTyped() {
     saveCanvas(`fileName`, `png`);
   } else if (key === 'd') {
     //display image
-    background(181, 220, 255);
+    background(67, 10, 255);
+    image(img2, -20,-100)
 
     beginShape();
     for (let i = 0; i < array.length; i++) {
@@ -38,4 +50,9 @@ function keyTyped() {
 
 
   return false;
+}
+
+function mousePressed() {
+array = [];
+backgroundColor = 255;
 }
