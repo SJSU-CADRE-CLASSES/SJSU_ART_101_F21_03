@@ -6,7 +6,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight)
   background(50);
 
-  strokeWeight(5);
+  strokeWeight(10);
   noFill();
 }
 
@@ -25,9 +25,6 @@ function draw() {
     line(mouseX,mouseY,pmouseX,pmouseY);
     line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
   }
-
-  
-
 }
 
 function keyTyped(){
@@ -58,7 +55,9 @@ function keyTyped(){
     endShape();
 
   } else if(key === 'c'){
-    
+    //Clears arrays, then clears canvas, then sets background
+    array = [];
+    Yarray = [];
     clear();
     background(50);
   }
@@ -68,8 +67,7 @@ function keyTyped(){
 
 function mousePressed(){
   console.log("mouse pressed function");
-  array = [];
-  Yarray = [];
   console.log(Yarray);
+  //Whenever the mouse is pressed, the background resets to allow the fade in
   backgColor = 50;
 }
