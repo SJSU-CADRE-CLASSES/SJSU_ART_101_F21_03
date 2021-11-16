@@ -14,6 +14,7 @@ function setup() {
   strokeWeight(10);
   stroke(201, 255, 255)
   noFill();
+  
   image(img, 0,-100)
 }
 
@@ -45,14 +46,14 @@ function keyTyped() {
       curveVertex(array[i][0], array[i][1])
     }
     endShape();
-
+  
+  
+  } else if (key === 'c') {
+  clear();
+  array = [];
+  background(255)
+  image(img,0,-100)
   }
 
-
   return false;
-}
-
-function mousePressed() {
-array = [];
-backgroundColor = 255;
 }
