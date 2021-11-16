@@ -64,6 +64,5 @@ function draw() {
 function mouse Pressed(){
   console.log("mouse pressed function");
   array = [];
-
   console.log(array)
 }
