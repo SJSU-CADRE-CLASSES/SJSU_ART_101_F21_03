@@ -9,6 +9,7 @@ let rainbowMode = false;
 let invertedMode = false;
 let symmetricXAxisMode = false;
 let symmetricYAxisMode = false;
+let sunBrushMode = false;
 
 let fadedMode = false;
 let fadedValue = 0;
@@ -18,6 +19,9 @@ let shapeSize = 40;
 let noiseOffSet = 0.0;
 let perlinMode = false;
 
+//let gridMode = true;
+let bArrayLines = true;
+
 // orange is rgb(255, 128, 0) or "#FF8000"
 // purple is rgb(127, 0, 255) or "#7F00FF"
 var r = 0;
@@ -25,6 +29,7 @@ var g = 220;
 var b = 0;
 
 let arr = [];
+let arrP = [];
 
 // enum in JavaScript
 /*
@@ -45,19 +50,30 @@ let gradientIndex = 0;
 
 // let fadeArray = [0, 1, 2]; //0 being no fade, 1 being faded trail, and 2 being no trail
 
+// does this setup function only runs once?
 function setup() {
   // windowWidth / (52 / 50) to make the border fit with the window width
   createCanvas(windowWidth, windowHeight);
-  //background(r, g, b);
+  //creates the background when faded mode is not activated;
   if (!fadedMode) {
     background(r, g, b);
   }
+
+  // why does this not work?
+  //while (gridMode &&) {
+    //drawGrid(20);
+  //}
 }
 
 function draw() {
   //noStroke(); // drawing lines would require to not use noStroke function
   //console.log(random(gradientArray));
   // console.log(fadedValue); to test if fade value decreases and if it resets to the initial value
+  //console.log(gridMode);
+  // push();
+  //stroke(0);
+  //drawGrid(20);
+  // pop();
 
   if (fadedMode) {
     if (fadedValue < 256) {
@@ -125,19 +141,22 @@ function draw() {
       if (invertedMode) line(width - pmouseX, height - pmouseY, width - mouseX, height - mouseY); // draw inverted lines
       if (symmetricXAxisMode) line(width - pmouseX, pmouseY, width - mouseX, mouseY); // draw vertical symmetric lines
       if (symmetricYAxisMode) line(pmouseX, height - pmouseY, mouseX, height - mouseY); // draw horrizontal symmetric lines
+      if (sunBrushMode) line(arrP[0][0], arrP[0][1], mouseX, mouseY); // same thing as line(mouseX, mouseY, pmouseX, pmouseY);
       line(pmouseX, pmouseY, mouseX, mouseY); // same thing as line(mouseX, mouseY, pmouseX, pmouseY);
     } else {
-      if (!lineMode && !freeDraw && !circleMode && !squareMode && !dottedLineMode && !perlinMode) {
+      if (!lineMode && !freeDraw && !circleMode && !squareMode && !dottedLineMode && !perlinMode && !sunBrushMode) {
         // collects all the x and y coordinates as you press the mouse button (DOES NOT collect coordinates when mouse IS NOT pressed)
         arr.push([mouseX, mouseY]);
-        // transition to purple canvas as the user draw array lines
-        if (r < 128) r += 2;
-        if (g > 0) g -= 2;
-        if (b < 256) b += 2;
-        // why do you have to create new background when you can just update the parameters uby changing the variables' values? Does background not let you change the parameters afterwards?
-        background(r, g, b);
+        if (bArrayLines) {
+          // transition to purple canvas as the user draw array lines
+          if (r < 128) r += 2;
+          if (g > 0) g -= 2;
+          if (b < 256) b += 2;
+          // why do you have to create new background when you can just update the parameters uby changing the variables' values? Does background not let you change the parameters afterwards?
+          background(r, g, b);
+        }
         // prints the previous x-coordinate and the x-coordinate onto the console (ex. 772 827; where pmouseX is 772 and mouseX is 827)
-        print(pmouseX + " " + mouseX);
+        //print(pmouseX + " " + mouseX);
       }
     }
     if (dottedLineMode) {
@@ -164,6 +183,8 @@ function draw() {
       if (symmetricYAxisMode) rect(mouseX, height - mouseY, shapeSize); // draw horizontal symmetric squares
       rect(mouseX, mouseY, shapeSize); // draw rectangles
     }
+  } else {
+    arrP.pop();
   }
 
   if (freeDraw) {
@@ -264,7 +285,7 @@ function draw() {
   // console.log(circleMode); //works well
   // console.log(rainbowMode); //works well
 
-}
+} // end of draw function
 
 function keyTyped() {
   // erase all circles (clear all data)
@@ -313,6 +334,18 @@ function keyTyped() {
         break;
       case true:
         curvedLineMode = false;
+        break;
+    }
+  }
+
+  if (key === 'B') {
+    // toggle no background change for array line mode
+    switch (bArrayLines) {
+      case false:
+        bArrayLines = true;
+        break;
+      case true:
+        bArrayLines = false;
         break;
     }
   }
@@ -449,13 +482,29 @@ function keyTyped() {
 
   }
 
+  // key shortcut to activate sun brush mode
+  if (key === 'F') {
+    // toggle sun brush mode
+    switch (sunBrushMode) {
+      case false:
+        sunBrushMode = true;
+        break;
+      case true:
+        sunBrushMode = false;
+        break;
+    }
+
+  }
+
   // to create connecting("continuous") lines
-  if (key === 'd' && !lineMode && !freeDraw && !circleMode && !squareMode && !dottedLineMode) {
-    // revert back to green canvas (also doesn't save previous drawings that are not within the array)
-    r = 0;
-    g = 220;
-    b = 0;
-    background(r, g, b);
+  if (key === 'd' && !lineMode && !freeDraw && !circleMode && !squareMode && !dottedLineMode && !perlinMode && !sunBrushMode) {
+    if (bArrayLines) {
+      // revert back to green canvas (also doesn't save previous drawings that are not within the array)
+      r = 0;
+      g = 220;
+      b = 0;
+      background(r, g, b);
+    }
     for (let i = 0; i < arr.length - 1; i++) {
       // x1 and y1 gets the x and y coordinate for point A
       // x2 and y2 gets the x and y coordinate for point B
@@ -468,13 +517,15 @@ function keyTyped() {
 
   }
   // to create connecting("continuous") curved lines
-  if (key === 'c' && !lineMode && !freeDraw && !circleMode && !squareMode && !dottedLineMode) {
+  if (key === 'c' && !lineMode && !freeDraw && !circleMode && !squareMode && !dottedLineMode && !perlinMode && !sunBrushMode) {
     noFill();
-    // revert back to green canvas
-    r = 0;
-    g = 220;
-    b = 0;
-    background(r, g, b);
+    if (bArrayLines) {
+      // revert back to green canvas (also doesn't save previous drawings that are not within the array)
+      r = 0;
+      g = 220;
+      b = 0;
+      background(r, g, b);
+    }
     beginShape();
     for (let i = 0; i < arr.length; i++) {
       // arr[i][0] represents the x coordinate of the curved point(a point that forms a curve)
@@ -490,7 +541,7 @@ function keyTyped() {
   }
 
   // to create separate array lines (non-smooth transition)
-  if (key === 'b' && !lineMode && !freeDraw && !circleMode && !squareMode && !dottedLineMode) {
+  if (key === 'b' && !lineMode && !freeDraw && !circleMode && !squareMode && !dottedLineMode && !perlinMode && !sunBrushMode) {
     //let arrTemp = arr; // copy by reference
 
     // if put before, all coordinates will be deleted and there would be nothing to draw afterwards (unless you copy by value)
@@ -507,11 +558,13 @@ function keyTyped() {
       }
     //}
     */
-    // revert back to green canvas
-    r = 0;
-    g = 220;
-    b = 0;
-    background(r, g, b);
+    if (bArrayLines) {
+      // revert back to green canvas (also doesn't save previous drawings that are not within the array)
+      r = 0;
+      g = 220;
+      b = 0;
+      background(r, g, b);
+    }
     for (let i = 0; i < arr.length - 1; i++) {
       // x1 and y1 gets the x and y coordinate for point A
       // x2 and y2 gets the x and y coordinate for point B
@@ -530,14 +583,16 @@ function keyTyped() {
 
   }
   // to create separate curved array lines (non-smooth transition)
-  if (key === 'k' && !lineMode && !freeDraw && !circleMode && !squareMode && !dottedLineMode) {
+  if (key === 'k' && !lineMode && !freeDraw && !circleMode && !squareMode && !dottedLineMode && !perlinMode && !sunBrushMode) {
 
     noFill();
-    // revert back to green canvas
-    r = 0;
-    g = 220;
-    b = 0;
-    background(r, g, b);
+    if (bArrayLines) {
+      // revert back to green canvas (also doesn't save previous drawings that are not within the array)
+      r = 0;
+      g = 220;
+      b = 0;
+      background(r, g, b);
+    }
     beginShape();
     for (let i = 0; i < arr.length; i++) {
       // arr[i][0] represents the x coordinate of the curved point(a point that forms a curve)
@@ -560,13 +615,39 @@ function keyTyped() {
       arr.pop();
     }
   }
-
+/*
+  // key shortcut to activate grid mode
+  if (key === 'g') {
+    // toggle grid mode
+    switch (gridMode) {
+      case false:
+        gridMode = true;
+        break;
+      case true:
+        gridMode = false;
+        break;
+    }
+  }
+*/
   // key shortcut to save canvas
   if (key === 's') {
     // deletes previous image with the same name (doesn't delete previous image with different name)?
     // also refreshes the local server?
     saveCanvas("drawMachine", "png");
   }
+} // end of keyTyped function
+
+function drawGrid(numCells) {
+  for (let i = 0; i <= width; i += width / numCells) {
+    for (let j = 0; j <= height; j += height / numCells) {
+        noFill();
+        rect(i, j, width / numCells, height / numCells); // j = 50
+    }
+  }
+}
+
+function mousePressed() {
+  arrP.push([pmouseX, pmouseY]);
 }
 
 /*

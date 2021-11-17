@@ -1,5 +1,5 @@
 let array=[];
-let topics = [{name: "A Happy Mountain Range"},{name: "A Family of Trees"},{name: "Mr.Sun"},{name: "A Nice Little Lake"},{name: "Happy Clouds"},{name: "Any Wild Animal"},{name: "A Tiny Cozy Cottage"},{name: "A Rainy Day"},{name: "A Snowy Day"},{name: "Mrs.Moon"},{name: "A Big City"},{name: "The Hopeless Wreck That Is My Life"}]
+let topics = [{name: "A Happy Mountain Range"},{name: "A Family of Trees"},{name: "Mr.Sun"},{name: "A Nice Little Lake"},{name: "Happy Clouds"},{name: "Any Wild Animal"},{name: "A Tiny Cozy Cottage"},{name: "A Rainy Day"},{name: "A Snowy Day"},{name: "Mrs.Moon"},{name: "A Big City"},{name: "Basket of Yummy Fruit"},{name: "The Hopeless Wreck That Is My Life"},{name: "A Cute Dog"}]
 
 function setup() {
   createCanvas(500, 500);
