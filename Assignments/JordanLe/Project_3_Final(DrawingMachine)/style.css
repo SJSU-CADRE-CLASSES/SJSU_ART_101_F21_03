@@ -1,0 +1,121 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /*margin: 1.5% auto 0 1.5%;*/
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  /*
+  background-color: rgb(0, 120, 120);
+  color: lightcyan;
+  */
+  color: lavender;
+
+}
+
+h1 {
+  text-align: center;
+  color: rgb(150, 75, 0);
+}
+
+/* https://www.w3schools.com/Css/tryit.asp?filename=trycss_dropdown_navbar2 */
+
+canvas {
+  /* margin(outer): top right bottom left */
+  /*
+  margin: 0 auto 0 auto;
+  display: block;
+  border: 6px solid darkgreen;
+  text-align: center;
+  */
+
+  /* to display full screen */
+  margin: auto;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1; /* z < 0 means canvas will be behind html(can see html), z >= 0 means canvas will be in front of html(cannot see html) */
+}
+
+ul {
+  /* To make the list have no bullet points */
+  list-style-type: none;
+  /*
+  margin: 0;
+  padding: 0;
+  */
+  /* why does overflow hidden shows the box instead of hides it?  Is it because it's hidden by default? */
+  overflow: hidden;
+  /* color for the dropdown bar */
+  background-color: rgb(150, 75, 0);
+}
+
+li {
+  /* makes the list display starting from the left in a horizontal manner */
+  float: left;
+  /* padding(inner): top right bottom left */
+  padding: 12px;
+  /* text color for the dropdown bar */
+  color: lavender;
+}
+
+/* li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+} */
+
+li:hover {
+  background-color: #E5CCFF;
+  color: rgb(100, 0, 50);
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+/* If mouse cursor is on the dropdown class tab, show the display for the dropdown-content class */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute; /* to make a dropdown bar separate from the rest of the tabs */
+  background-color: rgb(150, 75, 0);
+  /* color doesn't work here because this class only represents the dropdown box as a whole, not the link/paragraph itself */
+  /* padding: 12px;*/
+  width: 102px; /* width of the dropdown box */
+  margin-left: -12px; /* push right if negative value */
+  margin-top: 12px; /* push down the greater the value */
+
+}
+
+.dropdown-content a {
+  color: lavender;
+  padding: 12px;
+  text-decoration: none;
+  display: block; /* formats the dropdown box links better */
+  text-align: center;
+}
+
+.dropdown-content a:hover {
+  background-color: #E5CCFF;
+  color: rgb(100, 0, 50);
+}
+
+a:link {
+  text-decoration: none;
+}
+
+
+
+#controlsDiv {
+  display: none;
+}
+#tutorialsDiv {
+  display: none;
+}
