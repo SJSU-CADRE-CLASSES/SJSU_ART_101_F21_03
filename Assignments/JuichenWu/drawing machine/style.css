@@ -17,5 +17,5 @@ body{
 canvas {
   margin: 0 auto 0 auto;
   display: block;
-  border: 5px solid black;
+  border: 20px solid pink;
 }
