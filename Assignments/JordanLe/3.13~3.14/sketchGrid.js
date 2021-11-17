@@ -61,7 +61,7 @@ function setup() {
 
   // why does this not work?
   //while (gridMode &&) {
-    //drawGrid(20);
+    drawGrid(20);
   //}
 }
 
@@ -294,6 +294,10 @@ function keyTyped() {
     g = 220;
     b = 0;
     background(r, g, b);
+    push();
+      stroke(0);
+      drawGrid(20);
+    pop();
   }
 
   // key shortcut to activate line mode
