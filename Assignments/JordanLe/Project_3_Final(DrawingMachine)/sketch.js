@@ -141,7 +141,6 @@ function draw() {
       if (invertedMode) line(width - pmouseX, height - pmouseY, width - mouseX, height - mouseY); // draw inverted lines
       if (symmetricXAxisMode) line(width - pmouseX, pmouseY, width - mouseX, mouseY); // draw vertical symmetric lines
       if (symmetricYAxisMode) line(pmouseX, height - pmouseY, mouseX, height - mouseY); // draw horrizontal symmetric lines
-      if (sunBrushMode) line(arrP[0][0], arrP[0][1], mouseX, mouseY); // same thing as line(mouseX, mouseY, pmouseX, pmouseY);
       line(pmouseX, pmouseY, mouseX, mouseY); // same thing as line(mouseX, mouseY, pmouseX, pmouseY);
     } else {
       if (!lineMode && !freeDraw && !circleMode && !squareMode && !dottedLineMode && !perlinMode && !sunBrushMode) {
@@ -170,6 +169,12 @@ function draw() {
       beginShape();
       curveVertex(mouseX, mouseY);
       endShape();
+    }
+    if (sunBrushMode) {
+      if (invertedMode) line(width - arrP[0][0], height - arrP[0][1], width - mouseX, height - mouseY); // draw inverted "sun" lines
+      if (symmetricXAxisMode) line(width - arrP[0][0], arrP[0][1], width - mouseX, mouseY); // draw vertical symmetric "sun" lines
+      if (symmetricYAxisMode) line(arrP[0][0], height - arrP[0][1], mouseX, height - mouseY); // draw horrizontal symmetric "sun"" lines
+      line(arrP[0][0], arrP[0][1], mouseX, mouseY);
     }
     if (circleMode) {
       if (invertedMode) ellipse(width - mouseX, height - mouseY, shapeSize); // draw inverted circles

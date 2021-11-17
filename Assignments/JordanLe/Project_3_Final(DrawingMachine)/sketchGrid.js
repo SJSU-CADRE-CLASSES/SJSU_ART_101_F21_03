@@ -80,6 +80,7 @@ function draw() {
       fadedValue += 0.0256;
     } else {
       fadedValue = 0;
+      drawGrid(20); // as the fade value resets, so does the grid
     }
     // updating the variable param from here works?! (maybe cause it's before the background function?)
     background(r, g, b, fadedValue);
@@ -294,6 +295,7 @@ function keyTyped() {
     r = 0;
     g = 220;
     b = 0;
+    fadedValue = 0; // resets faded value to start the fading all over again
     background(r, g, b);
     push();
       stroke(0);
