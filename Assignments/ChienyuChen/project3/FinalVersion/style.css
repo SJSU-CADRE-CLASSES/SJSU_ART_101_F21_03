@@ -1,0 +1,35 @@
+html {
+background:radial-gradient(circle at center, #f7f5d7, #836dbd);  margin: 0;
+  padding: 0;
+}
+
+
+
+
+body {
+  margin: 100px auto;
+  width: 80%;
+  text-align: center;
+
+  font-family: louvette-banner,serif;
+  font-weight: 600;
+  font-style: normal;
+  color: #ffffff
+}
+
+
+canvas {
+  margin: auto;
+  top: 0;
+  left:0;
+  position: absolute;
+  z-index: -1
+/*    display: block;    */
+/*    border: 5px solid black;    */
+
+}
+
+
+h1 {
+
+}
