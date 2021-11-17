@@ -1,5 +1,3 @@
-let array = [];
-let noiseOffset = 0.0;
 let strokeWidth = 1;
 let xPos, yPos, dia = 75;
 let brush1 = true;
