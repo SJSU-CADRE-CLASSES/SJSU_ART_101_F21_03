@@ -1,3 +1,7 @@
+function preload() {
+  Dot=loadFont("Dot.ttf");
+}
+
 let pen_size;
 let clear_button;
 let save_button;
@@ -10,13 +14,14 @@ function setup() {
   mic = new p5.AudioIn();
   mic.start();
   
-  background_color = createColorPicker(220);
+  background_color = createColorPicker('#f2e8d8');
   background_color.position(300, 5);
   background_color.input(setbackground);
   
   pen_size = createSlider(1,20,3,1);
   pen_size.position(70, 12);
   pen_size.input(set_options);
+  textFont(Dot);
   text(pen_size.value(), 100, 50);
   
   clear_button = createButton('Clear Canvas');
@@ -27,7 +32,7 @@ function setup() {
   save_button.position(width-120, 30);
   save_button.mousePressed(savecanvas);
   
-  background(220);
+  background('#f2e8d8');
 }
 
 
@@ -38,10 +43,13 @@ function draw() {
   fill('black');
   textSize(15);
   text(pen_size.value(),50,25);
-  text("Background color",250,50);
+  text("Background color",262,50);
   
   colorMode(HSB);
   micvalue = mic.getLevel()*1000;
+    if(micvalue>=230){
+    micvalue=230
+  }
   //micvalue = micvalue*100;
   console.log(micvalue);
   fill(micvalue, 100, 100, 1);
@@ -54,7 +62,6 @@ function draw() {
    } else{
      cursor(ARROW);
    }
-
 }
 
 
