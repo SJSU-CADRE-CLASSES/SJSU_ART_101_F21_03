@@ -15,12 +15,12 @@ canvas {
   /* margin: 0 auto 0 auto; */
   border: 5px solid rgb(240, 239, 239);
   margin-left: 590px;
-  margin-top: -315px;
+  margin-top: -415px;
   display: block;
 }
 .word{
   text-align: right;
-  padding-right: 100px;
+  padding-right: 35px;
   font-family: 'Permanent Marker', cursive;
   font-style: italic;
 }
@@ -39,7 +39,7 @@ canvas {
   height: 800px;
   /* padding: 80px; */
   /* margin-left: auto; */
-  margin-top: -375px;
+  margin-top: -485px;
   margin-right: auto;
   display: block;
 }
@@ -48,7 +48,7 @@ canvas {
   height: 700px;
   /* padding: 80px; */
   /* margin-left: auto; */
-  margin-top: -255px;
+  margin-top: -360px;
   margin-left: -5px;
   display: block;
 }

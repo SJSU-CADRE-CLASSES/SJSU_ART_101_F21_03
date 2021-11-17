@@ -16,6 +16,12 @@
   <ul>
     <li onMouseOver="seeInstructions()" , onMouseOut="hideInstructions()">Instructions</li>
     <li onMouseOver="seeControls()" , onMouseOut="hideControls()">The Controls</li>
+    <li class="dropdown"> Grid Mode
+      <div class="dropdown-content">
+        <a href="index.html">None</a>
+        <a href="indexGrid.html">Default</a>
+      </div>
+    </li>
     <br>
     <br>
     <div id="tutorialsDiv">
@@ -45,7 +51,7 @@
       <p>[i] : inverted mode (draw line/shape that goes at the opposite direction of your cursor)</p>
       <p>[x] : symmetric x-axis mode (draw line/shape that's symmetric to your cursor based on the x-axis)</p>
       <p>[y] : symmetric y-axis mode (draw line/shape that's symmetric to your cursor based on the y-axis)</p>
-      <p>[p] : perlin brush mode (draw lines/shapes with a dynamic brush size)</p>
+      <p>[p] : perlin brush mode (draw lines/shapes with a dynamic brush size; 50% chance with outline)</p>
     </div>
   </ul>
 </body>

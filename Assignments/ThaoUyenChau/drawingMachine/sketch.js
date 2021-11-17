@@ -1,5 +1,3 @@
-let array = [];
-let noiseOffset = 0.0;
 let strokeWidth = 1;
 let xPos, yPos, dia = 75;
 let brush1 = true;
@@ -16,12 +14,11 @@ function setup() {
 }
 function colorFlower(){
   fill(random(255), random(255), random(255));
-  ellipse(xPos,yPos,20,20)
+  ellipse(xPos,yPos,30,30)
   ellipse(xPos-15,yPos+5,20,20)
   ellipse(xPos-25,yPos-5,20,20)
   ellipse(xPos-17,yPos-20,20,20)
   ellipse(xPos,yPos-15,20,20)
-  // fill(255, 230, 51);
   fill (225, random(225), random(225));
   ellipse(xPos-12,yPos-7,22,22) 
 }
@@ -43,23 +40,10 @@ function draw() {
   // fill(193,0,134);
   stroke(193, 0, 134);
   strokeWeight(2);
-  fill(255,179,219,60);
+  fill(255,179,219);
   rect(xPos,yPos,dia,dia);
   }
 }
-
-// if (mouseIsPressed) {
-  //   background(100, 120, 200, 10);
-  //   strokeWeight(strokeWidth);
-    
-  //   noiseOffset += 0.025;
-  //   strokeWidth = noise(noiseOffset) * 100;
-  //   stroke(map(mouseX, 0, 600, 0, 50, true));
-  //   line(mouseX, mouseY, pmouseX, pmouseY);
-  //   line(width - mouseX, height - mouseY);
-    // // background(0);
-    // array.push([mouseX, mouseY]);
-  // }
 
 }
 
@@ -97,17 +81,7 @@ function keyTyped(){
    } else if (key === 'c'){
      clear();
     drawGrid();
-    noStroke();
-    // rect(26,25,355,230);
-  // beginShape();
-  //   for(let i = 0; i < array.length; i++){
-  //     // console.log(i);
-  //     // line(array[i][0], array [i][1], array[i + 1][0], array [i + 1][1]);
-  //     curveVertex(array[i][0], array [i][1]);
-  //     background(150,120,220);
-  //   } 
-  //   endShape();
-    
+    noStroke(); 
   }
 
   if(key === '1'){
@@ -126,7 +100,5 @@ function keyTyped(){
     fill (225, random(225), random(225));
     ellipse(xPos-12,yPos-7,25,25) 
   }
-
-  // return false;
 
 }

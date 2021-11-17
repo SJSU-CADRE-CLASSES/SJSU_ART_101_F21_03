@@ -6,10 +6,11 @@ function setup() {
   createCanvas(600, 600);
    // background(backgroundColor);
 
+
 drawGrid();
-strokeWeight(5);
 noFill();
-}
+
+
 
 
 function draw() {
@@ -38,19 +39,22 @@ function mousePressed(){
 function drawGrid(){
   numCells = 20;
   fillColor = 255;
+   // noStroke();
+   strokeWeight(0)
 
   for (let i = 0; i<= width; i += width / numCells){
     for (let j = 0; j <= height; j += height / numCells){
-      if (fillColor ===v255){
-      fill = 200;
+      if (fillColor === 255){
+      fillColor = 200;
     } else {
-      fillColor =255'
+      fillColor =255;
 
     }
       fill(fillColor);
       rect(i, j, width / numCells, height / numCells);
     }
 
-
      }
+
+     strokeWeight(5);
   }
