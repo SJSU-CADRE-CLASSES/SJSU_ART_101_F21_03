@@ -20,12 +20,14 @@ function setup() {
 
 function draw() {
 
-  if (mouseIsPressed) {
+  if (mouseIsPressed) {    
+    
     background(backgroundColor);
     backgroundColor -= 2;
     image(img, 0,-100)
-    //stroke(map(mouseX, 0, 600, 113, 255, true))
     //line(mouseX, mouseY, pmouseX, pmouseY);
+    //stroke(map(mouseX, 0, 600, 113, 255, true))
+
     array.push([mouseX, mouseY]);
   }
 }
@@ -42,7 +44,7 @@ function keyTyped() {
 
     beginShape();
     for (let i = 0; i < array.length; i++) {
-      //line(array[i][0], array[i][1], array[i + 1][0], array[i + 1][1]);
+      line(array[i][0], array[i][1], array[i + 1][0], array[i + 1][1]);
       curveVertex(array[i][0], array[i][1])
     }
     endShape();
@@ -53,6 +55,7 @@ function keyTyped() {
   array = [];
   background(255)
   image(img,0,-100)
+
   }
 
   return false;
