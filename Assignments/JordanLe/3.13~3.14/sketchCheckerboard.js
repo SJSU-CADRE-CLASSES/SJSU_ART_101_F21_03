@@ -642,13 +642,27 @@ function keyTyped() {
   }
 } // end of keyTyped function
 
+var fillColor = 220;
 function drawGrid(numCells) {
-  for (let i = 0; i <= width; i += width / numCells) {
-    for (let j = 0; j <= height; j += height / numCells) {
-        noFill();
+  // in Lark's vid, how come she only used one if/else when I had to use two of them?
+  // how come in Khan Academy, one if/else statement works while it doesn't work in atom?
+  for (var i = 0; i <= width; i += width / numCells) {
+    if (fillColor === 220) {
+      fillColor = 110;
+    } else {
+      fillColor = 220;
+    }
+    for (var j = 0; j <= height; j += height / numCells) {
+        if (fillColor === 220) {
+          fillColor = 110;
+        } else {
+          fillColor = 220;
+        }
+        fill(0, fillColor, 0);
         rect(i, j, width / numCells, height / numCells); // j = 50
     }
   }
+
 }
 
 function mousePressed() {
