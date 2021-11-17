@@ -7,14 +7,6 @@ var b=255;
 
 
 
-
-let text;
-
-
-
-
-
-
 function setup() {
  let cnv =  createCanvas(600, 600);
   cnv.position(0,0,'relative');
@@ -26,7 +18,6 @@ function setup() {
   //textFont(inconsolata);
   //textSize(width / 3);
   //textAlign(CENTER, CENTER);
-
 }
 
 
