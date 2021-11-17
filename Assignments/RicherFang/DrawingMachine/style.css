@@ -1,0 +1,54 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+audio {
+  display: none;
+}
+body{
+  margin: auto 0 auto;
+  background-color: rgb(245, 237, 237);
+  color: black;
+  font-family: 'Permanent Marker', cursive;
+}
+canvas {
+  /* margin: 0 auto 0 auto; */
+  border: 5px solid rgb(240, 239, 239);
+  margin-left: 590px;
+  margin-top: -415px;
+  display: block;
+}
+.word{
+  text-align: right;
+  padding-right: 35px;
+  font-family: 'Permanent Marker', cursive;
+  font-style: italic;
+}
+.item {
+  width: 1000px;
+  height: 100px;
+  background-color: rgb(245, 237, 237);
+  color: white;
+  /* margin: 30px; */
+  display: flex;
+  justify-content: left;
+  /* padding: 30px; */
+}
+.ross {
+  width: 600px;
+  height: 800px;
+  /* padding: 80px; */
+  /* margin-left: auto; */
+  margin-top: -485px;
+  margin-right: auto;
+  display: block;
+}
+.easel {
+  width: 500px;
+  height: 700px;
+  /* padding: 80px; */
+  /* margin-left: auto; */
+  margin-top: -360px;
+  margin-left: -5px;
+  display: block;
+}
