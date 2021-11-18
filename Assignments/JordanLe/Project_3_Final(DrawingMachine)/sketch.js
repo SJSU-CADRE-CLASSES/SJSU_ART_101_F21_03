@@ -362,7 +362,7 @@ function draw() {
   // console.log(squareMode); //only works with switch stetement?!
   // console.log(circleMode); //works well
   // console.log(rainbowMode); //works well
-  // console.log(specialBrushMode); //used to test if specialBrushMode works well
+  // console.log(specialBrushMode); //used to test if specialBrushMode works well!
 
 } // end of draw function
 
