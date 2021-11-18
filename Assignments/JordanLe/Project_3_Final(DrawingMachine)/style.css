@@ -58,6 +58,7 @@ li {
   padding: 12px;
   /* text color for the dropdown bar */
   color: lavender;
+  transition-duration: 0.4s;
 }
 
 /* li a {
@@ -69,12 +70,15 @@ li {
 } */
 
 li:hover {
+  transition-duration: 0.4s;
   background-color: #E5CCFF;
   color: rgb(100, 0, 50);
+
 }
 
 li.dropdown {
   display: inline-block;
+  transition-duration: 0.4s;
 }
 
 /* If mouse cursor is on the dropdown class tab, show the display for the dropdown-content class */
@@ -100,9 +104,11 @@ li.dropdown {
   text-decoration: none;
   display: block; /* formats the dropdown box links better */
   text-align: center;
+  transition-duration: 0.4s;
 }
 
 .dropdown-content a:hover {
+  transition-duration: 0.4s;
   background-color: #E5CCFF;
   color: rgb(100, 0, 50);
 }
@@ -111,11 +117,56 @@ a:link {
   text-decoration: none;
 }
 
+/* button {
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  background-color: rgb(150, 75, 0);
+  color: lavender;
+  border: none;
+  align-items: center;
+  padding: 1px;
+  margin: 10px;
+  font-size: 16px;
+  transition-duration: 0.4s;
+}
 
+button:hover {
+  transition-duration: 0.4s;
+  background-color: #E5CCFF;
+  color: rgb(100, 0, 50);
+} */
 
-#controlsDiv {
+#clickableTab {
+  cursor: pointer;
+  /* display: none; */
+}
+
+/* used so that I don't have to create multiple ids to show/hide tabs */
+.infosDiv {
   display: none;
 }
-#tutorialsDiv {
-  display: none;
+/* https://stackoverflow.com/questions/45012378/cant-change-style-display-using-getelementbyclassname */
+
+form {
+  margin: 12px;
+  /* padding: 12px; */
+}
+
+input {
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  font-size: 16px;
+  width: 95%;
+}
+
+#commandPlease {
+  
+}
+
+#enterButton {
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center; */
+  /* margin-left: 50%;
+  margin-right: 50%; */
+  width: 10%;
 }

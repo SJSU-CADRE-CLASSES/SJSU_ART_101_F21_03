@@ -9,13 +9,15 @@ let rainbowMode = false;
 let invertedMode = false;
 let symmetricXAxisMode = false;
 let symmetricYAxisMode = false;
+let mousePosSize = false; // "hidden" mode that allows the shape's size to be dependent on mouse cursor
 let sunBrushMode = false;
 
 let fadedMode = false;
 let fadedValue = 0;
 
 let strokeWidth = 3;
-let shapeSize = 40;
+let shapeWidth = 40;
+let shapeHeight = 40;
 let noiseOffSet = 0.0;
 let perlinMode = false;
 
@@ -92,17 +94,20 @@ function draw() {
     // with noiseOffSet, size would go from min to max(max is dynamic/changing)
     // without noiseOffSet, size would go from min to max(max is fixed)
     noiseOffSet += 0.05;
-    shapeSize = noise(noiseOffSet) * 100;
+    shapeWidth = noise(noiseOffSet) * 100;
+    shapeHeight = noise(noiseOffSet) * 100;
   } else if (perlinMode && random(1) < 0.5) {
     // about 50% chance to have "without stroke"
-    // this could be because both the strokeWidth and the shapeSize have the same measurements (or strokeWeight is greater than shapeSize)
+    // this could be because both the strokeWidth and the shapeSize have the same measurements (or strokeWeight is greater than shapeWidth)
     // the larger the strokeWidth, the more it'll cover the shape's color to seeminly replace the shape's color with the line's color w/o stroke
     noiseOffSet += 0.05;
     strokeWidth = noise(noiseOffSet) * 100;
-    shapeSize = noise(noiseOffSet) * 100;
+    shapeWidth = noise(noiseOffSet) * 100;
+    shapeHeight = noise(noiseOffSet) * 100;
   } else {
     strokeWidth = 3;
-    shapeSize = 40;
+    shapeWidth = 40;
+    shapeHeight = 40;
   }
 
   strokeWeight(strokeWidth);
@@ -178,16 +183,16 @@ function draw() {
       line(arrP[0][0], arrP[0][1], mouseX, mouseY);
     }
     if (circleMode) {
-      if (invertedMode) ellipse(width - mouseX, height - mouseY, shapeSize); // draw inverted circles
-      if (symmetricXAxisMode) ellipse(width - mouseX, mouseY, shapeSize); // draw vertical symmetric circles
-      if (symmetricYAxisMode) ellipse(mouseX, height - mouseY, shapeSize); // draw horizontal symmetric circles
-      ellipse(mouseX, mouseY, shapeSize); // draw circles
+      if (invertedMode) ellipse(width - mouseX, height - mouseY, shapeWidth, shapeHeight); // draw inverted circles
+      if (symmetricXAxisMode) ellipse(width - mouseX, mouseY, shapeWidth, shapeHeight); // draw vertical symmetric circles
+      if (symmetricYAxisMode) ellipse(mouseX, height - mouseY, shapeWidth, shapeHeight); // draw horizontal symmetric circles
+      ellipse(mouseX, mouseY, shapeWidth, shapeHeight); // draw circles
     }
     if (squareMode) {
-      if (invertedMode) rect(width - mouseX, height - mouseY, shapeSize); // draw inverted squares
-      if (symmetricXAxisMode) rect(width - mouseX, mouseY, shapeSize); // draw vertical symmetric squares
-      if (symmetricYAxisMode) rect(mouseX, height - mouseY, shapeSize); // draw horizontal symmetric squares
-      rect(mouseX, mouseY, shapeSize); // draw rectangles
+      if (invertedMode) rect(width - mouseX, height - mouseY, shapeWidth, shapeHeight); // draw inverted squares
+      if (symmetricXAxisMode) rect(width - mouseX, mouseY, shapeWidth, shapeHeight); // draw vertical symmetric squares
+      if (symmetricYAxisMode) rect(mouseX, height - mouseY, shapeWidth, shapeHeight); // draw horizontal symmetric squares
+      rect(mouseX, mouseY, shapeWidth, shapeHeight); // draw rectangles
     }
   } else {
     arrP.pop();
@@ -235,57 +240,20 @@ function draw() {
       line(mouseX, mouseY, mouseX, mouseY);
     }
     if (circleMode) {
-      if (invertedMode) ellipse(width - mouseX, height - mouseY, shapeSize); // draw inverted circles
-      if (symmetricXAxisMode) ellipse(width - mouseX, mouseY, shapeSize); // draw vertical symmetric circles
-      if (symmetricYAxisMode) ellipse(mouseX, height - mouseY, shapeSize); // draw horizontal symmetric circles
-      ellipse(mouseX, mouseY, shapeSize); // draw circles
+      if (invertedMode) ellipse(width - mouseX, height - mouseY, shapeWidth, shapeHeight); // draw inverted circles
+      if (symmetricXAxisMode) ellipse(width - mouseX, mouseY, shapeWidth, shapeHeight); // draw vertical symmetric circles
+      if (symmetricYAxisMode) ellipse(mouseX, height - mouseY, shapeWidth, shapeHeight); // draw horizontal symmetric circles
+      ellipse(mouseX, mouseY, shapeWidth, shapeHeight); // draw circles
     }
     if (squareMode) {
-      if (invertedMode) rect(width - mouseX, height - mouseY, shapeSize); // draw inverted squares
-      if (symmetricXAxisMode) rect(width - mouseX, mouseY, shapeSize); // draw vertical symmetric squares
-      if (symmetricYAxisMode) rect(mouseX, height - mouseY, shapeSize); // draw horizontal symmetric squares
-      rect(mouseX, mouseY, shapeSize); // draw rectangles
+      if (invertedMode) rect(width - mouseX, height - mouseY, shapeWidth, shapeHeight); // draw inverted squares
+      if (symmetricXAxisMode) rect(width - mouseX, mouseY, shapeWidth, shapeHeight); // draw vertical symmetric squares
+      if (symmetricYAxisMode) rect(mouseX, height - mouseY, shapeWidth, shapeHeight); // draw horizontal symmetric squares
+      rect(mouseX, mouseY, shapeWidth, shapeHeight); // draw rectangles
     }
 
   }
-  /*
-  if (mouseIsPressed) {
-    fill(0,0,110);
-    ellipse(mouseX,mouseY,40); // draw circles
-    // ellipse(width - mouseX,mouseY,40); // draw vertical symmetric circles
-    // ellipse(mouseX,height - mouseY,40); // draw horizontal symmetric circles
-    // ellipse(width - mouseX,height - mouseY,40); // draw inverted circles
 
-    fill(0,0,110);
-    rect(mouseX, mouseY, 40); // draw squares
-    // rect(width - mouseX,mouseY,40); // draw vertical symmetric rectangles
-    // rect(mouseX,height - mouseY,40); // draw horizontal symmetric rectangles
-    // rect(width - mouseX,height - mouseY,40); // draw inverted rectangles
-
-    // draw ellipses with respect to mouse position
-    // ellipse(mouseX,mouseY,mouseX,mouseY);
-    // ellipse(pmouseX,pmouseY,mouseX,mouseY);
-    // ellipse(width - pmouseX, height - pmouseY, width - mouseX, height - mouseY); // inverted version
-    // ellipse(width - pmouseX, pmouseY, width - mouseX, mouseY); // draw vertical symmetric circles with respect to mouse position
-    // ellipse(pmouseX, height - pmouseY, mouseX, height - mouseY); // draw horrizontal symmetric circles with respect to mouse position
-
-    // draw rectangles with respect to mouse position
-    // rect(mouseX, mouseY, mouseX, mouseY);
-    // rect(pmouseX,pmouseY,mouseX,mouseY);
-    // rect(width - pmouseX, height - pmouseY, width - mouseX, height - mouseY); // inverted version
-    // rect(width - pmouseX, pmouseY, width - mouseX, mouseY); // draw vertical symmetric rectangles with respect to mouse position
-    // rect(pmouseX, height - pmouseY, mouseX, height - mouseY); // draw horrizontal symmetric rectangles with respect to mouse position
-
-    // line(mouseX, mouseY, mouseX, mouseY); // dotted lines
-    //stroke(map(mouseX, 0, width, 0, 255));
-
-    // line(width - pmouseX, height - pmouseY, width - mouseX, height - mouseY); // draw inverted lines
-    // line(width - pmouseX, pmouseY, width - mouseX, mouseY); // draw vertical symmetric lines
-    // line(pmouseX, height - pmouseY, mouseX, height - mouseY); // draw horrizontal symmetric lines
-
-    // line(200, 250, 100, 125); // same as line(100, 125, 200, 250);
-  }
-  */
 
   // console.log(squareMode); //only works with switch stetement?!
   // console.log(circleMode); //works well
@@ -297,7 +265,7 @@ function draw() {
 
 function keyTyped() {
   // erase all circles (clear all data)
-  if (key === ' ') {
+  if (key === 'e') {
     r = 0;
     g = 220;
     b = 0;
@@ -496,7 +464,7 @@ function keyTyped() {
   }
 
   // key shortcut to activate sun brush mode
-  if (key === 'F') {
+  if (key === 'R') {
     // toggle sun brush mode
     switch (sunBrushMode) {
       case false:
@@ -628,20 +596,20 @@ function keyTyped() {
       arr.pop();
     }
   }
-/*
-  // key shortcut to activate grid mode
-  if (key === 'g') {
-    // toggle grid mode
-    switch (gridMode) {
+
+  // key shortcut to activate mouse position to shape size
+  if (key === 'm') {
+    // toggle mouse position to shape size
+    switch (mousePosSize) {
       case false:
-        gridMode = true;
+        mousePosSize = true;
         break;
       case true:
-        gridMode = false;
+        mousePosSize = false;
         break;
     }
   }
-*/
+
   // key shortcut to save canvas
   if (key === 's') {
     // deletes previous image with the same name (doesn't delete previous image with different name)?
@@ -696,21 +664,21 @@ function seeControls() {
 // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_hide_show
 
 function seeControls() {
-  var classObj = document.getElementById("controlsDiv");
-  classObj.style.display = "block";
+  var classObj = document.getElementsByClassName("infosDiv");
+  classObj[1].style.display = "block";
 }
 
 function hideControls() {
-  var classObj = document.getElementById("controlsDiv");
-  classObj.style.display = "none";
+  var classObj = document.getElementsByClassName("infosDiv");
+  classObj[1].style.display = "none";
 }
 
 function seeInstructions() {
-  var classObj = document.getElementById("tutorialsDiv");
-  classObj.style.display = "block";
+  var classObj = document.getElementsByClassName("infosDiv");
+  classObj[0].style.display = "block";
 }
 
 function hideInstructions() {
-  var classObj = document.getElementById("tutorialsDiv");
-  classObj.style.display = "none";
+  var classObj = document.getElementsByClassName("infosDiv");
+  classObj[0].style.display = "none";
 }
