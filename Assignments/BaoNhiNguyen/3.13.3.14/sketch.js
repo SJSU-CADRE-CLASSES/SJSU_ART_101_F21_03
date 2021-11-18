@@ -1,10 +1,10 @@
 let array = [];
-let backgroundColor = (204,204,255);
+let backgroundColor = (204, 204, 255);
 let noiseOffset = 0.0;
 let strokeAmount = 5;
 
 var resetButton = document.getElementbyId('resetButton');
-resetButton.onclick= reloadPage;
+resetButton.onclick = reloadPage;
 
 function setup() {
   createCanvas(600, 600);
@@ -58,7 +58,7 @@ function keyTyped() {
     // clears canvas and somewhat resets it   
     clear();
     setup();
-   
+
 
   } else if (key === 'r') {
     // reset window
@@ -94,9 +94,9 @@ function drawGrid() {
     }
   }
 
-    strokeWeight(5);
+  strokeWeight(5);
 }
 
-function reloadPage(){
+function reloadPage() {
   window.location.reload();
 }
