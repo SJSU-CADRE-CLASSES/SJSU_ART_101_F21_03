@@ -78,7 +78,7 @@ function setup() {
   //background(250, 140, 60);
 
   // light-green, dark-purple, blue, orange, blackish-blue,indigoish, purple, pure-blue,
-  // lavendar, pinkish, yellow-green, magenta(doing rainbow causes crimson cause it's not in the draw function), dark-green, pure green
+  // lavendar, pinkish, yellow-green, magenta(doing rainbow causes crimson cause it's not in the draw function?), dark-green, pure green
   bgc = [color(200, 250, 140),
          color(102, 0, 102),
          color(60, 140, 250),
