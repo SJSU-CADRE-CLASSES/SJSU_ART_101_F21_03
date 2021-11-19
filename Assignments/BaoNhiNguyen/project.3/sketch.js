@@ -84,9 +84,8 @@ function keyTyped() {
     image(witch,-20,700,300,300);
     image(char,60,-50,1110,1110);
     
-    // drawGrid();
     background(22, 204, 255, 4);
-    // setup();
+
 
 
   } else if (key === 'r') {
