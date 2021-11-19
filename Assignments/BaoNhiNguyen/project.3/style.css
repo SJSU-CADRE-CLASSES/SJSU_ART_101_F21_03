@@ -1,0 +1,24 @@
+html {
+  margin: 0;
+  padding: 0;
+
+}
+
+body {
+  margin: 100px auto 0 auto;
+  width: 80%;
+  text-align: left;
+  font-family: kenmeaw
+}
+
+canvas {
+  /* margin: 0 auto 0 auto;
+  display: block;
+  border: 5px solid blueviolet; */
+  margin: auto;
+  top: 0;
+  left: 0;
+  position: center;
+  z-index: -1;
+  border: 5px solid rgb(118, 91, 180);
+}
