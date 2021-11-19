@@ -71,14 +71,20 @@ var doKeyAction = true;
 let specialBrushMode = false;
 let randomGenerativeShapes = false;
 
-// bluez, boo diddley, Billybob, Julie, Riley, Bailey, Daniel, Danielle, Steve, Kim Hyun-ji (10 ghosts)
-let ghostBrushModes = [false, false, false, false, false, false, false, false, false, false];
+// bluez, boo diddley, Billybob, Julie, Riley, Bailey, Daniel, Danielle, Steve, Kim Hyun-ji (10 ghosts); extra two are Sona and Luna
+let ghostBrushModes = [false, false, false, false, false, false, false, false, false, false, false, false];
 let ghostBrushes = ["bluez", "boo", "Billybob", "Julie", "Riley", "Bailey", "Daniel", "Danielle", "Steve", "Kim_Hyun-ji"];
 
 // more special brush booleans
-let yureiSonaBrush = false;
-let yureiLunaBrush = false;
+let yureiSonaImage;
+let yureiLunaImage;
 let blantonBrush = false;
+let ghostlySize = 120;
+let blantonFadeValue = 2;
+let soundEffect;
+
+// for the blanton brush
+let ghostBrushes2 = ["bluez", "boo", "Billybob", "Julie", "Riley", "Bailey", "Daniel", "Danielle", "Steve", "Kim_Hyun-ji"];
 
 // does this setup function only runs once?
 function setup() {
@@ -152,6 +158,9 @@ function draw() {
       stroke(random(255), random(255), random(255));
       fill(random(255), random(255), random(255));
     }
+
+    // image(yureiLunaImage, mouseX, mouseY); // to test image brush
+
     if (toggleDrawModes[0]) {
       if (toggleDrawModes[8]) {
         switch (gradientIndex) {
@@ -304,59 +313,145 @@ function draw() {
     rect(random(width), random(height), random(25, 255), random(25, 255));
   }
 
-  if (allDrawModesOff(toggleDrawModes) && mouseIsPressed && specialBrushMode) {
-    if (ghostBrushModes[0]) {
-      ghostBrushes[0] = new Ghost(mouseX, mouseY, 120, "blue");
-      ghostBrushes[0].display();
+  //console.log(blantonBrush);
+
+  if (allDrawModesOff(toggleDrawModes) && specialBrushMode) {
+
+    if (blantonBrush) {
+      background(r, g, b, blantonFadeValue);
+      ghostlySize += 2;
+      blantonFadeValue += 0.1;
+
+      if (mouseIsPressed) {
+        //soundEffect.play();
+        blantonFadeValue = 2;
+        if (ghostBrushModes[0]) {
+          ghostBrushes2[0] = new Ghost(mouseX, mouseY, ghostlySize, "blue");
+          ghostBrushes2[0].display();
+        }
+        if (ghostBrushModes[1]) {
+          ghostBrushes2[1] = new Ghost(mouseX, mouseY, ghostlySize, "boo");
+          ghostBrushes2[1].display();
+        }
+        if (ghostBrushModes[2]) {
+          ghostBrushes2[2] = new Ghost(mouseX, mouseY, ghostlySize, "Billybob");
+          ghostBrushes2[2].display();
+        }
+        if (ghostBrushModes[3]) {
+          ghostBrushes2[3] = new Ghost(mouseX, mouseY, ghostlySize, "Julie");
+          ghostBrushes2[3].display();
+        }
+        if (ghostBrushModes[4]) {
+          ghostBrushes2[4] = new Ghost(mouseX, mouseY, ghostlySize, "Riley");
+          ghostBrushes2[4].display();
+        }
+        if (ghostBrushModes[5]) {
+          ghostBrushes2[5] = new Ghost(mouseX, mouseY, ghostlySize, "Bailey");
+          ghostBrushes2[5].display();
+        }
+        if (ghostBrushModes[6]) {
+          push();
+            stroke(128);
+            ghostBrushes2[6] = new Ghost(mouseX, mouseY, ghostlySize, "Daniel");
+            ghostBrushes2[6].display();
+          pop();
+        }
+        if (ghostBrushModes[7]) {
+          push();
+            stroke(250);
+            ghostBrushes2[7] = new Ghost(mouseX, mouseY, ghostlySize, "Danielle");
+            ghostBrushes2[7].display();
+          pop();
+        }
+        if (ghostBrushModes[8]) {
+          push();
+            stroke(0, 255, 255);
+            ghostBrushes2[8] = new Ghost(mouseX, mouseY, ghostlySize, "Steve");
+            ghostBrushes2[8].display();
+          pop();
+        }
+        if (ghostBrushModes[9]) {
+          push();
+            stroke(0, 64, 128);
+            ghostBrushes2[9] = new Ghost(mouseX, mouseY, ghostlySize, "Kim_Hyun-ji");
+            ghostBrushes2[9].display();
+          pop();
+        }
+        if (ghostBrushModes[10]) {
+          image(yureiSonaImage, mouseX - 120, mouseY - 120);
+        }
+        if (ghostBrushModes[11]) {
+          image(yureiLunaImage, mouseX - 240, mouseY - 240);
+        }
+        //ghostlySize = 120;
+      } else {
+        ghostlySize = 120;
+      }
     }
-    if (ghostBrushModes[1]) {
-      ghostBrushes[1] = new Ghost(mouseX, mouseY, 120, "boo");
-      ghostBrushes[1].display();
+
+    if (mouseIsPressed) {
+      if (ghostBrushModes[0]) {
+        ghostBrushes[0] = new Ghost(mouseX, mouseY, 120, "blue");
+        ghostBrushes[0].display();
+      }
+      if (ghostBrushModes[1]) {
+        ghostBrushes[1] = new Ghost(mouseX, mouseY, 120, "boo");
+        ghostBrushes[1].display();
+      }
+      if (ghostBrushModes[2]) {
+        ghostBrushes[2] = new Ghost(mouseX, mouseY, 120, "Billybob");
+        ghostBrushes[2].display();
+      }
+      if (ghostBrushModes[3]) {
+        ghostBrushes[3] = new Ghost(mouseX, mouseY, 120, "Julie");
+        ghostBrushes[3].display();
+      }
+      if (ghostBrushModes[4]) {
+        ghostBrushes[4] = new Ghost(mouseX, mouseY, 120, "Riley");
+        ghostBrushes[4].display();
+      }
+      if (ghostBrushModes[5]) {
+        ghostBrushes[5] = new Ghost(mouseX, mouseY, 120, "Bailey");
+        ghostBrushes[5].display();
+      }
+      if (ghostBrushModes[6]) {
+        push();
+          stroke(128);
+          ghostBrushes[6] = new Ghost(mouseX, mouseY, 120, "Daniel");
+          ghostBrushes[6].display();
+        pop();
+      }
+      if (ghostBrushModes[7]) {
+        push();
+          stroke(250);
+          ghostBrushes[7] = new Ghost(mouseX, mouseY, 120, "Danielle");
+          ghostBrushes[7].display();
+        pop();
+      }
+      if (ghostBrushModes[8]) {
+        push();
+          stroke(0, 255, 255);
+          ghostBrushes[8] = new Ghost(mouseX, mouseY, 120, "Steve");
+          ghostBrushes[8].display();
+
+        pop();
+      }
+      if (ghostBrushModes[9]) {
+        push();
+          stroke(0, 64, 128);
+          ghostBrushes[9] = new Ghost(mouseX, mouseY, 120, "Kim_Hyun-ji");
+          ghostBrushes[9].display();
+        pop();
+      }
+      if (ghostBrushModes[10]) {
+        image(yureiSonaImage, mouseX - 120, mouseY - 120);
+      }
+      if (ghostBrushModes[11]) {
+        image(yureiLunaImage, mouseX - 240, mouseY - 240);
+      }
+
     }
-    if (ghostBrushModes[2]) {
-      ghostBrushes[2] = new Ghost(mouseX, mouseY, 120, "Billybob");
-      ghostBrushes[2].display();
-    }
-    if (ghostBrushModes[3]) {
-      ghostBrushes[3] = new Ghost(mouseX, mouseY, 120, "Julie");
-      ghostBrushes[3].display();
-    }
-    if (ghostBrushModes[4]) {
-      ghostBrushes[4] = new Ghost(mouseX, mouseY, 120, "Riley");
-      ghostBrushes[4].display();
-    }
-    if (ghostBrushModes[5]) {
-      ghostBrushes[5] = new Ghost(mouseX, mouseY, 120, "Bailey");
-      ghostBrushes[5].display();
-    }
-    if (ghostBrushModes[6]) {
-      push();
-        stroke(128);
-        ghostBrushes[6] = new Ghost(mouseX, mouseY, 120, "Daniel");
-        ghostBrushes[6].display();
-      pop();
-    }
-    if (ghostBrushModes[7]) {
-      push();
-        stroke(250);
-        ghostBrushes[7] = new Ghost(mouseX, mouseY, 120, "Danielle");
-        ghostBrushes[7].display();
-      pop();
-    }
-    if (ghostBrushModes[8]) {
-      push();
-        stroke(0, 255, 255);
-        ghostBrushes[8] = new Ghost(mouseX, mouseY, 120, "Steve");
-        ghostBrushes[8].display();
-      pop();
-    }
-    if (ghostBrushModes[9]) {
-      push();
-        stroke(0, 64, 128);
-        ghostBrushes[9] = new Ghost(mouseX, mouseY, 120, "Kim_Hyun-ji");
-        ghostBrushes[9].display();
-      pop();
-    }
+
   }
 
   // console.log(squareMode); //only works with switch stetement?!
@@ -770,6 +865,14 @@ function seeControls() {
 */
 // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_hide_show
 
+function preload() {
+  yureiSonaImage = loadImage("imageBrush/Sona_Ghost.png");
+  yureiLunaImage = loadImage("imageBrush/Luna_Ghost.png");
+
+  soundFormats("mp3", "ogg");
+  soundEffect = loadSound("sounds/wow.mp3");
+}
+
 function seeControls() {
   // classObj[1].style.display = "block";
   classObj[1].style.display = "block";
@@ -949,11 +1052,47 @@ function promptCommand() {
           ghostBrushModes[9] = false;
           break;
       }
+    } else if (commandBar.value === specialBrushCommands[11]) {
+      // toggle yurei Sona brush
+      switch (ghostBrushModes[10]) {
+        case false:
+          // ghostBrushModes[9] = true;
+          specialBrushMode = true;
+          useSpecifiedSpecialBrush(ghostBrushModes, 10);
+          break;
+        case true:
+          ghostBrushModes[10] = false;
+          break;
+      }
+    } else if (commandBar.value === specialBrushCommands[12]) {
+      // toggle yurei Luna brush
+      switch (ghostBrushModes[11]) {
+        case false:
+          // ghostBrushModes[9] = true;
+          specialBrushMode = true;
+          useSpecifiedSpecialBrush(ghostBrushModes, 11);
+          break;
+        case true:
+          ghostBrushModes[11] = false;
+          break;
+      }
+    } else if (commandBar.value === specialBrushCommands[13]) {
+      // toggle yurei Luna brush
+      switch (blantonBrush) {
+        case false:
+          blantonBrush = true;
+          specialBrushMode = true;
+          //useSpecifiedSpecialBrush(ghostBrushModes, 11);
+          break;
+        case true:
+          blantonBrush = false;
+          break;
+      }
     } else {
       alert("Command is either invalid or does not exist, please try again.");
     }
     // turns off special brush mode once ALL special brushes are turned off
-    if (allDrawModesOff(ghostBrushModes) && !randomGenerativeShapes && !yureiSonaBrush && !yureiLunaBrush && !blantonBrush) specialBrushMode = false;
+    if (allDrawModesOff(ghostBrushModes) && !randomGenerativeShapes && !blantonBrush) specialBrushMode = false;
   } else {
     alert("Command line is empty, please enter a command.");
   }
