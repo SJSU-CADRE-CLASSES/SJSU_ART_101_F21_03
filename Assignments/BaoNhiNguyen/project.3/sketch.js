@@ -35,7 +35,7 @@ function setup() {
   // background(240, 255, 245);
   // background(backgroundColor);
 
-  // drawGrid();
+  drawGrid();
   noFill();
   image(witch,-20,700,300,300);
   image(char,60,-50,1110,1110);
@@ -123,7 +123,7 @@ function drawGrid() {
         fillColor = 255;
       }
       fill(fillColor);
-      rect(i, j, 30, width / numCells, height / numCells);
+      rect(i, j, 10, 10, width / numCells, height / numCells);
 
     }
   }
