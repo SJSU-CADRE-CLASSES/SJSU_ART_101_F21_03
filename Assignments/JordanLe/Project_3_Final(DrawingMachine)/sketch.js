@@ -71,13 +71,13 @@ var doKeyAction = true;
 let specialBrushMode = false;
 let randomGenerativeShapes = false;
 
-// bluez, boo diddley, Billybob, Julie, Riley, Bailey, Daniel, Danielle, Steve, Kim Hyun-ji (10 ghosts)
-let ghostBrushModes = [false, false, false, false, false, false, false, false, false, false];
+// bluez, boo diddley, Billybob, Julie, Riley, Bailey, Daniel, Danielle, Steve, Kim Hyun-ji (10 ghosts); extra two are Sona and Luna
+let ghostBrushModes = [false, false, false, false, false, false, false, false, false, false, false, false];
 let ghostBrushes = ["bluez", "boo", "Billybob", "Julie", "Riley", "Bailey", "Daniel", "Danielle", "Steve", "Kim_Hyun-ji"];
 
 // more special brush booleans
-let yureiSonaBrush = false;
-let yureiLunaBrush = false;
+let yureiSonaImage;
+let yureiLunaImage;
 let blantonBrush = false;
 
 // does this setup function only runs once?
@@ -152,6 +152,9 @@ function draw() {
       stroke(random(255), random(255), random(255));
       fill(random(255), random(255), random(255));
     }
+
+    // image(yureiLunaImage, mouseX, mouseY); // to test image brush
+
     if (toggleDrawModes[0]) {
       if (toggleDrawModes[8]) {
         switch (gradientIndex) {
@@ -356,6 +359,12 @@ function draw() {
         ghostBrushes[9] = new Ghost(mouseX, mouseY, 120, "Kim_Hyun-ji");
         ghostBrushes[9].display();
       pop();
+    }
+    if (ghostBrushModes[10]) {
+      image(yureiSonaImage, mouseX - 120, mouseY - 120);
+    }
+    if (ghostBrushModes[11]) {
+      image(yureiLunaImage, mouseX - 240, mouseY - 240);
     }
   }
 
@@ -770,6 +779,11 @@ function seeControls() {
 */
 // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_hide_show
 
+function preload() {
+  yureiSonaImage = loadImage("imageBrush/Sona_Ghost.png");
+  yureiLunaImage = loadImage("imageBrush/Luna_Ghost.png");
+}
+
 function seeControls() {
   // classObj[1].style.display = "block";
   classObj[1].style.display = "block";
@@ -949,11 +963,35 @@ function promptCommand() {
           ghostBrushModes[9] = false;
           break;
       }
+    } else if (commandBar.value === specialBrushCommands[11]) {
+      // toggle yurei Sona brush
+      switch (ghostBrushModes[10]) {
+        case false:
+          // ghostBrushModes[9] = true;
+          specialBrushMode = true;
+          useSpecifiedSpecialBrush(ghostBrushModes, 10);
+          break;
+        case true:
+          ghostBrushModes[10] = false;
+          break;
+      }
+    } else if (commandBar.value === specialBrushCommands[12]) {
+      // toggle yurei Luna brush
+      switch (ghostBrushModes[11]) {
+        case false:
+          // ghostBrushModes[9] = true;
+          specialBrushMode = true;
+          useSpecifiedSpecialBrush(ghostBrushModes, 11);
+          break;
+        case true:
+          ghostBrushModes[11] = false;
+          break;
+      }
     } else {
       alert("Command is either invalid or does not exist, please try again.");
     }
     // turns off special brush mode once ALL special brushes are turned off
-    if (allDrawModesOff(ghostBrushModes) && !randomGenerativeShapes && !yureiSonaBrush && !yureiLunaBrush && !blantonBrush) specialBrushMode = false;
+    if (allDrawModesOff(ghostBrushModes) && !randomGenerativeShapes && !blantonBrush) specialBrushMode = false;
   } else {
     alert("Command line is empty, please enter a command.");
   }
