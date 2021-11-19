@@ -37,8 +37,8 @@ function setup() {
 
   // drawGrid();
   noFill();
-  image(witch,-50,300,300,300);
-  image(char,50,0,650,650);
+  image(witch,-20,700,300,300);
+  image(char,60,-50,1110,1110);
   //makes line of the drawing tool thicker
 
 }
@@ -81,8 +81,8 @@ function keyTyped() {
   } else if (key === 'c') {
     // clears canvas and somewhat resets it   
     clear();
-    image(witch,-50,300,300,300);
-    image(char,50,0,650,650);
+    image(witch,-20,700,300,300);
+    image(char,60,-50,1110,1110);
     
     // drawGrid();
     background(22, 204, 255, 4);
