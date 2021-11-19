@@ -23,7 +23,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(1000,1000);
   background(204, 204, 255, 5);
   // song = loadSound("softsongsnow.mp3");
 
