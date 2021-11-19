@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <h1>Welcome to the Drawing Machine</h1>
+  <h1>Welcome to the Drawing Simulator</h1>
   <!-- <button onClick="seeControls()">Click to see the controls</button> -->
   <!-- <h3>The controls (press the same keys to toggle them on/off): </h3> -->
   <ul>
@@ -26,7 +26,7 @@
     </li>
     <br>
     <br>
-    <div id="tutorialsDiv">
+    <div class="infosDiv">
       <p>Hello World!</p>
       <p>This drawing machine is like a drawing simulator. You get to draw lines and shapes as you click and drag on the green canvas.
         You can even make them colorful by turning on rainbow mode or even gradient mode, via shortcut keys.
@@ -36,14 +36,15 @@
         The purpose for this drawing machine is to create new ways to draw by discovering a lot of draw mode possibilities.</p>
         <p>In grid mode, you get to see your mouse cursor's x and y coordinates by inspecting this webpage and click on console.
           Using perlin brush in grid mode may have a chance of thickening the boarders or even turning the screen black for every spacebar pressed.
+          Using faded brush in grid mode may also fade the grid, leaving you with a green background (should be able to reset grid every couple of minutes).
           Checkerboard grid mode allows you to determine every other rectangle in order to make measurements a little easier.
           Draw whatever you like, whatever comes to your imagination, and make use of it,
           so you can be happy with it and live your drawing passions to the fullest.</p>
     </div>
-    <div id="controlsDiv">
+    <div class="infosDiv">
       <p>[l] : default draw line mode (is toggled on by default)</p>
       <p>[-] : draw dotted line mode (draw dashed lines on mouse click)</p>
-      <p>[ ] : erase drawing (press the spacebar to erase the whole drawing)</p>
+      <p>[e] : erase drawing (press the spacebar to erase the whole drawing)</p>
       <p>[s] : save drawing (saves an image of your drawing to your computer)</p>
       <p>[0] : draw circle mode (draw circles on mouse click)</p>
       <p>[4] : draw square mode (draw squares on mouse click)</p>
@@ -53,7 +54,7 @@
       <p>[r] : rainbow mode (draw colorful(random colored) lines/shapes on mouse click)</p>
       <p>[d] : array line mode (draw "invisible" lines and then press the 'd' key to display the drawn lines; only works when all drawing modes are toggled off)</p>
       <p>[shift] + [d] : disconnect array lines (this allows you to draw another array line that's separate from the previous one)</p>
-      <p>[c] : curved array line mode (same as array line mode but provide smoother lines)</p>
+      <p>[shift] + [R] : sun rays mode (for every mouse click, you can draw & rotate lines; where point A is at fixed location and point B is dependent on mouse cursor)</p>
       <p>[i] : inverted mode (draw line/shape that goes at the opposite direction of your cursor)</p>
       <p>[x] : symmetric x-axis mode (draw line/shape that's symmetric to your cursor based on the x-axis)</p>
       <p>[y] : symmetric y-axis mode (draw line/shape that's symmetric to your cursor based on the y-axis)</p>
