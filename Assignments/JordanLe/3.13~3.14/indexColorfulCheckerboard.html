@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="p5.js"></script>
+  <script src="p5.sound.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+  <script src="sketchColorfulCheckerboard.js"></script>
+</head>
+
+<body>
+  <h1>Welcome to the Drawing Machine</h1>
+  <!-- <button onClick="seeControls()">Click to see the controls</button> -->
+  <!-- <h3>The controls (press the same keys to toggle them on/off): </h3> -->
+  <ul>
+    <li onMouseOver="seeInstructions()" , onMouseOut="hideInstructions()">Instructions</li>
+    <li onMouseOver="seeControls()" , onMouseOut="hideControls()">The Controls</li>
+    <li class="dropdown"> Grid Mode
+      <div class="dropdown-content">
+        <a href="index.html">None</a>
+        <a href="indexGrid.html">Default</a>
+        <a href="indexCheckerboard.html">Checker<br>board</a>
+        <a href="indexColorfulCheckerboard.html">Colorful<br>Checker<br>board</a>
+      </div>
+    </li>
+    <br>
+    <br>
+    <div id="tutorialsDiv">
+      <p>Hello World!</p>
+      <p>This drawing machine is like a drawing simulator. You get to draw lines and shapes as you click and drag on the green canvas.
+        You can even make them colorful by turning on rainbow mode or even gradient mode, via shortcut keys.
+        <br>If you made a mistake in your drawing, you can press the spacebar to clear the drawing and start a new one.
+        The list of shortcut keys to do different types of draw modes are available in the controls tab.  To save a drawing, press the 's' key.
+        <br>By saving your drawing, you get to save it on your hard drive for memory's sake OR share it with your friends.
+        The purpose for this drawing machine is to create new ways to draw by discovering a lot of draw mode possibilities.</p>
+        <p>In grid mode, you get to see your mouse cursor's x and y coordinates by inspecting this webpage and click on console.
+          Using perlin brush in grid mode may have a chance of thickening the boarders or even turning the screen black for every spacebar pressed.
+          Checkerboard grid mode allows you to determine every other rectangle in order to make measurements a little easier.
+          The Colorful Checkerboard puts random colors for each rectangle every time the page refreshes or the drawing gets cleared.
+          Draw whatever you like, whatever comes to your imagination, and make use of it,
+          so you can be happy with it and live your drawing passions to the fullest.</p>
+    </div>
+    <div id="controlsDiv">
+      <p>[l] : default draw line mode (is toggled on by default)</p>
+      <p>[-] : draw dotted line mode (draw dashed lines on mouse click)</p>
+      <p>[ ] : erase drawing (press the spacebar to erase the whole drawing)</p>
+      <p>[s] : save drawing (saves an image of your drawing to your computer)</p>
+      <p>[0] : draw circle mode (draw circles on mouse click)</p>
+      <p>[4] : draw square mode (draw squares on mouse click)</p>
+      <p>[a] : free draw mode (automatically draws with the selected draw mode as you move your mouse cursor)</p>
+      <p>[f] : faded draw mode (draws lines/shapes with a fading trail; decreases fade value around every half second and resets fade value at around 256 half-seconds)</p>
+      <p>[g] : gradient mode (chooses a random gradient to color when toggled on; only applies to lines for now)</p>
+      <p>[r] : rainbow mode (draw colorful(random colored) lines/shapes on mouse click)</p>
+      <p>[d] : array line mode (draw "invisible" lines and then press the 'd' key to display the drawn lines; only works when all drawing modes are toggled off)</p>
+      <p>[shift] + [d] : disconnect array lines (this allows you to draw another array line that's separate from the previous one)</p>
+      <p>[c] : curved array line mode (same as array line mode but provide smoother lines)</p>
+      <p>[i] : inverted mode (draw line/shape that goes at the opposite direction of your cursor)</p>
+      <p>[x] : symmetric x-axis mode (draw line/shape that's symmetric to your cursor based on the x-axis)</p>
+      <p>[y] : symmetric y-axis mode (draw line/shape that's symmetric to your cursor based on the y-axis)</p>
+      <p>[p] : perlin brush mode (draw lines/shapes with a dynamic brush size; 50% chance with outline)</p>
+    </div>
+  </ul>
+</body>
+
+</html>
+
+<!-- <li>[shift] + [c] : draw curved line mode (draw smoother lines on mouse click)</li> -->

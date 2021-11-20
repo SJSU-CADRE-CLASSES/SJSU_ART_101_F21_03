@@ -13,6 +13,8 @@ let adjective = [
   "small",
   "holy",
   "cursed",
+  "cute",
+  "handsom",
   "normal"
 ];
 let noun = [
@@ -20,6 +22,8 @@ let noun = [
   "girl",
   "cat",
   "dog",
+  "duck",
+  "snail",
   "apple",
   "pizza",
   "book",
@@ -52,12 +56,7 @@ function draw(){
 //s key saves canvas
    if (key == 's'){
      saveCanvas('fileName', 'png');
-   } else if (key == 'd'){
-     //console.log(art);
-        for(let i = 0; i < art.length - 1; i++ ){
-        line(art[i][0], art[i][1], art[i+1][0], art[i+1][1]);
-      }
-     } else if (key == 'r'){
+   } else if (key == 'r'){
        clear();
        randomADJIndex = int(random(adjective.length));
        randomNIndex = int(random(noun.length));
