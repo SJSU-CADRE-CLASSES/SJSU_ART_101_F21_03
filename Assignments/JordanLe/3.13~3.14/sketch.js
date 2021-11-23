@@ -156,7 +156,7 @@ function draw() {
           background(r, g, b);
         }
         // prints the previous x-coordinate and the x-coordinate onto the console (ex. 772 827; where pmouseX is 772 and mouseX is 827)
-        print(pmouseX + " " + mouseX);
+        //print(pmouseX + " " + mouseX);
       }
     }
     if (dottedLineMode) {
