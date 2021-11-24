@@ -16,6 +16,14 @@
   <ul>
     <li onMouseOver="seeInstructions()" , onMouseOut="hideInstructions()">Instructions</li>
     <li onMouseOver="seeControls()" , onMouseOut="hideControls()">The Controls</li>
+    <li class="dropdown"> Grid Mode
+      <div class="dropdown-content">
+        <a href="index.html">None</a>
+        <a href="indexGrid.html">Default</a>
+        <a href="indexCheckerboard.html">Checker<br>board</a>
+        <a href="indexColorfulCheckerboard.html">Colorful<br>Checker<br>board</a>
+      </div>
+    </li>
     <br>
     <br>
     <div id="tutorialsDiv">
@@ -33,6 +41,7 @@
       <p>[l] : default draw line mode (is toggled on by default)</p>
       <p>[-] : draw dotted line mode (draw dashed lines on mouse click)</p>
       <p>[ ] : erase drawing (press the spacebar to erase the whole drawing)</p>
+      <p>[s] : save drawing (saves an image of your drawing to your computer)</p>
       <p>[0] : draw circle mode (draw circles on mouse click)</p>
       <p>[4] : draw square mode (draw squares on mouse click)</p>
       <p>[a] : free draw mode (automatically draws with the selected draw mode as you move your mouse cursor)</p>
@@ -45,7 +54,7 @@
       <p>[i] : inverted mode (draw line/shape that goes at the opposite direction of your cursor)</p>
       <p>[x] : symmetric x-axis mode (draw line/shape that's symmetric to your cursor based on the x-axis)</p>
       <p>[y] : symmetric y-axis mode (draw line/shape that's symmetric to your cursor based on the y-axis)</p>
-      <p>[p] : perlin brush mode (draw lines/shapes with a dynamic brush size)</p>
+      <p>[p] : perlin brush mode (draw lines/shapes with a dynamic brush size; 50% chance with outline)</p>
     </div>
   </ul>
 </body>
