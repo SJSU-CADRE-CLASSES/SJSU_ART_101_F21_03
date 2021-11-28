@@ -12,7 +12,7 @@ let playerImg;
 
 
 function preload(){
-  playerImg = loadImage('assets/mouth/shark_1.png')
+  playerImg = loadImage('assets/mouth/shark_2.png')
 }
 function setup() {
   cnv = createCanvas(w, h);
