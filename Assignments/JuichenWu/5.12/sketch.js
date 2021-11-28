@@ -13,10 +13,8 @@ let playerImg;
 let coinImg;
 let enemyImg;
 
-
-
-
 function preload() {
+
   playerImg = loadImage('assets/mouth/shark_2.png');
   coinImg = loadImage('assets/mouth/fish_1.png');
   enemyImg = loadImage('assets/mouth/bomb_1.png');
@@ -31,7 +29,6 @@ function setup() {
   textFont('monospace');
 
   player = new Player();
-  // coin[0] = new Coin();
   coins.push(new Coin());
   enemies.push(new Enemy());
 }
@@ -118,14 +115,16 @@ function level1() {
   if (random(1) <= 0.06) {
     enemies.push(new Enemy());
   }
+
+
   player.display();
   player.move();
-
+//iterating through coins array to display and move them
   for (let i = 0; i < coins.length; i++) {
     coins[i].display();
     coins[i].move();
   }
-
+//iterating through enemies array to display and move them
   for (let i = 0; i < enemies.length; i++) {
     enemies[i].display();
     enemies[i].move();
@@ -145,8 +144,8 @@ function level1() {
     }
   }
 
-
   //check for collision, if there is a collision increase points by 1
+  //splice that enemy out of array
   // need to iterate backwards through array
 
   for (let i = enemies.length - 1; i >= 0; i--) {
