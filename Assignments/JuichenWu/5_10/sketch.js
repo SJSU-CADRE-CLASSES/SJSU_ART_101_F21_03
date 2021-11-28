@@ -9,10 +9,12 @@ let h = 600;
 let player;
 let coins = [];
 let playerImg;
+let coinImg;
 
 
 function preload(){
-  playerImg = loadImage('assets/mouth/shark_2.png')
+  playerImg = loadImage('assets/mouth/shark_2.png');
+  coinImg = loadImage('assets/mouth/fish_1.png');
 }
 function setup() {
   cnv = createCanvas(w, h);
