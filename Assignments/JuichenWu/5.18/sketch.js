@@ -14,6 +14,8 @@ let playerImg;
 let coinImg;
 let enemyImg;
 let song;
+let coinSound;
+let bombSound;
 
 function preload() {
 
@@ -21,6 +23,8 @@ function preload() {
   coinImg = loadImage('assets/mouth/fish_1.png');
   enemyImg = loadImage('assets/mouth/bomb_1.png');
   song= loadSound('assets/mouth/game_1.mp3');
+  coinSound = loadSound('assets/mouth/coin.mp3');
+  bombSound = loadSound('assets/mouth/bomb.mp3');
 }
 
 function setup() {
@@ -143,9 +147,12 @@ function level1() {
 
   for (let i = coins.length - 1; i >= 0; i--) {
     if (dist(player.x, player.y, coins[i].x, coins[i].y) <= (player.r + coins[i].r) / 2) {
+      coinSound.play();//kevin
       points++;
       console.log(points);
       coins.splice(i, 1);
+
+
     } else if (coins[i].y > h) {
       coins.splice(i, 1);
       // console.log('coin is out of town');
@@ -160,7 +167,8 @@ function level1() {
     if (dist(player.x, player.y, enemies[i].x, enemies[i].y) <= (player.r + enemies[i].r) / 2) {
       points--;
       console.log(points);
-      enemies.splice(i, 1);
+      enemies.splice(i, 1);//kevin
+      bombSound.play();
     } else if (enemies[i].y > h) {
       enemies.splice(i, 1);
       // console.log('coin is out of town');
