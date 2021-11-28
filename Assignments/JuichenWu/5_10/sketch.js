@@ -8,7 +8,12 @@ let w = 600;
 let h = 600;
 let player;
 let coins = [];
+let playerImg;
 
+
+function preload(){
+  playerImg = loadImage('assets/mouth/shark_1.png')
+}
 function setup() {
   cnv = createCanvas(w, h);
 
@@ -81,25 +86,10 @@ function level1() {
   player.display();
   player.move();
 
-
-//iterating through coins array to display and move them
-
-//using for loop
-// for (let i =0; i < cpoms/;emgtj; i++){
-//   coins[i].display();
-//   coins[i].move();
-// }
-
-// //using forEach loop
-//   coins.forEach(function(coin){
-//     coin.display();
-//     coin.move();
-// })
-//using for of loop
-for (let coin of coins){
-  coin.display();
-  coin.move();
-}
+  for (let i = 0; i < coins.length; i++) {
+    coins[i].display();
+    coins[i].move();
+  }
 
   //check for collision, if there is a ollision increase points by 1
   // need to iterate backwards through array
