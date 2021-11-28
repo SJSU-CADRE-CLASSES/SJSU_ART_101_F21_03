@@ -40,7 +40,11 @@ case 'level 1':
   }
 
 }
-
+function keyPressed(){
+  if (keyCode == LEFT_ARROW)
+  player.direction = 'left'
+  }
+}
 
 function title(){
   background(0);
@@ -63,6 +67,8 @@ function level1(){
   // text('click for points', w/2, h - 30);
 
   player.display();
+  player.move();
+
   coin.display();
   coin.move();
 }
