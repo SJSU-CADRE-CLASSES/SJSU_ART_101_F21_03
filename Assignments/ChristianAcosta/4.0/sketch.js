@@ -3,9 +3,14 @@
 let state = 'start';
 let cnv;
 let points = 0;
+let player;
+let dude;
 
 function setup() {
   cnv = createCanvas(800, 600);
+
+  player = new Player();
+  dude = new Dude();
 }
 ///////////////////////////////////////
 function draw() {
@@ -40,11 +45,12 @@ switch (state){
 ///////////////////////////////////////
 //start
 function start(){
-  background(220);
+  background(0);
+  textFont('serif');
   textAlign(CENTER);
   textSize(100);
-  stroke(255);
-  text("mississippi", width/2, height/3);
+  fill(255);
+  text("Spread Covid", width/2, height/3);
   textSize(50);
   text("click anywhere to start", width/2, height-height/3);
 
@@ -56,10 +62,15 @@ function startMouseClicked(){
 //lvl_One
 function lvl_One(){
   background(50, 150, 200);
+  textFont('monospace');
   textAlign(CENTER);
   textSize(50);
   stroke(255);
-  text("click to get points", width/2, height/3);
+  text("spread covid", width/2, height/8);
+
+  player.display();
+  dude.display();
+  dude.move();
 }
 function lvl_OneMouseClicked(){
   points++;
@@ -71,7 +82,8 @@ function lvl_OneMouseClicked(){
 }
 //win
 function win(){
-  background(255);
+  background(150);
+  textFont('monospace');
   textAlign(CENTER);
   textSize(100);
   stroke(255);
@@ -85,6 +97,7 @@ function winMouseClicked(){
 //lost
 function lost(){
   background(255);
+  textFont('monospace');
   textAlign(CENTER);
   textSize(100);
   stroke(255);
