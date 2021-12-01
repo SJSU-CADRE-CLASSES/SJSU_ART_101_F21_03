@@ -43,6 +43,18 @@ switch (state){
 }
 
 ///////////////////////////////////////
+function keyPressed(){
+  if (key == 'w'){
+    player.direction = 'up';
+  }else if (key == 'a'){
+    player.direction = 'left';
+  }else if (key == 's'){
+    player.direction = 'down';
+  }else if (key == 'd'){
+    player.direction = 'right';
+  }
+}
+
 //start
 function start(){
   background(0);
@@ -53,6 +65,7 @@ function start(){
   text("Spread Covid", width/2, height/3);
   textSize(50);
   text("click anywhere to start", width/2, height-height/3);
+  text("use wasd to move", width/2, height-height/6);
 
   points = 0;
 }
@@ -69,6 +82,7 @@ function lvl_One(){
   text("spread covid", width/2, height/8);
 
   player.display();
+  player.move();
   dude.display();
   dude.move();
 }
