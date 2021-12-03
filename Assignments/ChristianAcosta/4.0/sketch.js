@@ -4,13 +4,14 @@ let state = 'start';
 let cnv;
 let points = 0;
 let player;
-let dude;
+let dudes = [];
 
 function setup() {
   cnv = createCanvas(800, 600);
 
   player = new Player();
-  dude = new Dude();
+  //dudes[0] = new Dude();
+  dudes.push(new Dude());
 }
 ///////////////////////////////////////
 function draw() {
@@ -43,15 +44,24 @@ switch (state){
 }
 
 ///////////////////////////////////////
+//player movement movement (note-diagonals too op)
 function keyPressed(){
   if (key == 'w'){
     player.direction = 'up';
-  }else if (key == 'a'){
+  }else if (key == 'a' ){
     player.direction = 'left';
   }else if (key == 's'){
     player.direction = 'down';
   }else if (key == 'd'){
     player.direction = 'right';
+  }else if (key == 'q'){
+    player.direction = 'up-left';
+  }else if (key == 'e'){
+    player.direction = 'up-right';
+  }else if (key == 'z'){
+    player.direction = 'down-left';
+  }else if (key == 'x'){
+    player.direction = 'down-right';
   }
 }
 
@@ -65,7 +75,7 @@ function start(){
   text("Spread Covid", width/2, height/3);
   textSize(50);
   text("click anywhere to start", width/2, height-height/3);
-  text("use wasd to move", width/2, height-height/6);
+  text("use wasd and qezx to move", width/2, height-height/6);
 
   points = 0;
 }
@@ -81,10 +91,31 @@ function lvl_One(){
   stroke(255);
   text("spread covid", width/2, height/8);
 
+//create new dude
+  if (random(1) <= 0.01){
+    dudes.push(new Dude);
+  }
+
   player.display();
   player.move();
-  dude.display();
-  dude.move();
+
+  for (let i = 0; i < dudes.length; i++){
+    dudes[i].display();
+    dudes[i].move();
+  }
+
+//check for collision
+for (let i = dudes.length-1; i >= 0; i--){
+  if(dist(player.x, player.y, dudes[i].x, dudes[i].y) <= (player.r + dudes[i].r)/2){
+    points++;
+    //console.log('points =' + points);
+    //remove touched dot
+    dudes.splice(i, 1);
+  }
+}
+  textSize(12);
+  text('points: ' + points, width/2, height-height/12);
+
 }
 function lvl_OneMouseClicked(){
   points++;

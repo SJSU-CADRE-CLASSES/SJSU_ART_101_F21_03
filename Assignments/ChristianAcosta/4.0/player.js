@@ -10,7 +10,7 @@ class Player{
   }
 
   display(){
-    rect(this.x, this.y, this.r, this.r);
+    ellipse(this.x, this.y, this.r, this.r);
   }
 
   move(){
@@ -32,6 +32,22 @@ class Player{
       break;
       //increase x
       case 'right':
+      this.x += this.speed;
+      break;
+      case 'up-left':
+      this.y -= this.speed;
+      this.x -= this.speed;
+      break;
+      case 'up-right':
+      this.y -= this.speed;
+      this.x += this.speed;
+      break;
+      case 'down-left':
+      this.y += this.speed;
+      this.x -= this.speed;
+      break;
+      case 'down-right':
+      this.y += this.speed;
       this.x += this.speed;
       break;
     }
