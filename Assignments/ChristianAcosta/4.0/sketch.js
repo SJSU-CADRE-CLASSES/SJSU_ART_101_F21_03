@@ -9,6 +9,9 @@ let dudes = [];
 function setup() {
   cnv = createCanvas(800, 600);
 
+  imageMode(CENTER); //images and rects are corners by default
+  rectMode(CENTER);
+
   player = new Player();
   //dudes[0] = new Dude();
   dudes.push(new Dude());
@@ -45,6 +48,7 @@ switch (state){
 
 ///////////////////////////////////////
 //player movement movement (note-diagonals too op)
+//note use booleans to make 2 buttons work together
 function keyPressed(){
   if (key == 'w'){
     player.direction = 'up';
@@ -62,6 +66,39 @@ function keyPressed(){
     player.direction = 'down-left';
   }else if (key == 'x'){
     player.direction = 'down-right';
+  }
+}
+//stop player once key is released
+function keyReleased(){
+  let numKeysPressed = 0;
+//note numbers corrolate to key code number. https://keycode.info
+//only stop when all keys are released
+  if(keyIsDown(87)){
+    numKeysPressed++;
+  }
+  if(keyIsDown(65)){
+    numKeysPressed++;
+  }
+  if(keyIsDown(83)){
+    numKeysPressed++;
+  }
+  if(keyIsDown(68)){
+    numKeysPressed++;
+  }
+  if(keyIsDown(81)){
+    numKeysPressed++;
+  }
+  if(keyIsDown(69)){
+    numKeysPressed++;
+  }
+  if(keyIsDown(90)){
+    numKeysPressed++;
+  }
+  if(keyIsDown(88)){
+    numKeysPressed++;
+  }
+  if(numKeysPressed == 0){
+    player.direction = 'still';
   }
 }
 
@@ -110,6 +147,8 @@ for (let i = dudes.length-1; i >= 0; i--){
     points++;
     //console.log('points =' + points);
     //remove touched dot
+    dudes.splice(i, 1);
+  } else if (dudes[i].y > height + dudes[i].r){    //remove dudes when the hit bottom
     dudes.splice(i, 1);
   }
 }
