@@ -194,12 +194,12 @@ if (points > 1000){
 }
 
 function lvl_OneMouseClicked(){
-  points++;
-  console.log('points =' + points);
-
-  if (points>=10){
-    state = 'win';
-  }
+  // points++;
+  // console.log('points =' + points);
+  //
+  // if (points>=10){
+  //   state = 'win';
+  // }
 }
 //win
 function win(){
