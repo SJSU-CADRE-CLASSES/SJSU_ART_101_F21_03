@@ -2,15 +2,16 @@
 
 let state = 'title';
 let cnv;
-let points = 0;
+let points = 1;
 let w = 600;
 let h = 600;
-let player;
+let player = 1;
 let playerImg;
 let coins = [];
 let coinImg;
 let enemies = [];
 let enemyImg;
+let lives = 3;
 
 function preload() {
   playerImg = loadImage('Assets/soccerball.png')
@@ -53,6 +54,11 @@ function draw() {
     case 'you win':
       youWin();
       cnv.mouseClicked(youWinMouseClicked)
+      break;
+
+    case 'game over':
+      gameOver();
+      cnv.mouseClicked(gameOverMouseClicked)
       break;
 
     default:
@@ -114,7 +120,7 @@ function title() {
   text('click anywhere to start', w / 2, h / 2)
 }
 
-//When mouse is clicked, change to level 1
+//When mouse is clicked, change to level1
 function titleMouseClicked() {
   console.log('canvas is clicked on title page')
   state = 'level 1'
@@ -189,8 +195,15 @@ function level1() {
     }
   }
 
-  //Shows how many points
+  //Shows how many points you have
   text(`points: ${points}`, w / 4, h - 30);
+
+  //Check points to win or lose
+  if (points >= 10) {
+    state = 'you win';
+  } else if (points <= 0) {
+    state = 'game over';
+  }
 
 }
 
@@ -207,14 +220,51 @@ function level1MouseClicked() {
 function youWin() {
   background(255, 50, 80);
   textSize(80);
-  stroke(255);
   text('You Won!', w / 2, h / 2);
 
   textSize(30);
-  text('Click anywhere to restart', w / 2, h * 3 / 4)
+  text('Click anywhere to restart', w / 2, h * 3 / 4);
 }
 
 function youWinMouseClicked() {
-  state = 'level 1'
-  points = 0;
+  state = 'title'
+  points = 1;
+}
+
+function gameOver() {
+  background(255, 50, 80);
+  textSize(80);
+
+  //Check number of lives
+  if (lives >= 0) {
+
+    //Display # of lives to the screen
+    text(`Lives: ${lives}`, w / 2, h * 3 / 4);
+    coins = [];
+    enemies = [];
+
+    textSize(30);
+    text('Click anywhere to continue', w / 2, h * 3.5 / 4);
+  } else {
+    //Game over
+
+    text('Game over', w / 2, h * 3 / 4);
+
+    textSize(30);
+    text('Click anywhere to restart', w / 2, h * 3.5 / 4);
+  }
+
+}
+
+function gameOverMouseClicked() {
+  if (lives >= 0) { //This makes sure they have 0 lives going into it because life was already taken away in gameOver() function
+    lives--;
+    state = 'level 1';
+  } else {
+    state = 'title';
+    coins = [];
+    enemies = [];
+  }
+
+  points = 1;
 }
