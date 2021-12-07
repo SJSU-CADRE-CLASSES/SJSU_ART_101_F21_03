@@ -9,10 +9,14 @@ class Dude{
   }
 
   display(){
+    noStroke();
     fill(this.color);
     ellipse(this.x, this.y, this.r, this.r);
   }
   move(){
     this.y++;
+  }
+  convert(){
+    this.color = 0;
   }
 }

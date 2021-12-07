@@ -147,7 +147,8 @@ for (let i = dudes.length-1; i >= 0; i--){
     points++;
     //console.log('points =' + points);
     //remove touched dot
-    dudes.splice(i, 1);
+    dudes[i].convert(); //change color of dot
+    //dudes.splice(i, 1);
   } else if (dudes[i].y > height + dudes[i].r){    //remove dudes when the hit bottom
     dudes.splice(i, 1);
   }
