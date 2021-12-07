@@ -1,28 +1,33 @@
 'use strict';
 
+//  To convert to SCHMUP
+//1) Create Projectile class
+//2) Change play controls to go to left to right, up will launch projectle
+//3) Test Collissions between projectile and coins/enemies, instead of player
+
 let state = 'title';
 let cnv;
-let points = 1;
+let points = 0;
 let w = 600;
 let h = 600;
 let player = 1;
 let playerImg;
-let coins = [];
+let oneUps = [];
 let coinImg;
 let enemies = [];
 let enemyImg;
+let projectiles = [];
 let lives = 3;
 
 function preload() {
   playerImg = loadImage('Assets/soccerball.png')
   coinImg = loadImage('Assets/soccerplayer.png')
   enemyImg = loadImage('Assets/redcard.jpg')
-
+  //If creating image for projectile, load it here
 }
 
 function setup() {
   cnv = createCanvas(600, 600);
-
 
   imageMode(CENTER);
   rectMode(CENTER);
@@ -31,10 +36,9 @@ function setup() {
 
   player = new Player();
 
-  coins.push(new Coin());
-
+  oneUps.push(new oneUp);
   enemies.push(new Enemy());
-
+  projectiles.push(new Projectile);
 }
 
 function draw() {
@@ -69,16 +73,15 @@ function draw() {
 //Player Arrow Controls
 function keyPressed() {
   if (keyCode == UP_ARROW) {
-    player.direction = 'up'
-  } else if (keyCode == DOWN_ARROW) {
-    player.direction = 'down'
+    projectiles.push(new Projectile)
   } else if (keyCode == LEFT_ARROW) {
     player.direction = 'left'
   } else if (keyCode == RIGHT_ARROW) {
     player.direction = 'right'
-  } else if (key = ' ') { //This is for the spacebar
-    player.direction = 'still'
   }
+
+  console.log(projectiles);
+
 }
 
 function keyReleased() {
@@ -122,86 +125,104 @@ function title() {
 
 //When mouse is clicked, change to level1
 function titleMouseClicked() {
-  console.log('canvas is clicked on title page')
   state = 'level 1'
 }
 
 function level1() {
   background(50, 50, 100);
 
-  //Creates a new coin, <= is frequency of spawn
-  if (random(1) <= 0.04) {
-    coins.push(new Coin())
+  //Creates a new oneUp, <= is frequency of spawn
+  if (random(1) <= 0.005) {
+    oneUps.push(new oneUp)
+  }
+
+  //Creates a new enemy, <= is frequency of spawn
+  if (random(1) <= 0.03) {
+    enemies.push(new Enemy())
+  }
+
+  //Creates a new projectile, BEFORE the player was drawn, so the projectile shoots from under the player
+  for (let i = 0; i < projectiles.length; i++) {
+    projectiles[i].display();
+    projectiles[i].move();
   }
 
   player.display();
   player.move();
 
-
-  //Going through array to display and move them. Using- are other ways to do arrays for this
-
-  //Using For Loops
-  for (let i = 0; i < coins.length; i++) {
-    coins[i].display();
-    coins[i].move();
+  //Tells oneUps to show and move
+  for (let i = 0; i < oneUps.length; i++) {
+    oneUps[i].display();
+    oneUps[i].move();
   }
-
-  //Using forEach, can access i variable
-  // coins.forEach(function (coin) {
-  //   coin.display();
-  //   coin.move();
-  // })
-
-  // //Using for of Loop, which is good but you can't access any i variables
-  // for (let coin of coins) {
-  //   coin.display();
-  //   coin.move();
-  // }
-
-  //Check for collision with COINS, if there is a collision increase points by 1 AND splice that coin out of the array
-  //Need to iterate backwards in array, then splices out a coin when touched
-  for (let i = coins.length - 1; i >= 0; i--) {
-    //Measuring distance between players x-y and coins x-y
-    if (dist(player.x, player.y, coins[i].x, coins[i].y) <= (player.r + coins[i].r) / 2) {
-      points++;
-      console.log(points);
-      coins.splice(i, 1);
-    } else if (coins[i].y > h) {
-      coins.splice(i, 1);
-      console.log('coin is out of town')
-    }
-  }
-
-  //Creates a new coin, <= is frequency of spawn
-  if (random(1) <= 0.03) {
-    enemies.push(new Enemy())
-  }
-
+  //Tells enemies to show and move
   for (let i = 0; i < enemies.length; i++) {
     enemies[i].display();
     enemies[i].move();
   }
 
-  //Check for collision with ENEMIES, if there is a collision increase points by 1 AND splice that coin out of the array
-  //Need to iterate backwards in array, then splices out a coin when touched
+  //For projectile collission with enemies and oneUps
+  for (let i = projectiles.length - 1; i >= 0; i--) {
+
+    //Check for PROJECTILE collision with ENEMIES, if there is a collision increase points by 1 AND splice that enemy out of the array
+    //Need to iterate backwards in array, then splices out an enemy when touched
+    for (let j = enemies.length - 1; j >= 0; j--) {
+      //Measuring distance between players x-y and enemies x-y
+      if (projectiles[i] && dist(projectiles[i].x, projectiles[i].y, enemies[j].x, enemies[j].y) <= (projectiles[i].r + enemies[j].r) / 2) {
+        points++;
+        enemies.splice(j, 1);
+        projectiles.splice(i, 1);
+      } else if (enemies[j].y > h) {
+        enemies.splice(j, 1);
+      }
+    }
+
+    for (let j = oneUps.length - 1; j >= 0; j--) {
+      //Measuring distance between players x-y and oneUps x-y
+      if (projectiles[i] && dist(projectiles[i].x, projectiles[i].y, oneUps[j].x, oneUps[j].y) <= (projectiles[i].r + oneUps[j].r) / 2) {
+        oneUps.splice(j, 1);
+        projectiles.splice(i, 1);
+      } else if (oneUps[j].y > h) {
+        oneUps.splice(j, 1);
+      }
+    }
+
+  }
+
+  //Check for PLAYER collision with ONEUPS, if there is a collision increase points by 1 AND splice that oneUp out of the array
+  //Need to iterate backwards in array, then splices out a oneUP when touched
+  for (let i = oneUps.length - 1; i >= 0; i--) {
+    //Measuring distance between players x-y and oneUps x-y
+    if (dist(player.x, player.y, oneUps[i].x, oneUps[i].y) <= (player.r + oneUps[i].r) / 2) {
+      lives++;
+      console.log(lives);
+      oneUps.splice(i, 1);
+    } else if (oneUps[i].y > h) {
+      oneUps.splice(i, 1);
+    }
+  }
+
+  //Checking for PLAYER collission with ENEMIES, if there is a collission, reduce lives by 1 AND splice that enemy out of the array
   for (let i = enemies.length - 1; i >= 0; i--) {
     //Measuring distance between players x-y and enemies x-y
     if (dist(player.x, player.y, enemies[i].x, enemies[i].y) <= (player.r + enemies[i].r) / 2) {
-      points--;
+      lives--;
       enemies.splice(i, 1);
     } else if (enemies[i].y > h) {
       enemies.splice(i, 1);
-      console.log('enemy is out of town')
     }
   }
 
   //Shows how many points you have
-  text(`points: ${points}`, w / 4, h - 30);
+  text(`Points: ${points}`, w / 4, h - 30);
 
-  //Check points to win or lose
+  //Shows how many lives you have
+  text(`Lives: ${lives}`, w / 4, h - 55);
+
+  //Check points and lives, if 10 points they win, if 0 lives, game over
   if (points >= 10) {
     state = 'you win';
-  } else if (points <= 0) {
+  } else if (lives <= 0) {
     state = 'game over';
   }
 
@@ -228,7 +249,11 @@ function youWin() {
 
 function youWinMouseClicked() {
   state = 'title'
-  points = 1;
+  oneUps = [];
+  enemies = [];
+  projectiles = [];
+  points = 0;
+  lives = 3;
 }
 
 function gameOver() {
@@ -236,35 +261,26 @@ function gameOver() {
   textSize(80);
 
   //Check number of lives
-  if (lives >= 0) {
-
-    //Display # of lives to the screen
-    text(`Lives: ${lives}`, w / 2, h * 3 / 4);
-    coins = [];
-    enemies = [];
-
+  if (lives == 0) {
     textSize(30);
-    text('Click anywhere to continue', w / 2, h * 3.5 / 4);
-  } else {
     //Game over
-
-    text('Game over', w / 2, h * 3 / 4);
+    text('Game over', w / 2, h / 2);
 
     textSize(30);
-    text('Click anywhere to restart', w / 2, h * 3.5 / 4);
+    text('Click anywhere to restart', w / 2, h * 3 / 4);
   }
 
 }
 
 function gameOverMouseClicked() {
-  if (lives >= 0) { //This makes sure they have 0 lives going into it because life was already taken away in gameOver() function
-    lives--;
-    state = 'level 1';
-  } else {
+
+  if (lives == 0) { //This makes sure they have 0 lives before resetting to the Title screen
     state = 'title';
-    coins = [];
+    oneUps = [];
     enemies = [];
+    projectiles = [];
+    points = 0;
+    lives = 3;
   }
 
-  points = 1;
 }

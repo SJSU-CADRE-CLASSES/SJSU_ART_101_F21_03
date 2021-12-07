@@ -1,4 +1,4 @@
-class Coin {
+class oneUp {
     constructor(){
     //r is radius/size
     this.r = 50;
