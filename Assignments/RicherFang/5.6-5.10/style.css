@@ -16,3 +16,6 @@ canvas {
   z-index: -1;
   border: 5px solid rgb(236, 71, 98);
 }
+audio {
+  display: none;
+}
