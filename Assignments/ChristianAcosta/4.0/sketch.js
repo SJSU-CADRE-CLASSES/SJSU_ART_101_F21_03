@@ -7,6 +7,7 @@ let life = 9;
 let player;
 let dudes = [];
 let cars = [];
+//declare images
 let playerImg;
 let carImg;
 let girlImg;
