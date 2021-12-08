@@ -13,7 +13,8 @@ class Car{
     noStroke();
     rectMode(CENTER);
     fill(this.color);
-    rect(this.x, this.y, this.w, this.h);
+    image(carImg, this.x, this.y, this.w, this.h);
+    //rect(this.x, this.y, this.w, this.h);
   }
   move(){
     this.y++;

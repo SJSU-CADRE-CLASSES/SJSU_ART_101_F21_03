@@ -13,7 +13,8 @@ class Player{
   display(){
     noStroke();
     fill(this.color);
-    ellipse(this.x, this.y, this.r, this.r);
+    image(playerImg, this.x, this.y, this.r, this.r);
+    //ellipse(this.x, this.y, this.r, this.r);
   }
 
   move(){

@@ -6,17 +6,19 @@ class Dude{
     this.y = 0 - this.r;
     this.color = (255);
     this.sick = (0);
+    this.img = girlImg;
   }
 
   display(){
     noStroke();
     fill(this.color);
-    ellipse(this.x, this.y, this.r, this.r);
+    image(this.img, this.x, this.y, this.r, this.r);
+    //ellipse(this.x, this.y, this.r, this.r);
   }
   move(){
     this.y++;
   }
   convert(){
-    this.color = 0;
+    this.img = girlSick;
   }
 }
