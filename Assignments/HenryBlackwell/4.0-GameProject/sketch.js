@@ -10,19 +10,21 @@ let cnv;
 let points = 0;
 let w = 600;
 let h = 600;
+let titleImg;
 let player = 1;
 let playerImg;
 let oneUps = [];
-let coinImg;
+let oneUpImg;
 let enemies = [];
 let enemyImg;
 let projectiles = [];
 let lives = 3;
 
 function preload() {
-  playerImg = loadImage('Assets/soccerball.png')
-  coinImg = loadImage('Assets/soccerplayer.png')
-  enemyImg = loadImage('Assets/redcard.jpg')
+  playerImg = loadImage('Assets/PlayerAvatar.png')
+  oneUpImg = loadImage('Assets/HPup.png')
+  enemyImg = loadImage('Assets/Enemy.png')
+  titleImg = loadImage('Assets/VSscreen.png')
   //If creating image for projectile, load it here
 }
 
@@ -114,16 +116,16 @@ function keyReleased() {
 //Starting/Title Page
 function title() {
   background(0);
-  textSize(80);
+  textSize(50);
   fill(255);
   textAlign(CENTER);
-  text('My Game', w / 2, h / 5);
+  text('Welcome to Galagas', w / 2, h / 5);
 
   textSize(30);
   text('click anywhere to start', w / 2, h / 2)
 }
 
-//When mouse is clicked, change to level1
+//When mouse is clicked on Title screen, change to level1
 function titleMouseClicked() {
   state = 'level 1'
 }
@@ -137,7 +139,7 @@ function level1() {
   }
 
   //Creates a new enemy, <= is frequency of spawn
-  if (random(1) <= 0.03) {
+  if (random(1) <= 0.025) {
     enemies.push(new Enemy())
   }
 
@@ -147,6 +149,7 @@ function level1() {
     projectiles[i].move();
   }
 
+  //Creates player on screen
   player.display();
   player.move();
 
@@ -219,13 +222,22 @@ function level1() {
   //Shows how many lives you have
   text(`Lives: ${lives}`, w / 4, h - 55);
 
-  //Check points and lives, if 10 points they win, if 0 lives, game over
-  if (points >= 10) {
-    state = 'you win';
-  } else if (lives <= 0) {
+  if (lives <= 0) {
     state = 'game over';
   }
 
+  //Check points and lives, when 10-15 points show messages, if 10 points they win, if 30 points they win
+  if (points >= 0 && points < 5) {
+    text('Get to 30 points to win!', w / 2, h / 2);
+  } if (points >= 10 && points < 13) {
+    text('You got the hang of it!', w / 2, h / 2)
+  } else if (points >= 15 && points < 18){
+    text(`You're almost there`, w / 2, h / 2)
+  } else if (points >= 20 && points < 28){
+    text('So close :D', w / 2, h / 2)
+  } else if (points >= 30) {
+    state = 'you win';
+  }
 }
 
 function level1MouseClicked() {
@@ -239,7 +251,7 @@ function level1MouseClicked() {
 };
 
 function youWin() {
-  background(255, 50, 80);
+  background(50, 255, 80);
   textSize(80);
   text('You Won!', w / 2, h / 2);
 
@@ -261,14 +273,24 @@ function gameOver() {
   textSize(80);
 
   //Check number of lives
-  if (lives == 0) {
-    textSize(30);
-    //Game over
-    text('Game over', w / 2, h / 2);
 
-    textSize(30);
-    text('Click anywhere to restart', w / 2, h * 3 / 4);
+  textSize(30);
+  //Game over
+  text('Game over', w / 2, h / 2.5);
+
+  if (points < 10) {
+    text('Not even close lul', w / 2, h / 2)
+  } else if (points >= 10 && points < 20){
+    text('You were close I guess', w / 2, h / 2)
+  } else if (points >= 20 && points < 28){
+    text('So close D:', w / 2, h / 2)
+  } else {
+    text('1 off KEKW', w / 2, h / 2)
   }
+
+  textSize(30);
+  text('Click anywhere to restart', w / 2, h * 3 / 4);
+
 
 }
 
