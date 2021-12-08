@@ -1,0 +1,28 @@
+html {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  margin: 10px auto 0 auto;
+  width: 80%;
+  text-align: center;
+  font-family: 'DotGothic16', sans-serif;
+  color: #800869;
+}
+canvas {
+  margin: 1em auto;
+  display: block;
+  z-index: -1;
+  border: 5px solid #800869;
+  border-radius: 5px;
+}
+
+h1 {
+  margin: 0.5em;
+}
+
+p {
+  font-size: 1em;
+  margin: 0em;
+}
