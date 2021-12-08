@@ -52,8 +52,10 @@ function titleMouseClicked(){
 
 function level1(){
   background(10); 
-  textSize(20)
-  text('click for points', 240,200);
+  textSize(30)
+  text('Destroy The Meteors', 275,200);
+  textSize(40)
+  text('Protect The Earth', 250,400);
   }
 
   function level1MouseClicked(){
