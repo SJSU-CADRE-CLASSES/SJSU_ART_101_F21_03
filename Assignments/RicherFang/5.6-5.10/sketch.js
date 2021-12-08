@@ -1,11 +1,14 @@
 'use strict';
 
+let bg;
 let state = 'title';
 let canvas;
 let points = 0;
 
 function setup(){
+bg = loadImage('assests/SpaceTitle.png');
 canvas = createCanvas (800, 800);
+background(20)
 stroke(195,34,80)
 strokeWeight(3)
 fill(49, 2, 61)
@@ -34,12 +37,12 @@ canvas.mouseClicked(youWinMouseClicked);
 
 
 function title(){
-background(10); 
-textSize(80);
-text('Space Defenders', 95, 250);
+background(bg); 
+// textSize(80);
+// text('Space Defenders', 95, 250);
 
-textSize(30)
-text('Click Anywhere To Start', 235,500);
+// textSize(30)
+// text('Click Anywhere To Start', 235,500);
 }
 
 function titleMouseClicked(){
