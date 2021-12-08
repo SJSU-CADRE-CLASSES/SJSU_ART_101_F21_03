@@ -10,7 +10,6 @@ let cnv;
 let points = 0;
 let w = 600;
 let h = 600;
-let titleImg;
 let player = 1;
 let playerImg;
 let oneUps = [];
@@ -21,10 +20,9 @@ let projectiles = [];
 let lives = 3;
 
 function preload() {
-  playerImg = loadImage('Assets/PlayerAvatar.png')
-  oneUpImg = loadImage('Assets/HPup.png')
-  enemyImg = loadImage('Assets/Enemy.png')
-  titleImg = loadImage('Assets/VSscreen.png')
+  playerImg = loadImage('Assets/PlayerAvatar.png');
+  oneUpImg = loadImage('Assets/HPup.png');
+  enemyImg = loadImage('Assets/Enemy.png');
   //If creating image for projectile, load it here
 }
 
