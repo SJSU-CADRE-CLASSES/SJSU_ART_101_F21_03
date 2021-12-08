@@ -1,14 +1,7 @@
 'use strict';
 
 let bg;
-let img;
-let img1;
-let img2;
-let img3;
-let img4;
-let img5;
-let img6;
-let img7;
+let img, img1, img2, img3, img4, img5, img6, img7;
 let state = 'title';
 let canvas;
 let points = 0;
