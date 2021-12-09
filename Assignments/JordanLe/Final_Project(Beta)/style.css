@@ -1,0 +1,54 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  /* transition: 0.4s; */
+  background-color: white;
+  color: blue;
+}
+
+button:hover {
+  /* transition: 0.4s; */
+  background-color: blue;
+  color: white;
+  /* transition-duration: 0.4s; */
+
+}
+
+.dropdownInfo {
+  display: none;
+}
+
+ul {
+  list-style: circle;
+  /* float: left; */
+  /* display: inline; */
+}
+
+li {
+  text-align: center;
+  float: left;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#headerList {
+  list-style: none;
+  display: inline-flex;
+  text-align: center;
+  /* white-space: nowrap;
+  overflow: hidden; */
+  margin-right: 300%; /*15.125% */
+}
+
+canvas {
+  display: block;
+
+  margin: auto;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1; /* z < 0 means canvas will be behind html(can see html), z >= 0 means canvas will be in front of html(cannot see html) */
+}

@@ -7,10 +7,9 @@ function setup() {
 
   createCanvas(900,900);
 
-
-  drawGrid();
-  strokeWeight(5);
-
+background(128, 222, 234);
+  // drawGrid();
+  strokeWeight(20);
   noFill();
 
 
@@ -21,7 +20,7 @@ function draw() {
 
   if (mouseIsPressed) {
 
-    stroke(map(mouseX, 0, 600, 0, 255, true))
+    stroke(map(mouseX, 0, 500, 0, 255, true))
     line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
     line(mouseX, mouseY, pmouseX, pmouseY);
   }
@@ -41,7 +40,7 @@ function draw() {
      } else if (key === 'd'){
 
 
-       background(255)
+       background(167)
 
        beginShape();
 
@@ -53,9 +52,7 @@ function draw() {
 
      }
 
-
   return false;
-
 
    }
 
