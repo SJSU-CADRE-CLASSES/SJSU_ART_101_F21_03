@@ -1,0 +1,21 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body{
+  margin: auto 0 auto;
+  text-align: center;
+  background-image: url("https://cdn.glitch.me/1ea06deb-165f-422c-835f-750e4ff3cc5c%2FSpace8bit.gif?v=1638920500636");
+  background-size: cover;
+  color: rgb(49, 2, 61);
+  text-shadow: 1px 1px 2px #ff124d, 0 0 25px #8d1d4c, 0 0 5px #4b2145;
+  text-align: center;
+}
+canvas {
+  margin: 50px auto 50px auto;
+  z-index: -1;
+  border: 5px solid rgb(236, 71, 98);
+}
+audio {
+  display: none;
+}
