@@ -1,0 +1,13 @@
+html, body {
+
+  margin: 0;
+  padding: 0;
+
+}
+canvas {
+  display: block;
+  /*(FOR BELOW) Margin order (if doing all 4 sides) is Top, right, bottom, left. You're adjusting the margins for each side*/
+  /* margin: 50px auto 50px auto; */
+  /*(FOR BELOW) Margin order (if only doing 2) the first value is top AND bottom, while the other is the left and right */
+  margin: 50px auto;
+}

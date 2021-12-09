@@ -5,12 +5,16 @@ class Player{
     this.r = 50;
     this.x = width/2;
     this.y = height - this.r;
+    this.color = 0;
     this.speed = 2;
     this.direction = 'still';
   }
 
   display(){
-    ellipse(this.x, this.y, this.r, this.r);
+    noStroke();
+    fill(this.color);
+    image(playerImg, this.x, this.y, this.r, this.r);
+    //ellipse(this.x, this.y, this.r, this.r);
   }
 
   move(){
