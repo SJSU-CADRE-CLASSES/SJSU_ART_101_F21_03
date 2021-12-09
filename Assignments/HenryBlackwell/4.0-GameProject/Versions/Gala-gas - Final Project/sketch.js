@@ -8,9 +8,8 @@
 let state = 'title';
 let cnv;
 let points = 0;
-let w = 600;
-let h = 600;
-let titleImg;
+let w = 800;
+let h = 800;
 let player = 1;
 let playerImg;
 let oneUps = [];
@@ -21,15 +20,14 @@ let projectiles = [];
 let lives = 3;
 
 function preload() {
-  playerImg = loadImage('Assets/PlayerAvatar.png')
-  oneUpImg = loadImage('Assets/HPup.png')
-  enemyImg = loadImage('Assets/Enemy.png')
-  titleImg = loadImage('Assets/VSscreen.png')
+  playerImg = loadImage('Assets/PlayerAvatar.png');
+  oneUpImg = loadImage('Assets/HPup.png');
+  enemyImg = loadImage('Assets/Enemy.png');
   //If creating image for projectile, load it here
 }
 
 function setup() {
-  cnv = createCanvas(600, 600);
+  cnv = createCanvas(800, 800);
 
   imageMode(CENTER);
   rectMode(CENTER);
@@ -49,22 +47,27 @@ function draw() {
   switch (state) {
     case 'title':
       title();
-      cnv.mouseClicked(titleMouseClicked)
+      cnv.mouseClicked(titleMouseClicked);
+      break;
+
+    case 'tutorial':
+      tutorial();
+      cnv.mouseClicked(tutorialMouseClicked);
       break;
 
     case 'level 1':
       level1();
-      cnv.mouseClicked(level1MouseClicked)
+      cnv.mouseClicked(level1MouseClicked);
       break;
 
     case 'you win':
       youWin();
-      cnv.mouseClicked(youWinMouseClicked)
+      cnv.mouseClicked(youWinMouseClicked);
       break;
 
     case 'game over':
       gameOver();
-      cnv.mouseClicked(gameOverMouseClicked)
+      cnv.mouseClicked(gameOverMouseClicked);
       break;
 
     default:
@@ -75,11 +78,11 @@ function draw() {
 //Player Arrow Controls
 function keyPressed() {
   if (keyCode == UP_ARROW) {
-    projectiles.push(new Projectile)
+    projectiles.push(new Projectile);
   } else if (keyCode == LEFT_ARROW) {
-    player.direction = 'left'
+    player.direction = 'left';
   } else if (keyCode == RIGHT_ARROW) {
-    player.direction = 'right'
+    player.direction = 'right';
   }
 
   console.log(projectiles);
@@ -106,10 +109,10 @@ function keyReleased() {
     numberKeysPressed++;
   }
 
-  console.log(numberKeysPressed)
+  console.log(numberKeysPressed);
 
   if (numberKeysPressed == 0) {
-    player.direction = 'still'
+    player.direction = 'still';
   }
 }
 
@@ -117,16 +120,44 @@ function keyReleased() {
 function title() {
   background(0);
   textSize(50);
-  fill(255);
+  fill(0, 255, 255);
   textAlign(CENTER);
   text('Welcome to Galagas', w / 2, h / 5);
 
+  fill(255, 0, 0);
   textSize(30);
-  text('click anywhere to start', w / 2, h / 2)
+  text('Click anywhere to go to tutorial', w / 2, h / 2);
+
+  textSize(20);
+  fill(125, 255, 255);
+  text('Press S to skip tutorial', w / 2, w / 1.5);
+
+  if (key === 's') {
+    //Skip tutorial
+    state = 'level 1';
+  }
 }
 
 //When mouse is clicked on Title screen, change to level1
 function titleMouseClicked() {
+  state = 'tutorial';
+}
+
+function tutorial() {
+  background(0);
+  fill(255);
+  textSize(25);
+
+  text('Use Left and Right Arrow keys to move', w / 2, h / 4.5);
+  text('Use Up Arrow to fire', w / 2, h / 3.5);
+  text('Fire at enemies to gain points', w / 2, h / 2.5);
+  text(`Collect one-ups to gain lives`, w / 2, h / 2);
+
+  fill(255, 0, 0);
+  text('Click anywhere to start', w / 2, h / 1.5);
+}
+
+function tutorialMouseClicked() {
   state = 'level 1'
 }
 
@@ -135,12 +166,12 @@ function level1() {
 
   //Creates a new oneUp, <= is frequency of spawn
   if (random(1) <= 0.005) {
-    oneUps.push(new oneUp)
+    oneUps.push(new oneUp);
   }
 
   //Creates a new enemy, <= is frequency of spawn
   if (random(1) <= 0.025) {
-    enemies.push(new Enemy())
+    enemies.push(new Enemy());
   }
 
   //Creates a new projectile, BEFORE the player was drawn, so the projectile shoots from under the player
@@ -229,12 +260,13 @@ function level1() {
   //Check points and lives, when 10-15 points show messages, if 10 points they win, if 30 points they win
   if (points >= 0 && points < 5) {
     text('Get to 30 points to win!', w / 2, h / 2);
-  } if (points >= 10 && points < 13) {
-    text('You got the hang of it!', w / 2, h / 2)
-  } else if (points >= 15 && points < 18){
-    text(`You're almost there`, w / 2, h / 2)
-  } else if (points >= 20 && points < 28){
-    text('So close :D', w / 2, h / 2)
+  }
+  if (points >= 10 && points < 13) {
+    text('You got the hang of it!', w / 2, h / 2);
+  } else if (points >= 15 && points < 18) {
+    text(`You're almost there`, w / 2, h / 2);
+  } else if (points >= 20 && points < 28) {
+    text('So close :D', w / 2, h / 2);
   } else if (points >= 30) {
     state = 'you win';
   }
@@ -251,7 +283,8 @@ function level1MouseClicked() {
 };
 
 function youWin() {
-  background(50, 255, 80);
+  background(0, 153, 0);
+  fill(255, 255, 0);
   textSize(80);
   text('You Won!', w / 2, h / 2);
 
@@ -260,7 +293,7 @@ function youWin() {
 }
 
 function youWinMouseClicked() {
-  state = 'title'
+  state = 'title';
   oneUps = [];
   enemies = [];
   projectiles = [];
@@ -272,31 +305,31 @@ function gameOver() {
   background(255, 50, 80);
   textSize(80);
 
-  //Check number of lives
-
-  textSize(30);
   //Game over
-  text('Game over', w / 2, h / 2.5);
+  textSize(50);
+  text('Game Over!', w / 2, h / 2.5);
 
+  //Shows text after death, depending on how many points they got
+  textSize(30);
   if (points < 10) {
-    text('Not even close lul', w / 2, h / 2)
-  } else if (points >= 10 && points < 20){
-    text('You were close I guess', w / 2, h / 2)
-  } else if (points >= 20 && points < 28){
-    text('So close D:', w / 2, h / 2)
+    text(`It happens, Try again!`, w / 2, h / 2);
+  } else if (points >= 10 && points < 20) {
+    text(`You got far!`, w / 2, h / 2);
+  } else if (points >= 20 && points < 28) {
+    text('So close D:', w / 2, h / 2);
   } else {
-    text('1 off KEKW', w / 2, h / 2)
+    text('NOOOOOOOOOOOOOO!', w / 2, h / 2);
   }
 
   textSize(30);
-  text('Click anywhere to restart', w / 2, h * 3 / 4);
-
+  text('Click anywhere to return to title', w / 2, h * 3 / 4);
 
 }
 
 function gameOverMouseClicked() {
 
-  if (lives == 0) { //This makes sure they have 0 lives before resetting to the Title screen
+  //This If Statement makes sure they have 0 lives before resetting to the Title screen
+  if (lives == 0) { 
     state = 'title';
     oneUps = [];
     enemies = [];
