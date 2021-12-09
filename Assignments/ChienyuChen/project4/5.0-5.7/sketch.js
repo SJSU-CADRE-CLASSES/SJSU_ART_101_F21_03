@@ -22,13 +22,13 @@ coin = new Coin();
 function keyPressed() {
   if (keyCode == LEFT_ARROW) {
     player.direction = 'left'
-  } else if (keycode == RIGHT_ARROW) {
+  } else if (keyCode == RIGHT_ARROW) {
     player.direction = 'right'
-  } else if (keycode == UP_ARROW) {
+  } else if (keyCode == UP_ARROW) {
     player.direction = 'up'
-  } else if (keycode == DOWN_ARROW) {
+  } else if (keyCode == DOWN_ARROW) {
     player.direction = 'down'
-  } else if (key = '') {
+  } else if (key = ' ') {
     player.direction = 'still';
   }
 }

@@ -238,7 +238,7 @@ function gameOver() {
   //Check number of lives
   if (lives >= 0) {
 
-    //Display # of lives to the screen
+    //Display # of lives to the screen, then resets enemies and coins
     text(`Lives: ${lives}`, w / 2, h * 3 / 4);
     coins = [];
     enemies = [];
@@ -260,8 +260,8 @@ function gameOverMouseClicked() {
   if (lives >= 0) { //This makes sure they have 0 lives going into it because life was already taken away in gameOver() function
     lives--;
     state = 'level 1';
-  } else {
-    state = 'title';
+  } else { 
+    state = 'title'; //Changes to title screen and resets enemies
     coins = [];
     enemies = [];
   }

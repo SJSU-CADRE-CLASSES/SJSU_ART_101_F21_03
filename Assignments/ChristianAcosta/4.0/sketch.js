@@ -7,6 +7,18 @@ let life = 9;
 let player;
 let dudes = [];
 let cars = [];
+//declare images
+let playerImg;
+let carImg;
+let girlImg;
+let girlSick;
+
+function preload(){
+  playerImg = loadImage('assets/chars-01.png');
+  carImg = loadImage('assets/car-01.png');
+  girlImg = loadImage('assets/chars-02.png');
+  girlSick = loadImage('assets/chars-sick-02.png');
+}
 
 function setup() {
   cnv = createCanvas(800, 600);
