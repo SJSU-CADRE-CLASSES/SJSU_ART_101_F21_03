@@ -29,8 +29,11 @@ let randomIndex;
 let animating = false;
 let pics = [];
 let imageCounter = 0;
-let button;
-
+let startRandomizerButton;
+let addMoreButton;
+let cnv;
+let nameInputs= [];
+let firstTime = true;
 
 function preload() {
   for (let i = 0; i <= 7; i++) {
@@ -40,22 +43,35 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(900, 900);
+  cnv = createCanvas(900, 900);
+  cnv.parent("#canvasDiv")
+
   background(220);
   textSize(23);
-  textFont('Courier new');
+  //textFont('Courier new');
   textAlign(CENTER);
   textStyle(BOLD);
   fill(0);
   imageMode(CENTER);
-  frameRate(12);
+  frameRate(8);
 
   text("You are a fisherman who makes a living by fishing, ", width / 2, height / 4);
   text("but recently your wife thinks that you don't make enough money.", width / 2, height / 3);
   text("Today your wife asks you to make 500 dollars.", width / 2, height / 2);
 
-  button = createButton("click to randomize")
-  button.mousePressed(buttonPressed);
+  startRandomizerButton = select('#randButton');
+  startRandomizerButton.mousePressed(buttonPressed);
+
+  addMoreButton = select('#addMoreButton');
+  addMoreButton.mousePressed(addAnotherInput);
+
+  // button = createButton("click to randomize")
+  // button.mousePressed(buttonPressed);
+
+  for (let i = 0; i < 7; i++) {
+  nameInputs.push(createInput());
+  nameInputs[nameInputs.length].parent("#inputFields");
+}
 }
 
 function draw() {
@@ -71,6 +87,11 @@ function draw() {
   }
 }
 
+function addAnotherInput(){
+  nameInputs.push(createInput());
+  nameInputs[nameInputs.length -1].parent("#inputFields");
+}
+
 function randomizer() {
   animating = false;
   if (fishs[0]) {
@@ -82,12 +103,18 @@ function randomizer() {
     fishs.splice(randomIndex, 1);
   } else {
     background(random(200, 255));
-    text("nothing left!", 50, 50);
+    text("nothing left! Refresh the page", 50, 50);
   }
 }
 
 function buttonPressed() {
-  animating = true;
-  setTimeout(randomizer, 2000);
+  if (firstTime){
+    for (let i = 0; i < nameInputs.length; i++){
 
+      cats.push(nameInputs[i].value());
+    }
+    firstTime = false;
+  }
+    animating = true;
+    setTimeout(randomizer, 2000);
 }
