@@ -31,7 +31,7 @@ class Player {
         // decrease x pos
         this.x -= this.speed;
         break;
-        default;
+        default:
         break;
     }
   }
