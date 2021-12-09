@@ -10,7 +10,7 @@ let player;
 let points = 1;
 let projectiles = [];
 let bg;
-let img, img1, img2, img3, img4, img5, img6, img7, img8, img9, img10;
+let img, img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12;
 let state = 'title';
 let canvas;
 let w = 800
@@ -47,6 +47,8 @@ function preload(){
   img8 = loadImage("assests/Textbox8.png")
   img9 = loadImage('assests/Ship.png')
   img10 = loadImage('assests/FallingMeteor.png')
+  img11 = loadImage('assests/WinScreen.png')
+  img12 = loadImage('assests/EndScreen.png')
 }
 
 function draw(){
@@ -307,15 +309,7 @@ player.move();
 // }
 
 function youWin(){
-  background(10); 
-  textSize(50);
-  text('You Did It!', 275, 100);
-  textSize (40)
-  text('Most Of The Meteors Were Destroyed!', 60, 200);
-  text('Planet Earth Is Saved!', 190, 300);
-  
-  textSize(30)
-  text('Click Anywhere To Restart', 215,600);
+  image(img11, 400, 400)
 }
 
 function youWinMouseClicked(){
@@ -327,15 +321,8 @@ projectiles = [];
 }
   
 function gameOver(){
-  background(10); 
-  textSize(50);
-  text('You Failed!', 275, 100);
-  textSize (40)
-  text('Most Of The Meteors Went Through Us', 60, 200);
-  text('Planet Earth Is Doomed!', 190, 300);
-  
-  textSize(30)
-  text('Click Anywhere To Restart', 215,600);
+  background (20)
+  image(img12, 400, 400)
 }
 
 function gameOverMouseClicked(){
