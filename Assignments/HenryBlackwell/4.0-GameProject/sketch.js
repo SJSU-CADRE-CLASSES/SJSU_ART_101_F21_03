@@ -328,7 +328,8 @@ function gameOver() {
 
 function gameOverMouseClicked() {
 
-  if (lives == 0) { //This makes sure they have 0 lives before resetting to the Title screen
+  //This If Statement makes sure they have 0 lives before resetting to the Title screen
+  if (lives == 0) { 
     state = 'title';
     oneUps = [];
     enemies = [];
