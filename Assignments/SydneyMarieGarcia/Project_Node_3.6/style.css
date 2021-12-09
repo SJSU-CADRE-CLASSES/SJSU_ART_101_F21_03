@@ -1,0 +1,29 @@
+html {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  margin: 10px auto 0 auto;
+  width: 80%;
+  text-align: center;
+  font-family: 'DotGothic16', sans-serif;
+  color: white;
+}
+canvas {
+  margin: auto;
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: block;
+  z-index: -1;
+}
+
+h1 {
+  margin: 0.5em;
+}
+
+p {
+  font-size: 1em;
+  margin: 0em;
+}
