@@ -286,7 +286,7 @@ player.move();
 
   text('points: ' + points, 20, h -30);
 
-  if (points >= 25){
+  if (points >= 35){
     state = 'you win'
   } else if (points <= 0){
     state = 'game over';
