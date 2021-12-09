@@ -47,27 +47,27 @@ function draw() {
   switch (state) {
     case 'title':
       title();
-      cnv.mouseClicked(titleMouseClicked)
+      cnv.mouseClicked(titleMouseClicked);
       break;
 
     case 'tutorial':
       tutorial();
-      cnv.mouseClicked(tutorialMouseClicked)
+      cnv.mouseClicked(tutorialMouseClicked);
       break;
 
     case 'level 1':
       level1();
-      cnv.mouseClicked(level1MouseClicked)
+      cnv.mouseClicked(level1MouseClicked);
       break;
 
     case 'you win':
       youWin();
-      cnv.mouseClicked(youWinMouseClicked)
+      cnv.mouseClicked(youWinMouseClicked);
       break;
 
     case 'game over':
       gameOver();
-      cnv.mouseClicked(gameOverMouseClicked)
+      cnv.mouseClicked(gameOverMouseClicked);
       break;
 
     default:
@@ -78,11 +78,11 @@ function draw() {
 //Player Arrow Controls
 function keyPressed() {
   if (keyCode == UP_ARROW) {
-    projectiles.push(new Projectile)
+    projectiles.push(new Projectile);
   } else if (keyCode == LEFT_ARROW) {
-    player.direction = 'left'
+    player.direction = 'left';
   } else if (keyCode == RIGHT_ARROW) {
-    player.direction = 'right'
+    player.direction = 'right';
   }
 
   console.log(projectiles);
@@ -109,10 +109,10 @@ function keyReleased() {
     numberKeysPressed++;
   }
 
-  console.log(numberKeysPressed)
+  console.log(numberKeysPressed);
 
   if (numberKeysPressed == 0) {
-    player.direction = 'still'
+    player.direction = 'still';
   }
 }
 
@@ -124,23 +124,23 @@ function title() {
   textAlign(CENTER);
   text('Welcome to Galagas', w / 2, h / 5);
 
-  fill(255, 0, 0)
+  fill(255, 0, 0);
   textSize(30);
   text('Click anywhere to go to tutorial', w / 2, h / 2);
 
   textSize(20);
-  fill(125, 255, 255)
-  text('Press S to skip tutorial', w /2, w / 1.5 );
+  fill(125, 255, 255);
+  text('Press S to skip tutorial', w / 2, w / 1.5);
 
-  if (key === 's'){
+  if (key === 's') {
     //Skip tutorial
     state = 'level 1';
-  } 
+  }
 }
 
 //When mouse is clicked on Title screen, change to level1
 function titleMouseClicked() {
-  state = 'tutorial'
+  state = 'tutorial';
 }
 
 function tutorial() {
@@ -153,7 +153,7 @@ function tutorial() {
   text('Fire at enemies to gain points', w / 2, h / 2.5);
   text(`Collect one-ups to gain lives`, w / 2, h / 2);
 
-  fill(255, 0, 0)
+  fill(255, 0, 0);
   text('Click anywhere to start', w / 2, h / 1.5);
 }
 
@@ -166,12 +166,12 @@ function level1() {
 
   //Creates a new oneUp, <= is frequency of spawn
   if (random(1) <= 0.005) {
-    oneUps.push(new oneUp)
+    oneUps.push(new oneUp);
   }
 
   //Creates a new enemy, <= is frequency of spawn
   if (random(1) <= 0.025) {
-    enemies.push(new Enemy())
+    enemies.push(new Enemy());
   }
 
   //Creates a new projectile, BEFORE the player was drawn, so the projectile shoots from under the player
@@ -262,11 +262,11 @@ function level1() {
     text('Get to 30 points to win!', w / 2, h / 2);
   }
   if (points >= 10 && points < 13) {
-    text('You got the hang of it!', w / 2, h / 2)
+    text('You got the hang of it!', w / 2, h / 2);
   } else if (points >= 15 && points < 18) {
-    text(`You're almost there`, w / 2, h / 2)
+    text(`You're almost there`, w / 2, h / 2);
   } else if (points >= 20 && points < 28) {
-    text('So close :D', w / 2, h / 2)
+    text('So close :D', w / 2, h / 2);
   } else if (points >= 30) {
     state = 'you win';
   }
@@ -283,7 +283,8 @@ function level1MouseClicked() {
 };
 
 function youWin() {
-  background(50, 255, 80);
+  background(0, 153, 0);
+  fill(255, 255, 0);
   textSize(80);
   text('You Won!', w / 2, h / 2);
 
@@ -292,7 +293,7 @@ function youWin() {
 }
 
 function youWinMouseClicked() {
-  state = 'title'
+  state = 'title';
   oneUps = [];
   enemies = [];
   projectiles = [];
@@ -304,8 +305,6 @@ function gameOver() {
   background(255, 50, 80);
   textSize(80);
 
-  //Check number of lives
-
   //Game over
   textSize(50);
   text('Game Over!', w / 2, h / 2.5);
@@ -313,13 +312,13 @@ function gameOver() {
   //Shows text after death, depending on how many points they got
   textSize(30);
   if (points < 10) {
-    text(`It happens, Try again!`, w / 2, h / 2)
+    text(`It happens, Try again!`, w / 2, h / 2);
   } else if (points >= 10 && points < 20) {
-    text(`You got far!`, w / 2, h / 2)
+    text(`You got far!`, w / 2, h / 2);
   } else if (points >= 20 && points < 28) {
-    text('So close D:', w / 2, h / 2)
+    text('So close D:', w / 2, h / 2);
   } else {
-    text('NOOOOOOOOOOOOOO!', w / 2, h / 2)
+    text('NOOOOOOOOOOOOOO!', w / 2, h / 2);
   }
 
   textSize(30);

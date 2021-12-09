@@ -52,11 +52,6 @@ function draw() {
       cnv.mouseClicked(titleMouseClicked)
       break;
 
-    case 'tutorial':
-      tutorial();
-      cnv.mouseClicked(tutorialMouseClicked)
-      break;
-
     case 'level 1':
       level1();
       cnv.mouseClicked(level1MouseClicked)
@@ -122,44 +117,16 @@ function keyReleased() {
 function title() {
   background(0);
   textSize(50);
-  fill(0, 255, 255);
+  fill(255);
   textAlign(CENTER);
   text('Welcome to Galagas', w / 2, h / 5);
 
-  fill(255, 0, 0)
   textSize(30);
-  text('Click anywhere to go to tutorial', w / 2, h / 2);
-
-  textSize(20);
-  fill(125, 255, 255)
-  text('Press S to skip tutorial', w /2, w / 1.5 );
-
-  if (key === 's'){
-    //Skip tutorial
-    state = 'level 1';
-  } 
+  text('click anywhere to start', w / 2, h / 2)
 }
 
 //When mouse is clicked on Title screen, change to level1
 function titleMouseClicked() {
-  state = 'tutorial'
-}
-
-function tutorial() {
-  background(0);
-  fill(255);
-  textSize(25);
-
-  text('Use Left and Right Arrow keys to move', w / 2, h / 4.5);
-  text('Use Up Arrow to fire', w / 2, h / 3.5);
-  text('Fire at enemies to gain points', w / 2, h / 2.5);
-  text(`Collect one-ups to gain lives`, w / 2, h / 2);
-
-  fill(255, 0, 0)
-  text('Click anywhere to start', w / 2, h / 1.5);
-}
-
-function tutorialMouseClicked() {
   state = 'level 1'
 }
 
@@ -262,12 +229,11 @@ function level1() {
   //Check points and lives, when 10-15 points show messages, if 10 points they win, if 30 points they win
   if (points >= 0 && points < 5) {
     text('Get to 30 points to win!', w / 2, h / 2);
-  }
-  if (points >= 10 && points < 13) {
+  } if (points >= 10 && points < 13) {
     text('You got the hang of it!', w / 2, h / 2)
-  } else if (points >= 15 && points < 18) {
+  } else if (points >= 15 && points < 18){
     text(`You're almost there`, w / 2, h / 2)
-  } else if (points >= 20 && points < 28) {
+  } else if (points >= 20 && points < 28){
     text('So close :D', w / 2, h / 2)
   } else if (points >= 30) {
     state = 'you win';
@@ -308,24 +274,23 @@ function gameOver() {
 
   //Check number of lives
 
-  //Game over
-  textSize(50);
-  text('Game Over!', w / 2, h / 2.5);
-
-  //Shows text after death, depending on how many points they got
   textSize(30);
+  //Game over
+  text('Game over', w / 2, h / 2.5);
+
   if (points < 10) {
-    text(`It happens, Try again!`, w / 2, h / 2)
-  } else if (points >= 10 && points < 20) {
-    text(`You got far!`, w / 2, h / 2)
-  } else if (points >= 20 && points < 28) {
+    text('Not even close lul', w / 2, h / 2)
+  } else if (points >= 10 && points < 20){
+    text('You were close I guess', w / 2, h / 2)
+  } else if (points >= 20 && points < 28){
     text('So close D:', w / 2, h / 2)
   } else {
-    text('NOOOOOOOOOOOOOO!', w / 2, h / 2)
+    text('1 off KEKW', w / 2, h / 2)
   }
 
   textSize(30);
-  text('Click anywhere to return to title', w / 2, h * 3 / 4);
+  text('Click anywhere to restart', w / 2, h * 3 / 4);
+
 
 }
 
