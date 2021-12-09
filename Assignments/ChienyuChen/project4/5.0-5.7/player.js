@@ -1,5 +1,5 @@
 class Player {
-  construtor(){
+  constructor(){
     this.r = 60;
     this.x = w / 2;
     this.y = h - this.r;
