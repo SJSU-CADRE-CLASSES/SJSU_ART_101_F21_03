@@ -17,6 +17,7 @@ let w = 800
 let h = 800
 let meteors = [];
 let value = 0;
+// let song;
 
 function setup(){
 // bg = loadImage('assests/SpaceTitle.png');
@@ -26,6 +27,7 @@ stroke(195,34,80)
 strokeWeight(3)
 fill(49, 2, 61)
 
+// song = loadSound('assets/textsound.mp3');
 
 rectMode(CENTER);
 
@@ -167,6 +169,13 @@ function titleMouseClicked(){
 function Text1(){
   background(20)
   image(img1, 0 , 0)
+
+  // if (song.isPlaying()) {
+  //   // .isPlaying() returns a boolean
+  //   song.stop();
+  // } else {
+  //   song.play();
+  // }
   }
 
    function Text1MouseClicked(){
@@ -176,6 +185,13 @@ function Text1(){
   function Text2(){
     background(20)
     image(img2, 0 , 0)
+
+    // if (song.isPlaying()) {
+    //   // .isPlaying() returns a boolean
+    //   song.stop();
+    // } else {
+    //   song.play();
+    // }
     }
 
     function Text2MouseClicked(){
@@ -185,6 +201,13 @@ function Text1(){
   function Text3(){
     background(20)
     image(img3, 0 , 0)
+
+    // if (song.isPlaying()) {
+    //   // .isPlaying() returns a boolean
+    //   song.stop();
+    // } else {
+    //   song.play();
+    // }
     }
 
     function Text3MouseClicked(){
@@ -194,6 +217,13 @@ function Text1(){
   function Text4(){
     background(20)
     image(img4, 0 , 0)
+
+    // if (song.isPlaying()) {
+    //   // .isPlaying() returns a boolean
+    //   song.stop();
+    // } else {
+    //   song.play();
+    // }
     }
 
     function Text4MouseClicked(){
@@ -203,6 +233,13 @@ function Text1(){
   function Text5(){
     background(20)
     image(img5, 0 , 0)
+
+    // if (song.isPlaying()) {
+    //   // .isPlaying() returns a boolean
+    //   song.stop();
+    // } else {
+    //   song.play();
+    // }
     }
 
     function Text5MouseClicked(){
@@ -212,6 +249,13 @@ function Text1(){
   function Text6(){
     background(20)
     image(img6, 0 , 0)
+
+    // if (song.isPlaying()) {
+    //   // .isPlaying() returns a boolean
+    //   song.stop();
+    // } else {
+    //   song.play();
+    // }
     }
 
     function Text6MouseClicked(){
@@ -221,6 +265,13 @@ function Text1(){
   function Text7(){
     background(20)
     image(img7, 0 , 0)
+
+    // if (song.isPlaying()) {
+    //   // .isPlaying() returns a boolean
+    //   song.stop();
+    // } else {
+    //   song.play();
+    // }
     }
 
     function Text7MouseClicked(){
@@ -230,6 +281,13 @@ function Text1(){
   function Text8(){
     background(20)
     image(img8, 0 , 0)
+
+    // if (song.isPlaying()) {
+    //   // .isPlaying() returns a boolean
+    //   song.stop();
+    // } else {
+    //   song.play();
+    // }
     }
 
     function Text8MouseClicked(){

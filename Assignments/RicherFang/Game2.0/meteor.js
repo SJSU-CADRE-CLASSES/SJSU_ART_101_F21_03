@@ -4,7 +4,7 @@ class Meteor{
 this.r = 300;
 this.x = random(w);
 this.y = 0 - this.r;
-this.speed = 10;
+this.speed = 30;
   }
 
 display(){
