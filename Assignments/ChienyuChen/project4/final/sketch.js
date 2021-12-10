@@ -10,7 +10,8 @@ let enemies = [];
 let playerImg;
 let coinImg;
 let enemyImg;
-
+let winImg;
+let loseImg;
 
 
 
@@ -123,7 +124,7 @@ function draw() {
 function title (){
   background(234, 221, 202);
   textSize(80);
-  image(coinImg, w/2, w/2, 300, 300);
+  image(playerImg, w/2, w/2, 300, 300);
   fill(255);
   textAlign(CENTER);
   text('Sweet Tooth', w/2, h/5);
@@ -235,8 +236,8 @@ function level1MouseClicked(){
 
 
 function youWin(){
-  background(255, 50, 80);
-  image(winImg, w/2, w/2, 300, 300);
+  image(winImg, w/2, w/2, 600, 600);
+  image(coinImg, w/2, w/2, 300, 300);
   textSize(80);
   stroke(255);
   text('YOU WIN', w/2, h/2);
@@ -257,8 +258,8 @@ function youWinMouseClicked(){
 
 
 function gameOver(){
-  background(100);
-  image(loseImg, w/2, w/2, 300, 300);
+  image(loseImg, w/2, w/2, 600, 600);
+  image(enemyImg, w/2, w/2, 300, 300);
   textSize(80);
   stroke(255);
   text('GAME OVER', w/2, h/2);
