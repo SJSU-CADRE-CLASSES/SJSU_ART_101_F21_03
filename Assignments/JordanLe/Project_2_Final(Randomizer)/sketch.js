@@ -4,6 +4,7 @@
 
 let ghostFont;
 let sonaGhost;
+let lunaGhost;
 
 let ghostsOfLife = [{
   splash: "Blue\nGhost",
@@ -18,7 +19,7 @@ let ghostsOfLife = [{
   name: "Sona",
   lore: ""
 }, {
-  splash: "Munyi\nMunyi",
+  splash: "",
   name: "Luna",
   lore: ""
 }, {
@@ -166,7 +167,9 @@ function draw() {
   // rect(ghostPosX1 - (ghostSize1 / 8), ghostPosY1, ghostSize1 / 4, ghostSize1 / (8 / 3)); // (90, 100, 20, 30)
 
   if (randomIndex == 2) {
-    image(sonaGhost, ghostPosX1 - 400, ghostPosY1 - 400);
+    image(sonaGhost, ghostPosX1 - 250, ghostPosY1 - 250);
+  } else if (randomIndex == 3) {
+    image(lunaGhost, ghostPosX1 - 250, ghostPosY1 - 250);
   } else {
     fill(ghostColor[randomIndex]);
     ellipse(ghostPosX1, ghostPosY1, ghostSize1); // (100, 100, 80)
@@ -224,8 +227,8 @@ function draw() {
   text(ghostsOfLife[randomIndex].splash, ghostPosX1, ghostPosY1 - 200); // former coordinates: (400, 200)
   text(`Name:\n${ghostsOfLife[randomIndex].name}`, ghostPosX1, ghostPosY1 + 200); // former coordinates: (400, 540)
 
-  fill("#FFFF00");
-  text("Please click on a ghost to see its splash text", ghostPosX1, ghostPosY1 + 360); // former coordinates: (400, 660)
+  // fill("#FFFF00");
+  // text("Please click on a ghost to see its splash text", ghostPosX1, ghostPosY1 + 360); // former coordinates: (400, 660)
   pop();
 
   blueGhostArmies();
@@ -296,6 +299,7 @@ function blueGhostFinish() {
 function preload() {
   ghostFont = loadFont("fonts/GHOSTBUS.TTF");
   sonaGhost = loadImage("images/Sona_Ghost.png");
+  lunaGhost = loadImage("images/Luna_Ghost.png");
 }
 
 //var w = windowWidth;
