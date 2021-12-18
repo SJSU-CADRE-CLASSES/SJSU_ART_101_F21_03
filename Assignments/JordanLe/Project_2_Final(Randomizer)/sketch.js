@@ -78,12 +78,12 @@ function setup() {
   // var ghostSize1 = 80; putting this here would cause error due to scope issues
   //background(250, 140, 60);
 
-  // light-green, dark-purple, blue, orange, blackish-blue,indigoish, purple, pure-blue,
+  // light-green, dark-purple, blue, golden-bronze(used to be orange), blackish-blue,indigoish, purple, pure-blue,
   // lavendar, pinkish, yellow-green, magenta(doing rainbow causes crimson cause it's not in the draw function?), dark-green, pure green
   bgc = [color(200, 250, 140),
          color(102, 0, 102),
          color(60, 140, 250),
-         color(250, 140, 60),
+         color("#999900"),
          color(0, 0, 100),
          color(140, 140, 250),
          color("#7F00FF"),

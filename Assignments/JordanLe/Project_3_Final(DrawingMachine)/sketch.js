@@ -81,6 +81,8 @@ let yureiLunaImage;
 let blantonBrush = false;
 let ghostlySize = 120;
 let blantonFadeValue = 2;
+let specialCommandsList = false;
+
 let soundEffect;
 
 // for the blanton brush
@@ -454,6 +456,10 @@ function draw() {
 
   }
 
+  if (specialCommandsList) {
+    displaySpecialCommands();
+  }
+
   // console.log(squareMode); //only works with switch stetement?!
   // console.log(circleMode); //works well
   // console.log(rainbowMode); //works well
@@ -488,6 +494,9 @@ function keyTyped() {
     r = 0;
     g = 220;
     b = 0;
+    // the commands list goes away when you erase the things on the canvas
+    // that way, the text stops drawing itself over and over again from the draw loop
+    specialCommandsList = false;
     background(r, g, b);
   }
 
@@ -910,6 +919,12 @@ function toggleCommandBar() {
   }
 }
 
+function displaySpecialCommands() {
+  textAlign(LEFT);
+  textSize(24);
+  text("/toggle specialBrushMode randomGenerativeShapes\n/toggle specialBrushMode blue_ghost\n/toggle specialBrushMode ghost\n/toggle specialBrushMode Quirky_Ghost\n/toggle specialBrushMode Passionate_Ghost\n/toggle specialBrushMode Ghost_of_Darkness\n/toggle specialBrushMode Ghost_of_Kindness\n/toggle specialBrushMode Philosophical_Ghost\n/toggle specialBrushMode Imaginative_Ghost\n/toggle specialBrushMode Ghost_of_Determination\n/toggle specialBrushMode Seoul_Ghost\n/toggle specialBrushMode Yurei_Sona\n/toggle specialBrushMode Yurei_Luna\n/toggle specialBrushMode Blanton", windowWidth / 3, windowHeight / 3);
+}
+
 function promptCommand() {
   let commandBar = document.getElementById("commandPlease");
   var specialBrushCommands = ["/toggle specialBrushMode randomGenerativeShapes", "/toggle specialBrushMode blue_ghost",
@@ -918,7 +933,8 @@ function promptCommand() {
                               "/toggle specialBrushMode Ghost_of_Kindness", "/toggle specialBrushMode Philosophical_Ghost",
                               "/toggle specialBrushMode Imaginative_Ghost", "/toggle specialBrushMode Ghost_of_Determination",
                               "/toggle specialBrushMode Seoul_Ghost", "/toggle specialBrushMode Yurei_Sona",
-                              "/toggle specialBrushMode Yurei_Luna", "/toggle specialBrushMode Blanton"];
+                              "/toggle specialBrushMode Yurei_Luna", "/toggle specialBrushMode Blanton",
+                              "/display specialBrushMode List"];
 
   if (commandBar.value.length > 0) {
     if (commandBar.value === specialBrushCommands[0]) {
@@ -1086,6 +1102,18 @@ function promptCommand() {
           break;
         case true:
           blantonBrush = false;
+          break;
+      }
+    } else if (commandBar.value === specialBrushCommands[14]) {
+      // toggle yurei Luna brush
+      switch (specialCommandsList) {
+        case false:
+          specialCommandsList = true;
+          // specialBrushMode = true;
+          //useSpecifiedSpecialBrush(ghostBrushModes, 11);
+          break;
+        case true:
+          specialCommandsList = false;
           break;
       }
     } else {
